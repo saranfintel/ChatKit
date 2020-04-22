@@ -1,0 +1,63 @@
+{
+    "payload": [
+        {
+            "id": 5,
+            "message_id": 5,
+            "message_content": {
+                "sentDate": "1586244488.60702",
+                "reference_id": "1586244486517.0",
+                "userName": "Naya",
+                "body": "most affected counties in new york",
+                "messageId": 5,
+                "display_type": "message",
+                "userID": 1,
+                "avatar": "https://userlogo"
+            }
+        },
+        {
+            "id": 6,
+            "message_id": 6,
+            "message_content": {
+                "sentDate": "1586244488.60702",
+                "reference_id": "1586244486517.0",
+                "userName": "Krish",
+                "body": "Here are the most affected counties in New York",
+                "messageId": 6,
+                "display_type": "message_barchart",
+                "userID": 2,
+                "avatar": "https://evalogo",
+                "kind": {
+                    "card_data": [],
+                    "transactions": [],
+                    "graph_data": [
+                      {
+                        "value": 72181,
+                        "category": "New York City"
+                      },
+                      {
+                        "value": 15616,
+                        "category": "Nassau"
+                      },
+                      {
+                        "value": 14294,
+                        "category": "Westchester"
+                      },
+                      {
+                        "value": 14185,
+                        "category": "Suffolk"
+                      },
+                      {
+                        "value": 5703,
+                        "category": "Rockland"
+                      }
+                    ],
+                    "account_data": []
+                }
+            }
+        }
+    ],
+    "message": {
+        "errors": {},
+        "success": true
+    }
+}

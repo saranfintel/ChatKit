@@ -18,5 +18,11 @@
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
 	<string>$(CURRENT_PROJECT_VERSION)</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Your microphone will be used by the Chat app to process your questions and provide appropriate responses</string>
+	<key>NSSiriUsageDescription</key>
+	<string>This allows Chat to search your account information and complete your request.</string>
+	<key>NSSpeechRecognitionUsageDescription</key>
+	<string>Speech recognition will be used by the Chat app to determine which words you speak into this device's microphone and will be used to process your questions.</string>
 </dict>
 </plist>

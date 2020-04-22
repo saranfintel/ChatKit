@@ -1,0 +1,57 @@
+{
+    "payload": [
+        {
+            "id": 11,
+            "message_id": 11,
+            "message_content": {
+                "sentDate": "1586244446.54042",
+                "reference_id": "1586244444441.0",
+                "userName": "Naya",
+                "body": "show me test sites near me",
+                "messageId": 11,
+                "display_type": "message",
+                "userID": 1,
+                "avatar": "https://userlogo"
+            }
+        },
+        {
+            "id": 12,
+            "message_id": 12,
+            "message_content": {
+                "sentDate": "1586244446.54042",
+                "reference_id": "1586244444441.0",
+                "userName": "Krish",
+                "body": "show me test sites near me",
+                "messageId": 12,
+                "display_type": "card_view",
+                "userID": 12,
+                "avatar": "https://evalogo",
+                "kind": {
+                    "card_data": [
+                      {
+                          "category": "General Tips",
+                          "text": "Express Cares Hoover Pavilion location in Palo Alto",
+                          "resource_url": "https://tinyurl.com/tzufupb",
+                          "resource_image_url": "0",
+                          "resource_display_type": "URL"
+                        },
+                        {
+                          "category": "General Tips",
+                          "text": "Kaiser Permanente French Campus in San Francisco",
+                          "resource_url": "https://tinyurl.com/qtr939n",
+                          "resource_image_url": "0",
+                          "resource_display_type": "URL"
+                        }
+                    ],
+                    "transactions": [],
+                    "graph_data": [],
+                    "account_data": []
+                }
+            }
+        }
+    ],
+    "message": {
+        "errors": {},
+        "success": true
+    }
+}

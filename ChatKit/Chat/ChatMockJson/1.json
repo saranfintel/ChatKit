@@ -1,0 +1,36 @@
+{
+    "payload": [
+        {
+            "id": 1,
+            "message_id": 1,
+            "message_content": {
+                "sentDate": "1586244427.83777",
+                "reference_id": "1586244425875.0",
+                "userName": "Naya",
+                "body": "whats the link to the CDC self checker bot",
+                "messageId": 1,
+                "display_type": "message",
+                "userID": 1,
+                "avatar": "https://userlogo"
+            }
+        },
+        {
+            "id": 2,
+            "message_id": 2,
+            "message_content": {
+                "sentDate": "1586244427.83777",
+                "reference_id": "1586244425875.0",
+                "userName": "Krish",
+                "body": "Here is the link to the CDC self checker bot: https://www.cdc.gov/coronavirus/2019-ncov/symptoms-testing/symptoms.html",
+                "messageId": 2,
+                "display_type": "message",
+                "userID": 2,
+                "avatar": "https://evalogo"
+            }
+        }
+    ],
+    "message": {
+        "errors": {},
+        "success": true
+    }
+}
