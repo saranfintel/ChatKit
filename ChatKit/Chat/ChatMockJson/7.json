@@ -1,0 +1,36 @@
+{
+    "payload": [
+        {
+            "id": 13,
+            "message_id": 13,
+            "message_content": {
+                "sentDate": "1586244427.83777",
+                "reference_id": "1586244425875.0",
+                "userName": "Naya",
+                "body": "How many people in my neighborhood have Covid-19?",
+                "messageId": 13,
+                "display_type": "message",
+                "userID": 1,
+                "avatar": "https://userlogo"
+            }
+        },
+        {
+            "id": 14,
+            "message_id": 14,
+            "message_content": {
+                "sentDate": "1586244427.83777",
+                "reference_id": "1586244425875.0",
+                "userName": "Krish",
+                "body": "There are currently 1,798 confirmed cases of COVID-19 in your neighborhood",
+                "messageId": 14,
+                "display_type": "message",
+                "userID": 2,
+                "avatar": "https://evalogo"
+            }
+        }
+    ],
+    "message": {
+        "errors": {},
+        "success": true
+    }
+}

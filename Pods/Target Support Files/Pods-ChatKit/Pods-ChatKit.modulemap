@@ -1,0 +1,6 @@
+framework module Pods_ChatKit {
+  umbrella header "Pods-ChatKit-umbrella.h"
+
+  export *
+  module * { export * }
+}

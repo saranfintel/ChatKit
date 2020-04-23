@@ -1,0 +1,71 @@
+{
+    "payload": [
+        {
+            "id": 3,
+            "message_id": 3,
+            "message_content": {
+                "sentDate": "1586244446.54042",
+                "reference_id": "1586244444441.0",
+                "userName": "Naya",
+                "body": "show me some general tips",
+                "messageId": 3,
+                "display_type": "message",
+                "userID": 1,
+                "avatar": "https://userlogo"
+            }
+        },
+        {
+            "id": 4,
+            "message_id": 4,
+            "message_content": {
+                "sentDate": "1586244446.54042",
+                "reference_id": "1586244444441.0",
+                "userName": "Krish",
+                "body": "Here are some general tips",
+                "messageId": 4,
+                "display_type": "card_view",
+                "userID": 2,
+                "avatar": "https://evalogo",
+                "kind": {
+                    "card_data": [
+                      {
+                          "category": "General Tips",
+                          "text": "How to Protect yourself?",
+                          "resource_url": "https://www.cdc.gov/coronavirus/2019-ncov/prepare/prevention.html",
+                          "resource_image_url": "0",
+                          "resource_display_type": "URL"
+                        },
+                        {
+                          "category": "General Tips",
+                          "text": "Frequently Asked Questions",
+                          "resource_url": "https://www.cdc.gov/coronavirus/2019-ncov/faq.html",
+                          "resource_image_url": "0",
+                          "resource_display_type": "URL"
+                        },
+                        {
+                          "category": "General Tips",
+                          "text": "What To Do if You Are Sick?",
+                          "resource_url": "https://www.cdc.gov/coronavirus/2019-ncov/if-you-are-sick/steps-when-sick.html",
+                          "resource_image_url": "0",
+                          "resource_display_type": "URL"
+                        },
+                        {
+                          "category": "General Tips",
+                          "text": "CDC Coronavirus Self-Checker Bot",
+                          "resource_url": "https://www.cdc.gov/coronavirus/2019-ncov/symptoms-testing/symptoms.html",
+                          "resource_image_url": "0",
+                          "resource_display_type": "URL"
+                        }
+                    ],
+                    "transactions": [],
+                    "graph_data": [],
+                    "account_data": []
+                }
+            }
+        }
+    ],
+    "message": {
+        "errors": {},
+        "success": true
+    }
+}

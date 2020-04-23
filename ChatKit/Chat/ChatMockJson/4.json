@@ -1,0 +1,55 @@
+{
+    "payload": [
+        {
+            "id": 7,
+            "message_id": 7,
+            "message_content": {
+                "sentDate": "1586261163.89155",
+                "reference_id": "1586244486517.0",
+                "userName": "Naya",
+                "body": "current status in california",
+                "messageId": 7,
+                "display_type": "message",
+                "userID": 1,
+                "avatar": "https://userlogo"
+            }
+        },
+        {
+            "id": 8,
+            "message_id": 8,
+            "message_content": {
+                "sentDate": "1586261163.89155",
+                "reference_id": "1586244486517.0",
+                "userName": "Krish",
+                "body": "current status in california",
+                "messageId": 8,
+                "display_type": "message_piechart",
+                "userID": 2,
+                "avatar": "https://evalogo",
+                "kind": {
+                    "card_data": [],
+                    "transactions": [],
+                    "graph_data": [
+                      {
+                        "value": 16019,
+                        "category": "Confirmed"
+                      },
+                      {
+                        "value": 2000,
+                        "category": "Recovered"
+                      },
+                      {
+                        "value": 380,
+                        "category": "Deaths"
+                      }
+                    ],
+                    "account_data": []
+                }
+            }
+        }
+    ],
+    "message": {
+        "errors": {},
+        "success": true
+    }
+}
