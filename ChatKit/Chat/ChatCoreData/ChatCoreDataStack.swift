@@ -43,7 +43,7 @@ public class ChatCoreDataStack {
     private lazy var managedObjectModel: NSManagedObjectModel? = {
         // Fetch Model URL
         
-        guard let messageKitBundle = Bundle(identifier: "com.aws.payment.EvaKit"), let modelURL = messageKitBundle.url(forResource: "ChatKit", withExtension: "momd") else {
+        guard let modelURL = ChatWorkflowManager.bundle.url(forResource: "ChatKit", withExtension: "momd") else {
             return nil
         }
         
