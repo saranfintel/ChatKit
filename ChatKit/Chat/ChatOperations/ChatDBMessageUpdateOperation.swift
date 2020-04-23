@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 import CoreData
 
 class ChatDBMessageUpdateOperation: DBUpdateOperation {
@@ -79,27 +80,24 @@ class ChatDBMessageUpdateOperation: DBUpdateOperation {
     }
     private func insertMessage(messageDetails message: NSDictionary, existingMessageObject: NSManagedObject? = nil) {
         var messageVar : NSManagedObject!
+        var canShowSuggestions: Bool = false
         if let _ = existingMessageObject {
             messageVar = existingMessageObject
         } else {
             guard let entity =  NSEntityDescription.entity(forEntityName: "ChatDBMessage", in: self.managedObjectContext) else {
                 fatalError("ChatDBMessage entity not found")
             }
+            canShowSuggestions = true
             messageVar = NSManagedObject(entity: entity,
                                          insertInto: self.managedObjectContext)
-            if let _ = message["messageId"] as? Int16, let messageCountt = UserDefaults.standard.integer(forKey: messageCount) as? Int {
-                //FIX:- Later
-                let messageID = messageCountt + 1
-                UserDefaults.standard.set(messageID, forKey: messageCount)
-                UserDefaults.standard.synchronize()
+            if let messageID = message["messageId"] as? Int16 {
                 messageVar.setValue(messageID, forKey: "messageId")
             }
         }
 
         if let timeInterval = message["sentDate"] as? String, let doubleTimeInterval = Double(timeInterval) {
-            //FIX:- Later
-//            let date = Date(timeIntervalSince1970: doubleTimeInterval)
-            messageVar.setValue(Date(), forKey: "postedAt")
+            let date = Date(timeIntervalSince1970: doubleTimeInterval)
+            messageVar.setValue(date, forKey: "postedAt")
         } else {
             messageVar.setValue(Date(), forKey: "postedAt")
         }
@@ -113,7 +111,7 @@ class ChatDBMessageUpdateOperation: DBUpdateOperation {
             messageVar.setValue(userID, forKey: "userID")
         }
         if let displayType = message["display_type"] as? String {
-            messageVar.setValue(getHeightValue(displayTypeName: displayType), forKey: "chatHeight")
+            messageVar.setValue(getHeightValue(message: message, canShowSuggestions: canShowSuggestions, displayTypeName: displayType), forKey: "chatHeight")
             messageVar.setValue(false, forKey: "canShowSuggestions")
             if self.operationType == .DetailsUpdate,
                  displayType == DisplayType.verticalQuestions.rawValue || displayType == DisplayType.horizontalQuestions.rawValue {
@@ -133,20 +131,47 @@ class ChatDBMessageUpdateOperation: DBUpdateOperation {
         messageVar.setValue(MessageStatus.Published.rawValue, forKey: "status")
     }
     
-    func getHeightValue(displayTypeName: String) -> Double {
-        var height: Double = 10.0
+    func getHeightValue(message: NSDictionary, canShowSuggestions: Bool, displayTypeName: String) -> Double {
+        var height: Double = 70.0
         if let displayType: DisplayType = DisplayType(rawValue: displayTypeName) {
             switch displayType {
-                case .messageWithChart:
-                    height = 270.0
-                case .messageWithPieChart:
-                    height = 135.0
-                case .cardRecommendation:
-                    height = 160.0
-                case .horizontalQuestions: height = 0.0
-                case .verticalQuestions: height = 0.0
-                case .messageWithNotes: height = 0.0
-                default: height = 10.0
+            case .accountsWithOutstandingRed, .accountsWithUtilizationRed, .accountsWithGreen, .accountsWithPayoffOrange:
+                var count = 0
+                if let kindDict = message["kind"] as? [String: Any], let accountsList = kindDict["account_data"] as? [[String: Any]] {
+                    count = accountsList.count
+                }
+                height = Double( count > 3 ? (340) : (count * 100))
+            case .messageWithAmountTransactions, .messageWithGraphTransactions, .messageWithBarTransactions, .messageWithPieTransactions, .accountTransactions, .messageWithTransaction:
+                var count = 0
+                if let kindDict = message["kind"] as? [String: Any], let transcationList = kindDict["transactions"] as? [[String: Any]] {
+                    count = transcationList.count
+                }
+                height = Double( count > 3 ? (340) : (count * 110))
+            case .messageWithPieChart, .messageWithChart:
+                height = 300.0
+            case .cardRecommendation:
+                height = 412.0
+            case .horizontalQuestions:
+                var body = ""
+                if let bodyStr = message["body"] as? String {
+                    body = bodyStr
+                }
+                height = Double(body.calculateHeight() + (canShowSuggestions == true ? 75 : 40))
+            case .verticalQuestions:
+                var body = ""
+                var count = 0
+                if let bodyStr = message["body"] as? String, let kindDict = message["kind"] as? [String: Any], let questionsList = kindDict["questionsList"] as? [String] {
+                    body = bodyStr
+                    count = questionsList.count
+                }
+                if canShowSuggestions {
+                    let stackViewHeight = CGFloat(count * 35)
+                    height =  Double(body.calculateHeight() + stackViewHeight  + 50)
+                } else {
+                    height = Double(body.calculateHeight() + 50)
+                }
+            case .messageWithNotes: height = 70.0
+            default: height = 70.0
             }
         }
         return height

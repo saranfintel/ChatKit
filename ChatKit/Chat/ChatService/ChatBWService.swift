@@ -15,7 +15,7 @@ let kNoInternetConnection = -1009
 
 func HTTPHeaders() -> [String: String]? {
     var headers: [String: String] = [:]
-    headers["Authorization"] = "Bearer TjMqMj4yyouD2DhD8QuaKpDSGNhUJS"
+    headers["Authorization"] = "Bearer TjMqMj4yyouD2DhD8QuaKpDSGNhUJS"//JSajyfujgKSTOB1FbrRRpK5Z7NDuL4//TjMqMj4yyouD2DhD8QuaKpDSGNhUJS
     return headers
 }
 

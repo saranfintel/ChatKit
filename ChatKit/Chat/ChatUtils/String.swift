@@ -114,8 +114,6 @@ extension String {
     }
 }
 
-
-
 public extension UIDevice {
     //MARK:- Chat view size
     var chatViewMaxWidth: CGFloat {
