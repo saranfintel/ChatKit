@@ -71,7 +71,7 @@ final internal class SampleData {
     
     var now = Date()
     
-    let messageImages: [UIImage] = [UIImage(named: "mapPin")!, UIImage(named: "AppIcon")!]
+    let messageImages: [UIImage] = [UIImage.init(named: "chatuser", in: ChatWorkflowManager.bundle, compatibleWith: nil)!, UIImage.init(named: "AppIcon", in: ChatWorkflowManager.bundle, compatibleWith: nil)!]
     let emojis = [
         "👍",
         "😂😂😂",
@@ -247,13 +247,13 @@ final internal class SampleData {
         let initials = "\(firstName?.first ?? "A")\(lastName?.first ?? "A")"
         switch sender.senderId {
         case "000001":
-            return Avatar(image: UIImage(named: "AppIcon")!, initials: initials)
+            return Avatar(image: UIImage.init(named: "AppIcon", in: ChatWorkflowManager.bundle, compatibleWith: nil)!, initials: initials)
         case "000002":
-            return Avatar(image: UIImage(named: "chatuser")!, initials: initials)
+            return Avatar(image: UIImage.init(named: "chatuser", in: ChatWorkflowManager.bundle, compatibleWith: nil)!, initials: initials)
         case "000003":
-            return Avatar(image: UIImage(named: "chatuser")!, initials: initials)
+            return Avatar(image: UIImage.init(named: "chatuser", in: ChatWorkflowManager.bundle, compatibleWith: nil)!, initials: initials)
         case "000000":
-            return Avatar(image: UIImage(named: "AppIcon")!, initials: initials)
+            return Avatar(image: UIImage.init(named: "AppIcon", in: ChatWorkflowManager.bundle, compatibleWith: nil)!, initials: initials)
         default:
             return Avatar(image: nil, initials: initials)
         }

@@ -33,15 +33,14 @@ extension ChatViewController: MessagesDataSource {
     }
     
     func numberOfSections(in messagesCollectionView: MessagesCollectionView) -> Int {
-        /*let count = 1 // Add a section for unsent messages
+        let count = 1 // Add a section for unsent messages
         if let sections = self.fetchedResultsController.sections, sections.count > 0 {
             return sections.count + 1
         }
-        return count*/
-        return 0
+        return count
     }
     func numberOfItems(inSection section: Int, in messagesCollectionView: MessagesCollectionView) -> Int {
-        /*let readMessageCount = self.fetchedResultsController.sections?.count ?? 0
+        let readMessageCount = self.fetchedResultsController.sections?.count ?? 0
         let unreadMessageCount = self.unsentMessageFetchedResultsController.sections?.count ?? 0
         if section < readMessageCount {
             let info = self.fetchedResultsController.sections?[section]
@@ -50,7 +49,7 @@ extension ChatViewController: MessagesDataSource {
             if let sections = self.unsentMessageFetchedResultsController.sections, sections.count > 0 {
                 return sections[0].numberOfObjects
             }
-        }*/
+        }
         return 0
     }
     

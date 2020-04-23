@@ -136,21 +136,21 @@ class ChatViewController: MessagesViewController, UIGestureRecognizerDelegate {
         messagesCollectionView = MessagesCollectionView(frame: .zero, collectionViewLayout: ChatCustomMessagesFlowLayout())
        
       
-       messagesCollectionView.register(UINib(nibName:"CustomHorizontalStackCollectionViewCell",bundle: nil), forCellWithReuseIdentifier: "CustomHorizontalStackCollectionViewCell")
-        messagesCollectionView.register(UINib(nibName:"VerticalStackViewiCollectionViewCell",bundle: nil), forCellWithReuseIdentifier: "VerticalStackViewiCollectionViewCell")
-        messagesCollectionView.register(UINib(nibName:"ChatDefaultCollectionViewCell",bundle: nil), forCellWithReuseIdentifier: "ChatDefaultCollectionViewCell")
-        messagesCollectionView.register(UINib(nibName:"ChatGiphyCollectionViewCell",bundle: nil), forCellWithReuseIdentifier: "ChatGiphyCollectionViewCell")
-        messagesCollectionView.register(UINib(nibName:"ChatMessageCollectionViewCell",bundle: nil), forCellWithReuseIdentifier: "ChatMessageCollectionViewCell")
-        messagesCollectionView.register(UINib(nibName:"ChatBarChartCollectionViewCell",bundle: nil), forCellWithReuseIdentifier: "ChatBarChartCollectionViewCell")
+       messagesCollectionView.register(UINib(nibName:"CustomHorizontalStackCollectionViewCell",bundle: ChatWorkflowManager.bundle), forCellWithReuseIdentifier: "CustomHorizontalStackCollectionViewCell")
+        messagesCollectionView.register(UINib(nibName:"VerticalStackViewiCollectionViewCell",bundle: ChatWorkflowManager.bundle), forCellWithReuseIdentifier: "VerticalStackViewiCollectionViewCell")
+        messagesCollectionView.register(UINib(nibName:"ChatDefaultCollectionViewCell",bundle: ChatWorkflowManager.bundle), forCellWithReuseIdentifier: "ChatDefaultCollectionViewCell")
+        messagesCollectionView.register(UINib(nibName:"ChatGiphyCollectionViewCell",bundle: ChatWorkflowManager.bundle), forCellWithReuseIdentifier: "ChatGiphyCollectionViewCell")
+        messagesCollectionView.register(UINib(nibName:"ChatMessageCollectionViewCell",bundle: ChatWorkflowManager.bundle), forCellWithReuseIdentifier: "ChatMessageCollectionViewCell")
+        messagesCollectionView.register(UINib(nibName:"ChatBarChartCollectionViewCell",bundle: ChatWorkflowManager.bundle), forCellWithReuseIdentifier: "ChatBarChartCollectionViewCell")
         
-        messagesCollectionView.register(UINib(nibName:"ChatCardRecoCollectionViewCell",bundle: nil), forCellWithReuseIdentifier: "ChatCardRecoCollectionViewCell")
+        messagesCollectionView.register(UINib(nibName:"ChatCardRecoCollectionViewCell",bundle: ChatWorkflowManager.bundle), forCellWithReuseIdentifier: "ChatCardRecoCollectionViewCell")
         
-        messagesCollectionView.register(UINib(nibName:"ChatPieCollectionViewCell",bundle: nil), forCellWithReuseIdentifier: "ChatPieCollectionViewCell")
+        messagesCollectionView.register(UINib(nibName:"ChatPieCollectionViewCell",bundle: ChatWorkflowManager.bundle), forCellWithReuseIdentifier: "ChatPieCollectionViewCell")
 
-        messagesCollectionView.register(UINib(nibName:"ChatPieChartCollectionViewCell",bundle: nil), forCellWithReuseIdentifier: "ChatPieChartCollectionViewCell")
+        messagesCollectionView.register(UINib(nibName:"ChatPieChartCollectionViewCell",bundle: ChatWorkflowManager.bundle), forCellWithReuseIdentifier: "ChatPieChartCollectionViewCell")
 
-        messagesCollectionView.register(UINib(nibName: "ChatSectionHeaderReusableView", bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "ChatSectionHeaderReusableView")
-        messagesCollectionView.register(UINib(nibName: "ChatSectionFooterReusableView", bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: "ChatSectionFooterReusableView")
+        messagesCollectionView.register(UINib(nibName: "ChatSectionHeaderReusableView", bundle: ChatWorkflowManager.bundle), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "ChatSectionHeaderReusableView")
+        messagesCollectionView.register(UINib(nibName: "ChatSectionFooterReusableView", bundle: ChatWorkflowManager.bundle), forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: "ChatSectionFooterReusableView")
         
     }
     
@@ -607,7 +607,6 @@ class ChatViewController: MessagesViewController, UIGestureRecognizerDelegate {
                 guard let cell = messagesCollectionView.dequeueReusableCell(withReuseIdentifier: "ChatGiphyCollectionViewCell", for: indexPath) as? ChatGiphyCollectionViewCell else {
                     return super.collectionView(collectionView, cellForItemAt: indexPath)
                 }
-//                self.collectioViewCellAnimation(animatedCell: cell)
                 return cell
             }
             ChatUtils.findDisplayType(displayType: messageDB.displayType)
@@ -719,7 +718,6 @@ class ChatViewController: MessagesViewController, UIGestureRecognizerDelegate {
     }
 
     //MARK:- On Message long press show menu
-    
     private func showMenu(at indexPath: IndexPath) {
         var canShowRetry = false
         var canShowDelete = false
