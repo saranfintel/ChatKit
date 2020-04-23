@@ -105,6 +105,9 @@ class ChatViewController: MessagesViewController, UIGestureRecognizerDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        if let sections = self.fetchedResultsController.sections, sections.count == 0 {
+            self.loadMoreMessages()
+        }
     }
         
     override func viewDidAppear(_ animated: Bool) {
@@ -289,8 +292,6 @@ class ChatViewController: MessagesViewController, UIGestureRecognizerDelegate {
             case .notDetermined:
                 isButtonEnabled = true
                 //self.showNotEnabledAlert(message: "MicroPhoneNotDeterminedText")
-            @unknown default:
-                <#fatalError()#>
             }
             OperationQueue.main.addOperation() {
                 self.audioButton.isEnabled = isButtonEnabled

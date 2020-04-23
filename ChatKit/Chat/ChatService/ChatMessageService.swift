@@ -20,7 +20,7 @@ class ChatMessageService: NSObject {
             if let unsentMessage = object as? ChatDBUnsentMessage {
                 let parameters = unsentMessage.payload(clientTempId: clientTempId)
                 print("parameters: \(parameters)")
-                ChatBWService.request("", method: .post, parameters: parameters) { (isSuccess, result, error) in
+                ChatBWService.request("https://stage.evamoney.io/api/user-query-v1/", method: .post, parameters: parameters) { (isSuccess, result, error) in
                     print(result ?? nil)
                     completionHandler(isSuccess, result, error)
                 }
@@ -29,7 +29,7 @@ class ChatMessageService: NSObject {
     }
     
     func getListMessages(messageID: Int16? = nil, completionHandler: @escaping ChatCompletionHandler) {
-        var url = ""
+        var url = "https://stage.evamoney.io/api/chat/history/?page_size=20"
         if let id = messageID {
             url = "\(url)&message_id=\(id)"
         }

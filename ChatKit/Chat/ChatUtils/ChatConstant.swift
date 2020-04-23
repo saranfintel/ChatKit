@@ -62,6 +62,7 @@ enum DisplayType: String {
     case messageWithNotes               =   "message_notes"
     case messageWithGraph               =   "message_graph"
     case messageWithChart               =   "message_barchart"
+    case messageWithBarChat             =   "message_bar"
     case messageWithPieChart            =   "message_piechart"
     case messageWithError               =   "message_error"
     case accountsWithOutstandingRed     =   "accounts_ored"

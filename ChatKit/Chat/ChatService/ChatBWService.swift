@@ -15,7 +15,7 @@ let kNoInternetConnection = -1009
 
 func HTTPHeaders() -> [String: String]? {
     var headers: [String: String] = [:]
-//    headers[EvaRequestHeader.authorization.rawValue] = "\(EvaRequestHeaderValue.authorization.rawValue) \(EvaAPIWebserviceManager.sharedManager.sessionToken)"
+    headers["Authorization"] = "Bearer TjMqMj4yyouD2DhD8QuaKpDSGNhUJS"
     return headers
 }
 

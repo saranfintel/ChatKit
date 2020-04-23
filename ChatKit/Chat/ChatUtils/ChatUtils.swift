@@ -11,74 +11,12 @@ import MessageKit
 
 
 struct ChatUtils {
-    
-    /*static func getFont(of name: String,of size: CGFloat) -> UIFont {
-        return UIFont(name:name, size:size) ?? UIFont.systemFont(ofSize: size)
-    }
-
-    public static func formatStaticText(text: String) -> NSAttributedString? {
-        let attributedString = NSMutableAttributedString(string: text)
-        //Add spacing 0.5
-        attributedString.addAttribute(NSAttributedString.Key.kern, value: 0.5, range: NSMakeRange(0, text.count))
-        return attributedString
-    }
-    
-    public static func formatAmount(amount: String) -> NSAttributedString? {
-        let attributedString = NSMutableAttributedString(string: amount)
-        //Add spacing 1.0
-        attributedString.addAttribute(NSAttributedString.Key.kern, value: 1.0, range: NSMakeRange(0, amount.count))
-        
-        return attributedString
-    }
-    
-    public static func formatPoint8Text(text: String) -> NSAttributedString? {
-        let attributedString = NSMutableAttributedString(string: text)
-        //Add spacing 0.8
-        attributedString.addAttribute(NSAttributedString.Key.kern, value: 0.8, range: NSMakeRange(0, text.count))
-        return attributedString
-    }
-
-    public static func formatAmountWithFont(amount: String) -> NSAttributedString? {
-        let attributedString = NSMutableAttributedString(string: amount)
-        //Add spacing 1.0
-        attributedString.addAttribute(NSAttributedString.Key.kern, value: 1.0, range: NSMakeRange(0, amount.count))
-        attributedString.addAttribute(NSAttributedString.Key.font, value: UIFont(name:"HelveticaNeue-Light", size:15.0)! , range: attributedString.string.fullrange() )
-        return attributedString
-    }
-
-    public static func formatAmountWithBoldFont(amount: String) -> NSAttributedString? {
-        let attributedString = NSMutableAttributedString(string: amount)
-        //Add spacing 1.0
-        attributedString.addAttribute(NSAttributedString.Key.kern, value: 1.0, range: NSMakeRange(0, amount.count))
-        attributedString.addAttribute(NSAttributedString.Key.font, value: UIFont(name:"HelveticaNeue-Bold", size:15.0)! , range: attributedString.string.fullrange() )
-        
-        return attributedString
-    }
-
-    //Card recommendation & display notes only... Don't use for others
-    public static func stringMediumFontFromHtml(string: String) -> NSAttributedString? {
-        if let data = string.data(using: String.Encoding.unicode, allowLossyConversion: true) {
-            let attrStr = try? NSMutableAttributedString(data: data, options: [ .documentType: NSAttributedString.DocumentType.html],documentAttributes: nil)
-            let rangeStr = attrStr?.mutableString.range(of: attrStr?.string ?? "", options:NSString.CompareOptions.caseInsensitive)
-            // adding font
-            attrStr?.addAttribute(NSAttributedString.Key.font, value: UIFont(name:"HelveticaNeue-Medium", size:17.0) ?? UIFont.systemFont(ofSize: 17.0), range: rangeStr ?? NSMakeRange(0, 0))
-             //adding color
-            attrStr?.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.colorFromHex(hexString: "#4A4A4A") , range: rangeStr ?? NSMakeRange(0, 0))
-            //Add spacing 1.0
-            attrStr?.addAttribute(NSAttributedString.Key.kern, value: 1.0, range: rangeStr ?? NSMakeRange(0, 0))            
-            return attrStr
-        }
-        return nil
-    }*/
-
 }
-
 
 extension ChatUtils {
     
     public static func findDisplayType(displayType: String? = nil) {
-        
-        let displayType = displayType ?? "" //ChatDataController.sharedInstance.transactionResponse?.transactionsHeader?.display_type ?? ""
+        let displayType = displayType ?? ""
         switch displayType {
         case DisplayType.messageWithAmountTransactions.rawValue:
             ChatDataController.sharedInstance.currentDisplayType = .messageWithAmountTransactions

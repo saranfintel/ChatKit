@@ -134,19 +134,20 @@ class ChatDBMessageUpdateOperation: DBUpdateOperation {
     }
     
     func getHeightValue(displayTypeName: String) -> Double {
-        let displayType: DisplayType = DisplayType(rawValue: displayTypeName)!
-        var height: Double = 0.0
-        switch displayType {
-            case .messageWithChart:
-                height = 270.0
-            case .messageWithPieChart:
-                height = 135.0
-            case .cardRecommendation:
-                height = 160.0
-            case .horizontalQuestions: height = 0.0
-            case .verticalQuestions: height = 0.0
-            case .messageWithNotes: height = 0.0
-            default: height = 0.0
+        var height: Double = 10.0
+        if let displayType: DisplayType = DisplayType(rawValue: displayTypeName) {
+            switch displayType {
+                case .messageWithChart:
+                    height = 270.0
+                case .messageWithPieChart:
+                    height = 135.0
+                case .cardRecommendation:
+                    height = 160.0
+                case .horizontalQuestions: height = 0.0
+                case .verticalQuestions: height = 0.0
+                case .messageWithNotes: height = 0.0
+                default: height = 10.0
+            }
         }
         return height
     }
