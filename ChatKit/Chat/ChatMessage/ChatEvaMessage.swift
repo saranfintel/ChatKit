@@ -9,7 +9,6 @@
 import Foundation
 
 struct ChatEvaMessage {
-    
     var messageId: String
     var evaSender: EvaSender = EvaSender.empty()
     var sentDate: Date

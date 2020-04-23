@@ -56,10 +56,9 @@ class ChatDBMessageUpdateOperation: DBUpdateOperation {
             if let data = self.data as? [[String: Any]] {
                 for object in data {
                     if let message = object["message_content"] as? [String: Any], let messageID = message["messageId"] as? Int16 {
-                        self.insertMessage(messageDetails: message as NSDictionary, existingMessageObject: nil)
-//                        ChatCoreDataManager.getMessageWithID(messageID, context: self.managedObjectContext)   { (object) -> Void in
-//                            self.insertMessage(messageDetails: message as NSDictionary, existingMessageObject: object)
-//                        }
+                        ChatCoreDataManager.getMessageWithID(messageID, context: self.managedObjectContext)   { (object) -> Void in
+                            self.insertMessage(messageDetails: message as NSDictionary, existingMessageObject: object)
+                        }
                     }
                 }
                 ChatDBUpdateManager.shared.callback?(true)
@@ -87,7 +86,6 @@ class ChatDBMessageUpdateOperation: DBUpdateOperation {
             guard let entity =  NSEntityDescription.entity(forEntityName: "ChatDBMessage", in: self.managedObjectContext) else {
                 fatalError("ChatDBMessage entity not found")
             }
-            canShowSuggestions = true
             messageVar = NSManagedObject(entity: entity,
                                          insertInto: self.managedObjectContext)
             if let messageID = message["messageId"] as? Int16 {
@@ -112,11 +110,11 @@ class ChatDBMessageUpdateOperation: DBUpdateOperation {
         }
         if let displayType = message["display_type"] as? String {
             messageVar.setValue(getHeightValue(message: message, canShowSuggestions: canShowSuggestions, displayTypeName: displayType), forKey: "chatHeight")
-            messageVar.setValue(false, forKey: "canShowSuggestions")
             if self.operationType == .DetailsUpdate,
                  displayType == DisplayType.verticalQuestions.rawValue || displayType == DisplayType.horizontalQuestions.rawValue {
-                    messageVar.setValue(true, forKey: "canShowSuggestions")
+                    canShowSuggestions = true
             }
+            messageVar.setValue(canShowSuggestions, forKey: "canShowSuggestions")
             messageVar.setValue(displayType, forKey: "displayType")
         }
         if let kindDict = message["kind"] as? [String: Any] {

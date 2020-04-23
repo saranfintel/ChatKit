@@ -11,6 +11,7 @@
 		8622F18B24514252007B8209 /* Pods_ChatKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 35F018242614956FA2B61BE2 /* Pods_ChatKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8622F1A424516396007B8209 /* ChatKit.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8622F1A224516396007B8209 /* ChatKit.xcdatamodeld */; };
 		8622F1A82451A48F007B8209 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8622F1A72451A48F007B8209 /* Assets.xcassets */; };
+		8622F1AA24521446007B8209 /* TransactionDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8622F1A924521446007B8209 /* TransactionDetails.swift */; };
 		86B688DF244DBE68009BEF0A /* ChatKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 86B688DD244DBE68009BEF0A /* ChatKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		86B6894F244F2B0E009BEF0A /* Date+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B688E8244F2B0E009BEF0A /* Date+Helper.swift */; };
 		86B68950244F2B0E009BEF0A /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B688E9244F2B0E009BEF0A /* DateHelper.swift */; };
@@ -99,6 +100,7 @@
 		41F071D312678F3FEC106838 /* Pods-ChatKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChatKit.release.xcconfig"; path = "Target Support Files/Pods-ChatKit/Pods-ChatKit.release.xcconfig"; sourceTree = "<group>"; };
 		8622F1A324516396007B8209 /* ChatKit.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ChatKit.xcdatamodel; sourceTree = "<group>"; };
 		8622F1A72451A48F007B8209 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		8622F1A924521446007B8209 /* TransactionDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDetails.swift; sourceTree = "<group>"; };
 		86B688DA244DBE68009BEF0A /* ChatKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ChatKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		86B688DD244DBE68009BEF0A /* ChatKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChatKit.h; sourceTree = "<group>"; };
 		86B688DE244DBE68009BEF0A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -295,6 +297,7 @@
 				86B688F1244F2B0E009BEF0A /* ChatDBUnsentMessage+CoreDataProperties.swift */,
 				86B688F2244F2B0E009BEF0A /* ChatDBMessage+CoreDataProperties.swift */,
 				86B688F3244F2B0E009BEF0A /* ChatDBUnsentMessage+CoreDataClass.swift */,
+				8622F1A924521446007B8209 /* TransactionDetails.swift */,
 			);
 			path = ChatModels;
 			sourceTree = "<group>";
@@ -677,6 +680,7 @@
 				86B689A4244F421D009BEF0A /* JsonMapper.swift in Sources */,
 				86B68993244F2B0F009BEF0A /* ChatViewController+LoadMore.swift in Sources */,
 				86B68987244F2B0F009BEF0A /* MockUser.swift in Sources */,
+				8622F1AA24521446007B8209 /* TransactionDetails.swift in Sources */,
 				86B6895D244F2B0E009BEF0A /* CustomHorizontalStackCollectionViewCell.swift in Sources */,
 				86B68988244F2B0F009BEF0A /* ChatUtils.swift in Sources */,
 			);

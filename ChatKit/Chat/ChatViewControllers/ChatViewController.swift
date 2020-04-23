@@ -609,34 +609,34 @@ class ChatViewController: MessagesViewController, UIGestureRecognizerDelegate {
                 }
                 return cell
             }
-            ChatUtils.findDisplayType(displayType: messageDB.displayType)
-            let displayType: DisplayType? = ChatDataController.sharedInstance.currentDisplayType
-            switch displayType ?? .messageWithChart {
-            case .horizontalQuestions:
-                guard let cell = messagesCollectionView.dequeueReusableCell(withReuseIdentifier: "CustomHorizontalStackCollectionViewCell", for: indexPath) as? CustomHorizontalStackCollectionViewCell else {
-                    return super.collectionView(collectionView, cellForItemAt: indexPath)
-                }
-                cell.configureCell(message: messageDB)
-                return cell
-            case .verticalQuestions:
-                guard let cell = messagesCollectionView.dequeueReusableCell(withReuseIdentifier: "VerticalStackViewiCollectionViewCell", for: indexPath) as? VerticalStackViewiCollectionViewCell else {
-                    return super.collectionView(collectionView, cellForItemAt: indexPath)
-                }
-                cell.configureCell(message: messageDB)
-                return cell
-            case .messageWithNotes:
-                    guard let cell = messagesCollectionView.dequeueReusableCell(withReuseIdentifier: "ChatMessageCollectionViewCell", for: indexPath) as? ChatMessageCollectionViewCell else {
+            if let displayType: DisplayType = DisplayType(rawValue: messageDB.displayType ?? "message") {
+                switch displayType {
+                case .horizontalQuestions:
+                    guard let cell = messagesCollectionView.dequeueReusableCell(withReuseIdentifier: "CustomHorizontalStackCollectionViewCell", for: indexPath) as? CustomHorizontalStackCollectionViewCell else {
                         return super.collectionView(collectionView, cellForItemAt: indexPath)
                     }
                     cell.configureCell(message: messageDB)
                     return cell
+                case .verticalQuestions:
+                    guard let cell = messagesCollectionView.dequeueReusableCell(withReuseIdentifier: "VerticalStackViewiCollectionViewCell", for: indexPath) as? VerticalStackViewiCollectionViewCell else {
+                        return super.collectionView(collectionView, cellForItemAt: indexPath)
+                    }
+                    cell.configureCell(message: messageDB)
+                    return cell
+                case .messageWithNotes:
+                        guard let cell = messagesCollectionView.dequeueReusableCell(withReuseIdentifier: "ChatMessageCollectionViewCell", for: indexPath) as? ChatMessageCollectionViewCell else {
+                            return super.collectionView(collectionView, cellForItemAt: indexPath)
+                        }
+                        cell.configureCell(message: messageDB)
+                        return cell
 
-            default:
-                guard let cell = messagesCollectionView.dequeueReusableCell(withReuseIdentifier: "ChatDefaultCollectionViewCell", for: indexPath) as? ChatDefaultCollectionViewCell else {
-                    return super.collectionView(collectionView, cellForItemAt: indexPath)
+                default:
+                    guard let cell = messagesCollectionView.dequeueReusableCell(withReuseIdentifier: "ChatDefaultCollectionViewCell", for: indexPath) as? ChatDefaultCollectionViewCell else {
+                        return super.collectionView(collectionView, cellForItemAt: indexPath)
+                    }
+                    cell.dateLabel.text = formatter.string(from: message.sentDate)
+                    return cell
                 }
-                cell.dateLabel.text = formatter.string(from: message.sentDate)
-                return cell
             }
         }
         return super.collectionView(collectionView, cellForItemAt: indexPath)
