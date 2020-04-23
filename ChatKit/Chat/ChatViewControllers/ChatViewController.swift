@@ -24,17 +24,9 @@ class ChatViewController: MessagesViewController, UIGestureRecognizerDelegate {
     var shouldRefreshLoadEarlierCell = false
     var isFetchingEarlierMessages = false
     var canMakeLoadMoreCall = true
-    var isPushNotifyHistoryCall = false
-
-
-    // String Declaration
-    var messageText = ""
-    var notificationID: String = ""
-
 
     // Dict Declaration
     let emojis = ["thank you" : "👍", "laugh": "😂😂😂", "Hi": "👋👋👋", "omg": "😱😱😱", "smile": "😃😃😃","love": "❤️"]
-    
     
     let refreshControl = UIRefreshControl()
 
@@ -42,10 +34,6 @@ class ChatViewController: MessagesViewController, UIGestureRecognizerDelegate {
     var player: AVPlayer?
     
     var customView: UIView?
-    var footerview :UIView?
-    var imageViewBatch :UIImageView?
-    var notifyView: UIView?
-    var lblBadgeCount: UILabel?
 
 
     // Voice to Text vars
@@ -54,7 +42,6 @@ class ChatViewController: MessagesViewController, UIGestureRecognizerDelegate {
     fileprivate var recognitionTask: SFSpeechRecognitionTask?
     fileprivate let audioEngine = AVAudioEngine()
     var timer:Timer?
-    var change:CGFloat = 0.01
     var count: Int = 0
 
     // Date formatter
@@ -113,29 +100,11 @@ class ChatViewController: MessagesViewController, UIGestureRecognizerDelegate {
             ]
         }
         self.setupView()
-//        self.setupFetchResultsView()
+        self.setupFetchResultsView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        saveJson()
-    }
-    
-    func saveJson() {
-        if let result = ChatUtils.loadJSONFromBundle(name:"Message",bundle:Bundle(for: self.classForCoder)), let dict = result as? [String: Any], let results = dict["payload"] as? [[String: Any]], results.count > 0, let _ = results[0]["message_id"] as? Int {
-            print("results: \(results.count)")
-            print("ChatCoreDataStack.sharedInstance.mainManagedObjectContext: \(ChatCoreDataStack.sharedInstance.mainManagedObjectContext)")
-//            let fetchRequest: NSFetchRequest<ChatDBMessage> = ChatDBMessage.fetchRequest()
-//            print("fetchRequest: \(fetchRequest)")
-
-
-//            let msgUpdateOperation = ChatDBMessageUpdateOperation(operationType: .ListMessagesUpdate, data: results as AnyObject?, delegate: nil, parentManagedObjectContext: ChatCoreDataStack.sharedInstance.mainManagedObjectContext)
-//        ChatDBUpdateManager.shared.operationQueue.addOperation(msgUpdateOperation)
-//            ChatDBUpdateManager.shared.callback = { _ in
-////                completionStatusHandler(true)
-//            }
-
-        }
     }
         
     override func viewDidAppear(_ animated: Bool) {
@@ -155,12 +124,6 @@ class ChatViewController: MessagesViewController, UIGestureRecognizerDelegate {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         view.layer.layoutIfNeeded()
-    }
-    
-    
-    func displayNotificationCount(notifyCount: Int?)  {
-        let strNotifyCount = NSString(format:"%d",notifyCount ?? "")
-        self.lblBadgeCount?.text = strNotifyCount as String
     }
     
     
@@ -211,14 +174,14 @@ class ChatViewController: MessagesViewController, UIGestureRecognizerDelegate {
 
         audioButton.contentEdgeInsets = UIEdgeInsets(top: 2, left: 0, bottom: 2, right: 0)
         audioButton.setSize(CGSize(width: 36, height: 36), animated: false)
-        let imageMic = UIImage(named: "SiriRecord")?.withRenderingMode(.alwaysTemplate)
+        let imageMic = UIImage.init(named: "SiriRecord", in: ChatWorkflowManager.bundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
         audioButton.setBackgroundImage(imageMic, for: .normal)
         audioButton.tintColor = ChatColor.appTheme()
         audioButton.title = nil
         messageInputBar.inputTextView.placeholder = ""
         messageInputBar.sendButton.contentEdgeInsets = UIEdgeInsets(top: 2, left: 2, bottom: 2, right: 2)
         messageInputBar.sendButton.setSize(CGSize(width: 36, height: 36), animated: false)
-       let imageSend = UIImage(named: "Send")?.withRenderingMode(.alwaysTemplate)
+        let imageSend = UIImage.init(named: "Send", in: ChatWorkflowManager.bundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
 
         messageInputBar.sendButton.image = imageSend
         messageInputBar.sendButton.tintColor = ChatColor.appTheme()
@@ -326,6 +289,8 @@ class ChatViewController: MessagesViewController, UIGestureRecognizerDelegate {
             case .notDetermined:
                 isButtonEnabled = true
                 //self.showNotEnabledAlert(message: "MicroPhoneNotDeterminedText")
+            @unknown default:
+                <#fatalError()#>
             }
             OperationQueue.main.addOperation() {
                 self.audioButton.isEnabled = isButtonEnabled
@@ -811,7 +776,6 @@ class ChatViewController: MessagesViewController, UIGestureRecognizerDelegate {
     deinit {
         print("ChatViewController Deinit")
         chatViewModel = nil
-        self.notifyView = nil
     }
 
 }

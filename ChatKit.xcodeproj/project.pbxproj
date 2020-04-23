@@ -10,6 +10,7 @@
 		0D2CDF0F5B031D30D7F5ED59 /* Pods_ChatKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35F018242614956FA2B61BE2 /* Pods_ChatKit.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		8622F18B24514252007B8209 /* Pods_ChatKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 35F018242614956FA2B61BE2 /* Pods_ChatKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8622F1A424516396007B8209 /* ChatKit.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8622F1A224516396007B8209 /* ChatKit.xcdatamodeld */; };
+		8622F1A82451A48F007B8209 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8622F1A72451A48F007B8209 /* Assets.xcassets */; };
 		86B688DF244DBE68009BEF0A /* ChatKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 86B688DD244DBE68009BEF0A /* ChatKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		86B6894F244F2B0E009BEF0A /* Date+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B688E8244F2B0E009BEF0A /* Date+Helper.swift */; };
 		86B68950244F2B0E009BEF0A /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B688E9244F2B0E009BEF0A /* DateHelper.swift */; };
@@ -97,6 +98,7 @@
 		35F018242614956FA2B61BE2 /* Pods_ChatKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ChatKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		41F071D312678F3FEC106838 /* Pods-ChatKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChatKit.release.xcconfig"; path = "Target Support Files/Pods-ChatKit/Pods-ChatKit.release.xcconfig"; sourceTree = "<group>"; };
 		8622F1A324516396007B8209 /* ChatKit.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ChatKit.xcdatamodel; sourceTree = "<group>"; };
+		8622F1A72451A48F007B8209 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		86B688DA244DBE68009BEF0A /* ChatKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ChatKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		86B688DD244DBE68009BEF0A /* ChatKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChatKit.h; sourceTree = "<group>"; };
 		86B688DE244DBE68009BEF0A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -196,9 +198,26 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		8622F1A52451A45A007B8209 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				8622F1A62451A46C007B8209 /* Assets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		8622F1A62451A46C007B8209 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				8622F1A72451A48F007B8209 /* Assets.xcassets */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
 		86B688D0244DBE68009BEF0A = {
 			isa = PBXGroup;
 			children = (
+				8622F1A52451A45A007B8209 /* Resources */,
 				86B688DC244DBE68009BEF0A /* ChatKit */,
 				86B688DB244DBE68009BEF0A /* Products */,
 				DA68D846DAEFE97EF4F2E4F9 /* Pods */,
@@ -559,6 +578,7 @@
 				86B68980244F2B0F009BEF0A /* Message.json in Resources */,
 				86B6897A244F2B0E009BEF0A /* 7.json in Resources */,
 				86B68997244F2B0F009BEF0A /* ChatSectionHeaderReusableView.xib in Resources */,
+				8622F1A82451A48F007B8209 /* Assets.xcassets in Resources */,
 				86B6897D244F2B0E009BEF0A /* 3.json in Resources */,
 				86B68979244F2B0E009BEF0A /* 6.json in Resources */,
 				86B6895C244F2B0E009BEF0A /* ChatMessageCollectionViewCell.xib in Resources */,
