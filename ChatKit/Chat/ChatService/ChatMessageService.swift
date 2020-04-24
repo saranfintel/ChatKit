@@ -19,9 +19,7 @@ class ChatMessageService: NSObject {
         ChatCoreDataManager.getUnsentMessage(withClientTempID: clientTempId, context: ChatCoreDataStack.sharedInstance.mainManagedObjectContext) { (object) in
             if let unsentMessage = object as? ChatDBUnsentMessage {
                 let parameters = unsentMessage.payload(clientTempId: clientTempId)
-                print("parameters: \(parameters)")
                 let url = ChatLaunchServiceHandler.sharedManager.baseURL() + ChatLaunchServiceHandler.sharedManager.messageURL()
-
                 ChatBWService.request(url, method: .post, parameters: parameters) { (isSuccess, result, error) in
                     completionHandler(isSuccess, result, error)
                 }

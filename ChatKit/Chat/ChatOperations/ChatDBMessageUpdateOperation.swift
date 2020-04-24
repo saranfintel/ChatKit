@@ -43,9 +43,11 @@ class ChatDBMessageUpdateOperation: DBUpdateOperation {
     private func importMessages() {
         self.managedObjectContext.performAndWait ({
             if let data = self.data as? [NSDictionary] {
-                for messageContent: NSDictionary in data {
-                    if let message = messageContent["message_content"] as? NSDictionary {
-                            self.insertMessage(messageDetails: message, existingMessageObject: nil)
+                for message: NSDictionary in data {
+                    if let messageID = message["messageId"] as? Int16 {
+                        ChatCoreDataManager.getMessageWithID(messageID, context: self.managedObjectContext)   { (object) -> Void in
+                            self.insertMessage(messageDetails: message, existingMessageObject: object)
+                        }
                     }
                 }
             }

@@ -34,7 +34,7 @@ class ChatDBUnsentMessage: NSManagedObject {
     func payload(clientTempId: Double? = nil) -> [String: AnyObject] {
         var payload: [String: AnyObject] = [:]
         if let _clientTempId = clientTempId {
-            payload["reference_id"] = String(_clientTempId) as AnyObject
+            payload["chat_reference_id"] = String(_clientTempId) as AnyObject
         }
         if let text = self.body {
             payload["query_txt"] = text  as AnyObject

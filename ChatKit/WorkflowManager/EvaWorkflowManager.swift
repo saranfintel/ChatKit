@@ -49,6 +49,7 @@ open class ChatWorkflowManager: NSObject {
         case .model:
             if let topVC = appDelegate?.window??.rootViewController  {
                 if let insightsVC = storyboardWithID("Main")?.instantiateViewController(withIdentifier: vcName) {
+                    insightsVC.modalPresentationStyle = .fullScreen
                     topVC.present(insightsVC, animated: true, completion: nil)
                 }
             }
