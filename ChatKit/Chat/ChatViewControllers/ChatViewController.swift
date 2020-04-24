@@ -82,10 +82,7 @@ class ChatViewController: MessagesViewController, UIGestureRecognizerDelegate {
                 $0.inputBarAccessoryView?.didSelectSendButton()
         }
     }()
-    
-    //ChatViewModel
-    var chatViewModel: ChatViewModel? = ChatViewModel()
-        
+            
     // MARK:- View controller Delegate Methods
     override func viewDidLoad() {
         self.setupCollectionViewCell()
@@ -774,7 +771,6 @@ class ChatViewController: MessagesViewController, UIGestureRecognizerDelegate {
 
     deinit {
         print("ChatViewController Deinit")
-        chatViewModel = nil
     }
 
 }

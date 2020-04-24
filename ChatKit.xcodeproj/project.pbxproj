@@ -16,7 +16,6 @@
 		86B6894F244F2B0E009BEF0A /* Date+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B688E8244F2B0E009BEF0A /* Date+Helper.swift */; };
 		86B68950244F2B0E009BEF0A /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B688E9244F2B0E009BEF0A /* DateHelper.swift */; };
 		86B68951244F2B0E009BEF0A /* ChatCustomMessagesFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B688EB244F2B0E009BEF0A /* ChatCustomMessagesFlowLayout.swift */; };
-		86B68953244F2B0E009BEF0A /* ChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B688EF244F2B0E009BEF0A /* ChatViewModel.swift */; };
 		86B68954244F2B0E009BEF0A /* ChatDBMessage+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B688F0244F2B0E009BEF0A /* ChatDBMessage+CoreDataClass.swift */; };
 		86B68955244F2B0E009BEF0A /* ChatDBUnsentMessage+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B688F1244F2B0E009BEF0A /* ChatDBUnsentMessage+CoreDataProperties.swift */; };
 		86B68956244F2B0E009BEF0A /* ChatDBMessage+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B688F2244F2B0E009BEF0A /* ChatDBMessage+CoreDataProperties.swift */; };
@@ -107,7 +106,6 @@
 		86B688E8244F2B0E009BEF0A /* Date+Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Helper.swift"; sourceTree = "<group>"; };
 		86B688E9244F2B0E009BEF0A /* DateHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateHelper.swift; sourceTree = "<group>"; };
 		86B688EB244F2B0E009BEF0A /* ChatCustomMessagesFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatCustomMessagesFlowLayout.swift; sourceTree = "<group>"; };
-		86B688EF244F2B0E009BEF0A /* ChatViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewModel.swift; sourceTree = "<group>"; };
 		86B688F0244F2B0E009BEF0A /* ChatDBMessage+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ChatDBMessage+CoreDataClass.swift"; sourceTree = "<group>"; };
 		86B688F1244F2B0E009BEF0A /* ChatDBUnsentMessage+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ChatDBUnsentMessage+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		86B688F2244F2B0E009BEF0A /* ChatDBMessage+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ChatDBMessage+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -292,7 +290,6 @@
 		86B688EE244F2B0E009BEF0A /* ChatModels */ = {
 			isa = PBXGroup;
 			children = (
-				86B688EF244F2B0E009BEF0A /* ChatViewModel.swift */,
 				86B688F0244F2B0E009BEF0A /* ChatDBMessage+CoreDataClass.swift */,
 				86B688F1244F2B0E009BEF0A /* ChatDBUnsentMessage+CoreDataProperties.swift */,
 				86B688F2244F2B0E009BEF0A /* ChatDBMessage+CoreDataProperties.swift */,
@@ -666,7 +663,6 @@
 				86B689A6244F4DD4009BEF0A /* String.swift in Sources */,
 				86B6898F244F2B0F009BEF0A /* CountryPopViewController.swift in Sources */,
 				86D2A8EE2450A455009FC488 /* EvaWorkflowManager.swift in Sources */,
-				86B68953244F2B0E009BEF0A /* ChatViewModel.swift in Sources */,
 				86B689A1244F3760009BEF0A /* UIColor+colorFromHex.swift in Sources */,
 				86B68978244F2B0E009BEF0A /* NSManagedObjectContext+Helper.swift in Sources */,
 				86B68991244F2B0F009BEF0A /* ChatViewController+MessagesDisplayType.swift in Sources */,
