@@ -21,6 +21,7 @@ open class ChatAccountCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var tableView: UITableView?
     @IBOutlet weak var bubbleWidthConstraint: NSLayoutConstraint!
     @IBOutlet weak var bubbleView: ChatBubbleView!
+    @IBOutlet weak var loadMoreButton: UIButton!
     
     var transactionResponse: Transactions? = nil
     weak var delegate: loadMoreActionDelegate?
@@ -34,6 +35,7 @@ open class ChatAccountCollectionViewCell: UICollectionViewCell {
         self.imgView?.image = UIImage.init(named: senderImage, in: ChatWorkflowManager.bundle, compatibleWith: nil)
         self.tableView?.register(UINib(nibName: "ChatConnectedAccountCell", bundle: ChatWorkflowManager.bundle), forCellReuseIdentifier: "ChatConnectedAccountCell")
         self.tableView?.separatorColor = UIColor.colorFromHex(hexString: "#eaeaea")
+        self.loadMoreButton.backgroundColor = ChatColor.appTheme()
     }
     
     func configurationCell(message: ChatDBMessage) {

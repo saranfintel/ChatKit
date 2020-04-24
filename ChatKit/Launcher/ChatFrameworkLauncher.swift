@@ -15,7 +15,7 @@ public protocol BaseFrameworkLauncher {
 
     func launch(_ presentedViewController: UIViewController?)
     
-    func launchChat()
+    func launchChat(parameters: JSONDictionary)
     
     func exitFramework()
 }
@@ -24,8 +24,10 @@ open class ChatFrameworkLauncher: NSObject, BaseFrameworkLauncher {
     
     public var callBackHandler: (([String : Any]) -> Void)?
         
-    public func launchChat() {
-            ChatLaunchServiceHandler.sharedManager.launchChatView()
+    public func launchChat(parameters: JSONDictionary) {
+        UserDefaults.standard.set(parameters, forKey: "ChatData")
+        UserDefaults.standard.synchronize()
+        ChatLaunchServiceHandler.sharedManager.launchChatView()
     }
     
     public func launch(_ presentedViewController: UIViewController?) {
@@ -38,7 +40,7 @@ open class ChatFrameworkLauncher: NSObject, BaseFrameworkLauncher {
 }
 
 
-fileprivate class ChatLaunchServiceHandler: NSObject {
+ class ChatLaunchServiceHandler: NSObject {
     
     open class var sharedManager: ChatLaunchServiceHandler {
         struct Singleton {
@@ -48,16 +50,34 @@ fileprivate class ChatLaunchServiceHandler: NSObject {
     }
 
     public func launchChatView() {
-            self.parseUserQuery(output: "success", responseDict: nil)
+        ChatWorkflowManager.sharedManager.performNavigationFor("ChatViewController", navType: NavType.push)
+    }
+
+    func baseURL() -> String {
+        if let chatData = UserDefaults.standard.object(forKey: "ChatData") as? JSONDictionary, let baseURL = chatData["baseURL"] as? String {
+            return baseURL
+        }
+        return EMPTY_STRING
     }
     
-    func parseUserQuery(output: String?, responseDict: [String: Any]?) {
-            ChatWorkflowManager.sharedManager.performNavigationFor("ChatViewController", navType: NavType.push)
+    func messageURL() -> String {
+        return "user-query-v1/"
     }
+    
+    func historyURL() -> String {
+        return "chat/history/?page_size=20"
+    }
+    
+    func colorCode() -> String {
+        if let chatData = UserDefaults.standard.object(forKey: "ChatData") as? JSONDictionary, let colorCode = chatData["colorCode"] as? String {
+            return colorCode
+        }
+        return EMPTY_STRING
+    }
+
 }
 
 extension UIViewController {
-    
     func presentAlertWithTitle(title: String, message : String) {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let OKAction = UIAlertAction(title: "OK", style: .default) {

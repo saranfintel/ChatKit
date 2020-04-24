@@ -94,6 +94,7 @@
                 <outlet property="bubbleView" destination="BSs-WE-h3T" id="Lby-9l-YWo"/>
                 <outlet property="dateLabel" destination="Vpo-92-LSJ" id="uJo-6p-0Pa"/>
                 <outlet property="imgView" destination="oFq-wt-cJ1" id="aiZ-fx-MsH"/>
+                <outlet property="loadMoreButton" destination="NTa-fo-R0Y" id="0KW-WQ-NZ5"/>
                 <outlet property="loadMoreHeightConstraint" destination="iK2-wi-yzD" id="nEb-VG-Yhe"/>
                 <outlet property="tableView" destination="X19-Iw-EN5" id="UWf-qK-en2"/>
             </connections>

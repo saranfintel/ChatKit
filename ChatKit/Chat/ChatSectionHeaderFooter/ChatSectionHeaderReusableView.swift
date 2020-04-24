@@ -18,7 +18,7 @@ open class ChatSectionHeaderReusableView: UICollectionReusableView {
 
     override open func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        self.backgroundColor = ChatColor.appTheme()
     }
     
 }
