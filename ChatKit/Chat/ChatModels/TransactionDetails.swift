@@ -11,22 +11,25 @@ import Foundation
 
 struct Transactions {
     var suggestions: [Suggestions] = []
+    var accounts: [Account] = []
 }
 
 
 extension Transactions: Mappable {
     
     static func empty() -> Transactions {
-        return Transactions(suggestions: [])
+        return Transactions(suggestions: [], accounts: [])
     }
     
     static func Map(_ json: JSONObject) -> Transactions? {
-        guard let d: JSONDictionary = Parse(json), let _payload = d["payload"] as? Dictionary<String, Any> else {
+        guard let d: JSONDictionary = Parse(json) else {
             return nil
         }
-        let suggestions: [Suggestions] = (_payload <-- "questionsList") ?? []
-        return Transactions(suggestions: suggestions)
+        let suggestions: [Suggestions] = (d <-- "questionsList") ?? []
+        let accounts : [Account] = (d <-- "account_data") ?? []
+        return Transactions(suggestions: suggestions, accounts: accounts)
     }
+    
 }
 
 struct Suggestions {

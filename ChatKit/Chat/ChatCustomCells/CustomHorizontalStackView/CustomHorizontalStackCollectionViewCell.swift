@@ -13,29 +13,24 @@ open class CustomHorizontalStackCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var scrollview: UIScrollView!
     @IBOutlet weak var stackView: UIStackView!
     @IBOutlet weak var bubbleWidthConstraint: NSLayoutConstraint!
-    @IBOutlet weak var bubbleView: UIView!
+    @IBOutlet weak var bubbleView: ChatBubbleView!
     @IBOutlet weak var bubbleLabel: UILabel!
     @IBOutlet weak var scrollViewHeightConstraint: NSLayoutConstraint!
-    var transactionResponse: Transactions? = nil
     @IBOutlet weak var dateLabel: UILabel?
     @IBOutlet weak var imgView: UIImageView?
 
+    var transactionResponse: Transactions? = nil
 
     override open func awakeFromNib() {
         super.awakeFromNib()
-        bubbleView.layer.borderWidth = 1.0
-        bubbleView.layer.borderColor = UIColor(red: 230/255, green: 230/255, blue: 230/255, alpha: 1).cgColor
-        bubbleView.backgroundColor = UIColor(red: 230/255, green: 230/255, blue: 230/255, alpha: 1)
-        bubbleView.layer.cornerRadius = 15.0
-        bubbleView.layer.masksToBounds = true
         bubbleWidthConstraint.constant = UIDevice().chatViewMaxWidth
-        self.imgView?.image = UIImage(named: senderImage)
+        self.imgView?.image = UIImage.init(named: senderImage, in: ChatWorkflowManager.bundle, compatibleWith: nil)
     }
     
     func configureCell(message: ChatDBMessage) {
+        scrollViewHeightConstraint.constant = 0.0
         dateLabel?.text = message.postedAt?.dateToTimeFormat(withFormat: timeFormat)
         bubbleLabel.text = message.body
-        scrollViewHeightConstraint.constant = 0.0
         guard let transactionsMessage = message.kind, message.canShowSuggestions else {
             self.updateConstraint()
             return
@@ -46,7 +41,7 @@ open class CustomHorizontalStackCollectionViewCell: UICollectionViewCell {
             return
         }
         for index in 0..<suggestions.count {
-            if let welcomeStackView = Bundle.main.loadNibNamed("WelcomeStackView", owner: nil, options: nil)!.first as? WelcomeStackView {
+            if let welcomeStackView = ChatWorkflowManager.bundle.loadNibNamed("WelcomeStackView", owner: nil, options: nil)!.first as? WelcomeStackView {
                 welcomeStackView.translatesAutoresizingMaskIntoConstraints = false
                 welcomeStackView.selectButton.setTitle(suggestions[index].question, for: .normal)
                 welcomeStackView.selectButton.tag = Int(message.messageId)

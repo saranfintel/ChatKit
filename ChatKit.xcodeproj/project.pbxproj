@@ -8,6 +8,24 @@
 
 /* Begin PBXBuildFile section */
 		0D2CDF0F5B031D30D7F5ED59 /* Pods_ChatKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35F018242614956FA2B61BE2 /* Pods_ChatKit.framework */; settings = {ATTRIBUTES = (Required, ); }; };
+		8612FED62452CB7100B53183 /* CustomHorizontalStackCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8612FEC32452CB7000B53183 /* CustomHorizontalStackCollectionViewCell.swift */; };
+		8612FED72452CB7100B53183 /* CustomHorizontalStackCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8612FEC42452CB7000B53183 /* CustomHorizontalStackCollectionViewCell.xib */; };
+		8612FED82452CB7100B53183 /* VerticalStackViewiCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8612FEC62452CB7000B53183 /* VerticalStackViewiCollectionViewCell.xib */; };
+		8612FED92452CB7100B53183 /* VerticalStackViewiCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8612FEC72452CB7000B53183 /* VerticalStackViewiCollectionViewCell.swift */; };
+		8612FEDA2452CB7100B53183 /* ChatMessageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8612FEC92452CB7000B53183 /* ChatMessageCollectionViewCell.xib */; };
+		8612FEDB2452CB7100B53183 /* ChatMessageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8612FECA2452CB7000B53183 /* ChatMessageCollectionViewCell.swift */; };
+		8612FEDC2452CB7100B53183 /* ChatConnectedAccountCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8612FECC2452CB7000B53183 /* ChatConnectedAccountCell.swift */; };
+		8612FEDD2452CB7100B53183 /* ChatAccountCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8612FECD2452CB7000B53183 /* ChatAccountCollectionViewCell.swift */; };
+		8612FEDE2452CB7100B53183 /* ChatConnectedAccountCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8612FECE2452CB7000B53183 /* ChatConnectedAccountCell.xib */; };
+		8612FEDF2452CB7100B53183 /* ChatAccountCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8612FECF2452CB7000B53183 /* ChatAccountCollectionViewCell.xib */; };
+		8612FEE02452CB7100B53183 /* ChatGiphyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8612FED12452CB7000B53183 /* ChatGiphyCollectionViewCell.swift */; };
+		8612FEE12452CB7100B53183 /* ChatGiphyCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8612FED22452CB7000B53183 /* ChatGiphyCollectionViewCell.xib */; };
+		8612FEE22452CB7100B53183 /* ChatDefaultCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8612FED42452CB7100B53183 /* ChatDefaultCollectionViewCell.xib */; };
+		8612FEE32452CB7100B53183 /* ChatDefaultCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8612FED52452CB7100B53183 /* ChatDefaultCollectionViewCell.swift */; };
+		8612FEE52452F0DD00B53183 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8612FEE42452F0DD00B53183 /* Account.swift */; };
+		8612FEE92452F3B700B53183 /* WelcomeStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8612FEE72452F3B700B53183 /* WelcomeStackView.swift */; };
+		8612FEEA2452F3B700B53183 /* WelcomeStackView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8612FEE82452F3B700B53183 /* WelcomeStackView.xib */; };
+		8612FEEC2452FCF500B53183 /* ChatBubbleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8612FEEB2452FCF500B53183 /* ChatBubbleView.swift */; };
 		8622F18B24514252007B8209 /* Pods_ChatKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 35F018242614956FA2B61BE2 /* Pods_ChatKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8622F1A424516396007B8209 /* ChatKit.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8622F1A224516396007B8209 /* ChatKit.xcdatamodeld */; };
 		8622F1A82451A48F007B8209 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8622F1A72451A48F007B8209 /* Assets.xcassets */; };
@@ -22,18 +40,6 @@
 		86B68957244F2B0E009BEF0A /* ChatDBUnsentMessage+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B688F3244F2B0E009BEF0A /* ChatDBUnsentMessage+CoreDataClass.swift */; };
 		86B68958244F2B0E009BEF0A /* ChatBWService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B688F5244F2B0E009BEF0A /* ChatBWService.swift */; };
 		86B68959244F2B0E009BEF0A /* ChatMessageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B688F6244F2B0E009BEF0A /* ChatMessageService.swift */; };
-		86B6895C244F2B0E009BEF0A /* ChatMessageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86B688FB244F2B0E009BEF0A /* ChatMessageCollectionViewCell.xib */; };
-		86B6895D244F2B0E009BEF0A /* CustomHorizontalStackCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B688FC244F2B0E009BEF0A /* CustomHorizontalStackCollectionViewCell.swift */; };
-		86B6895E244F2B0E009BEF0A /* ChatMessageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B688FD244F2B0E009BEF0A /* ChatMessageCollectionViewCell.swift */; };
-		86B68964244F2B0E009BEF0A /* CustomHorizontalStackCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86B68905244F2B0E009BEF0A /* CustomHorizontalStackCollectionViewCell.xib */; };
-		86B68965244F2B0E009BEF0A /* ChatGiphyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B68907244F2B0E009BEF0A /* ChatGiphyCollectionViewCell.swift */; };
-		86B68966244F2B0E009BEF0A /* ChatGiphyCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86B68908244F2B0E009BEF0A /* ChatGiphyCollectionViewCell.xib */; };
-		86B68967244F2B0E009BEF0A /* ChatDefaultCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86B6890A244F2B0E009BEF0A /* ChatDefaultCollectionViewCell.xib */; };
-		86B68968244F2B0E009BEF0A /* ChatDefaultCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B6890B244F2B0E009BEF0A /* ChatDefaultCollectionViewCell.swift */; };
-		86B68970244F2B0E009BEF0A /* VerticalStackViewiCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86B68915244F2B0E009BEF0A /* VerticalStackViewiCollectionViewCell.xib */; };
-		86B68971244F2B0E009BEF0A /* WelcomeStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B68916244F2B0E009BEF0A /* WelcomeStackView.swift */; };
-		86B68972244F2B0E009BEF0A /* VerticalStackViewiCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B68917244F2B0E009BEF0A /* VerticalStackViewiCollectionViewCell.swift */; };
-		86B68973244F2B0E009BEF0A /* WelcomeStackView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86B68918244F2B0E009BEF0A /* WelcomeStackView.xib */; };
 		86B68974244F2B0E009BEF0A /* Hello.gif in Resources */ = {isa = PBXBuildFile; fileRef = 86B6891A244F2B0E009BEF0A /* Hello.gif */; };
 		86B68976244F2B0E009BEF0A /* ChatCoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B6891F244F2B0E009BEF0A /* ChatCoreDataStack.swift */; };
 		86B68977244F2B0E009BEF0A /* ChatCoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B68920244F2B0E009BEF0A /* ChatCoreDataManager.swift */; };
@@ -97,6 +103,24 @@
 /* Begin PBXFileReference section */
 		35F018242614956FA2B61BE2 /* Pods_ChatKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ChatKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		41F071D312678F3FEC106838 /* Pods-ChatKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChatKit.release.xcconfig"; path = "Target Support Files/Pods-ChatKit/Pods-ChatKit.release.xcconfig"; sourceTree = "<group>"; };
+		8612FEC32452CB7000B53183 /* CustomHorizontalStackCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomHorizontalStackCollectionViewCell.swift; sourceTree = "<group>"; };
+		8612FEC42452CB7000B53183 /* CustomHorizontalStackCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomHorizontalStackCollectionViewCell.xib; sourceTree = "<group>"; };
+		8612FEC62452CB7000B53183 /* VerticalStackViewiCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VerticalStackViewiCollectionViewCell.xib; sourceTree = "<group>"; };
+		8612FEC72452CB7000B53183 /* VerticalStackViewiCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerticalStackViewiCollectionViewCell.swift; sourceTree = "<group>"; };
+		8612FEC92452CB7000B53183 /* ChatMessageCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChatMessageCollectionViewCell.xib; sourceTree = "<group>"; };
+		8612FECA2452CB7000B53183 /* ChatMessageCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatMessageCollectionViewCell.swift; sourceTree = "<group>"; };
+		8612FECC2452CB7000B53183 /* ChatConnectedAccountCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatConnectedAccountCell.swift; sourceTree = "<group>"; };
+		8612FECD2452CB7000B53183 /* ChatAccountCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatAccountCollectionViewCell.swift; sourceTree = "<group>"; };
+		8612FECE2452CB7000B53183 /* ChatConnectedAccountCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChatConnectedAccountCell.xib; sourceTree = "<group>"; };
+		8612FECF2452CB7000B53183 /* ChatAccountCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChatAccountCollectionViewCell.xib; sourceTree = "<group>"; };
+		8612FED12452CB7000B53183 /* ChatGiphyCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatGiphyCollectionViewCell.swift; sourceTree = "<group>"; };
+		8612FED22452CB7000B53183 /* ChatGiphyCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChatGiphyCollectionViewCell.xib; sourceTree = "<group>"; };
+		8612FED42452CB7100B53183 /* ChatDefaultCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChatDefaultCollectionViewCell.xib; sourceTree = "<group>"; };
+		8612FED52452CB7100B53183 /* ChatDefaultCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatDefaultCollectionViewCell.swift; sourceTree = "<group>"; };
+		8612FEE42452F0DD00B53183 /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
+		8612FEE72452F3B700B53183 /* WelcomeStackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeStackView.swift; sourceTree = "<group>"; };
+		8612FEE82452F3B700B53183 /* WelcomeStackView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WelcomeStackView.xib; sourceTree = "<group>"; };
+		8612FEEB2452FCF500B53183 /* ChatBubbleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatBubbleView.swift; sourceTree = "<group>"; };
 		8622F1A324516396007B8209 /* ChatKit.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ChatKit.xcdatamodel; sourceTree = "<group>"; };
 		8622F1A72451A48F007B8209 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8622F1A924521446007B8209 /* TransactionDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDetails.swift; sourceTree = "<group>"; };
@@ -112,18 +136,6 @@
 		86B688F3244F2B0E009BEF0A /* ChatDBUnsentMessage+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ChatDBUnsentMessage+CoreDataClass.swift"; sourceTree = "<group>"; };
 		86B688F5244F2B0E009BEF0A /* ChatBWService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatBWService.swift; sourceTree = "<group>"; };
 		86B688F6244F2B0E009BEF0A /* ChatMessageService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatMessageService.swift; sourceTree = "<group>"; };
-		86B688FB244F2B0E009BEF0A /* ChatMessageCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChatMessageCollectionViewCell.xib; sourceTree = "<group>"; };
-		86B688FC244F2B0E009BEF0A /* CustomHorizontalStackCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomHorizontalStackCollectionViewCell.swift; sourceTree = "<group>"; };
-		86B688FD244F2B0E009BEF0A /* ChatMessageCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatMessageCollectionViewCell.swift; sourceTree = "<group>"; };
-		86B68905244F2B0E009BEF0A /* CustomHorizontalStackCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomHorizontalStackCollectionViewCell.xib; sourceTree = "<group>"; };
-		86B68907244F2B0E009BEF0A /* ChatGiphyCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatGiphyCollectionViewCell.swift; sourceTree = "<group>"; };
-		86B68908244F2B0E009BEF0A /* ChatGiphyCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChatGiphyCollectionViewCell.xib; sourceTree = "<group>"; };
-		86B6890A244F2B0E009BEF0A /* ChatDefaultCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChatDefaultCollectionViewCell.xib; sourceTree = "<group>"; };
-		86B6890B244F2B0E009BEF0A /* ChatDefaultCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatDefaultCollectionViewCell.swift; sourceTree = "<group>"; };
-		86B68915244F2B0E009BEF0A /* VerticalStackViewiCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VerticalStackViewiCollectionViewCell.xib; sourceTree = "<group>"; };
-		86B68916244F2B0E009BEF0A /* WelcomeStackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeStackView.swift; sourceTree = "<group>"; };
-		86B68917244F2B0E009BEF0A /* VerticalStackViewiCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerticalStackViewiCollectionViewCell.swift; sourceTree = "<group>"; };
-		86B68918244F2B0E009BEF0A /* WelcomeStackView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WelcomeStackView.xib; sourceTree = "<group>"; };
 		86B6891A244F2B0E009BEF0A /* Hello.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Hello.gif; sourceTree = "<group>"; };
 		86B6891F244F2B0E009BEF0A /* ChatCoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatCoreDataStack.swift; sourceTree = "<group>"; };
 		86B68920244F2B0E009BEF0A /* ChatCoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatCoreDataManager.swift; sourceTree = "<group>"; };
@@ -198,6 +210,71 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		8612FEC22452CB7000B53183 /* CustomHorizontalStackView */ = {
+			isa = PBXGroup;
+			children = (
+				8612FEC32452CB7000B53183 /* CustomHorizontalStackCollectionViewCell.swift */,
+				8612FEC42452CB7000B53183 /* CustomHorizontalStackCollectionViewCell.xib */,
+			);
+			path = CustomHorizontalStackView;
+			sourceTree = "<group>";
+		};
+		8612FEC52452CB7000B53183 /* CustomVerticalStackView */ = {
+			isa = PBXGroup;
+			children = (
+				8612FEC62452CB7000B53183 /* VerticalStackViewiCollectionViewCell.xib */,
+				8612FEC72452CB7000B53183 /* VerticalStackViewiCollectionViewCell.swift */,
+			);
+			path = CustomVerticalStackView;
+			sourceTree = "<group>";
+		};
+		8612FEC82452CB7000B53183 /* CustomNotes */ = {
+			isa = PBXGroup;
+			children = (
+				8612FEC92452CB7000B53183 /* ChatMessageCollectionViewCell.xib */,
+				8612FECA2452CB7000B53183 /* ChatMessageCollectionViewCell.swift */,
+			);
+			path = CustomNotes;
+			sourceTree = "<group>";
+		};
+		8612FECB2452CB7000B53183 /* ChatAccountCustomCell */ = {
+			isa = PBXGroup;
+			children = (
+				8612FECC2452CB7000B53183 /* ChatConnectedAccountCell.swift */,
+				8612FECD2452CB7000B53183 /* ChatAccountCollectionViewCell.swift */,
+				8612FECE2452CB7000B53183 /* ChatConnectedAccountCell.xib */,
+				8612FECF2452CB7000B53183 /* ChatAccountCollectionViewCell.xib */,
+			);
+			path = ChatAccountCustomCell;
+			sourceTree = "<group>";
+		};
+		8612FED02452CB7000B53183 /* ChatGiphyCustomCell */ = {
+			isa = PBXGroup;
+			children = (
+				8612FED12452CB7000B53183 /* ChatGiphyCollectionViewCell.swift */,
+				8612FED22452CB7000B53183 /* ChatGiphyCollectionViewCell.xib */,
+			);
+			path = ChatGiphyCustomCell;
+			sourceTree = "<group>";
+		};
+		8612FED32452CB7100B53183 /* ChatDefaultCustomCell */ = {
+			isa = PBXGroup;
+			children = (
+				8612FED42452CB7100B53183 /* ChatDefaultCollectionViewCell.xib */,
+				8612FED52452CB7100B53183 /* ChatDefaultCollectionViewCell.swift */,
+			);
+			path = ChatDefaultCustomCell;
+			sourceTree = "<group>";
+		};
+		8612FEE62452F3B700B53183 /* WelcomeStackView */ = {
+			isa = PBXGroup;
+			children = (
+				8612FEE72452F3B700B53183 /* WelcomeStackView.swift */,
+				8612FEE82452F3B700B53183 /* WelcomeStackView.xib */,
+			);
+			path = WelcomeStackView;
+			sourceTree = "<group>";
+		};
 		8622F1A52451A45A007B8209 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -248,10 +325,10 @@
 		86B688E5244F2B0E009BEF0A /* Chat */ = {
 			isa = PBXGroup;
 			children = (
+				86B6893D244F2B0E009BEF0A /* ChatViewControllers */,
 				86B6891B244F2B0E009BEF0A /* ChatXCDataModel */,
 				86B688EE244F2B0E009BEF0A /* ChatModels */,
 				86D2A8C724509905009FC488 /* StoryBoard */,
-				86B6893D244F2B0E009BEF0A /* ChatViewControllers */,
 				86B688F7244F2B0E009BEF0A /* ChatCustomCells */,
 				86B688E7244F2B0E009BEF0A /* ChatExtensions */,
 				86B688EA244F2B0E009BEF0A /* ChatCustomMessageLayout */,
@@ -295,6 +372,7 @@
 				86B688F2244F2B0E009BEF0A /* ChatDBMessage+CoreDataProperties.swift */,
 				86B688F3244F2B0E009BEF0A /* ChatDBUnsentMessage+CoreDataClass.swift */,
 				8622F1A924521446007B8209 /* TransactionDetails.swift */,
+				8612FEE42452F0DD00B53183 /* Account.swift */,
 			);
 			path = ChatModels;
 			sourceTree = "<group>";
@@ -311,36 +389,15 @@
 		86B688F7244F2B0E009BEF0A /* ChatCustomCells */ = {
 			isa = PBXGroup;
 			children = (
-				86B688FB244F2B0E009BEF0A /* ChatMessageCollectionViewCell.xib */,
-				86B688FC244F2B0E009BEF0A /* CustomHorizontalStackCollectionViewCell.swift */,
-				86B688FD244F2B0E009BEF0A /* ChatMessageCollectionViewCell.swift */,
-				86B68905244F2B0E009BEF0A /* CustomHorizontalStackCollectionViewCell.xib */,
-				86B68906244F2B0E009BEF0A /* ChatGiphyCustomCell */,
-				86B68909244F2B0E009BEF0A /* ChatDefaultCustomCell */,
-				86B68915244F2B0E009BEF0A /* VerticalStackViewiCollectionViewCell.xib */,
-				86B68916244F2B0E009BEF0A /* WelcomeStackView.swift */,
-				86B68917244F2B0E009BEF0A /* VerticalStackViewiCollectionViewCell.swift */,
-				86B68918244F2B0E009BEF0A /* WelcomeStackView.xib */,
+				8612FEE62452F3B700B53183 /* WelcomeStackView */,
+				8612FECB2452CB7000B53183 /* ChatAccountCustomCell */,
+				8612FED32452CB7100B53183 /* ChatDefaultCustomCell */,
+				8612FED02452CB7000B53183 /* ChatGiphyCustomCell */,
+				8612FEC22452CB7000B53183 /* CustomHorizontalStackView */,
+				8612FEC82452CB7000B53183 /* CustomNotes */,
+				8612FEC52452CB7000B53183 /* CustomVerticalStackView */,
 			);
 			path = ChatCustomCells;
-			sourceTree = "<group>";
-		};
-		86B68906244F2B0E009BEF0A /* ChatGiphyCustomCell */ = {
-			isa = PBXGroup;
-			children = (
-				86B68907244F2B0E009BEF0A /* ChatGiphyCollectionViewCell.swift */,
-				86B68908244F2B0E009BEF0A /* ChatGiphyCollectionViewCell.xib */,
-			);
-			path = ChatGiphyCustomCell;
-			sourceTree = "<group>";
-		};
-		86B68909244F2B0E009BEF0A /* ChatDefaultCustomCell */ = {
-			isa = PBXGroup;
-			children = (
-				86B6890A244F2B0E009BEF0A /* ChatDefaultCollectionViewCell.xib */,
-				86B6890B244F2B0E009BEF0A /* ChatDefaultCollectionViewCell.swift */,
-			);
-			path = ChatDefaultCustomCell;
 			sourceTree = "<group>";
 		};
 		86B68919244F2B0E009BEF0A /* ChatGifImages */ = {
@@ -413,6 +470,7 @@
 				86B6899D244F3410009BEF0A /* ChatColor.swift */,
 				86B68937244F2B0E009BEF0A /* ChatUtils.swift */,
 				86B6899B244F2D95009BEF0A /* ChatConstant.swift */,
+				8612FEEB2452FCF500B53183 /* ChatBubbleView.swift */,
 			);
 			path = ChatUtils;
 			sourceTree = "<group>";
@@ -576,24 +634,26 @@
 			buildActionMask = 2147483647;
 			files = (
 				86B68980244F2B0F009BEF0A /* Message.json in Resources */,
+				8612FEEA2452F3B700B53183 /* WelcomeStackView.xib in Resources */,
 				86B6897A244F2B0E009BEF0A /* 7.json in Resources */,
+				8612FEE12452CB7100B53183 /* ChatGiphyCollectionViewCell.xib in Resources */,
 				86B68997244F2B0F009BEF0A /* ChatSectionHeaderReusableView.xib in Resources */,
 				8622F1A82451A48F007B8209 /* Assets.xcassets in Resources */,
+				8612FED72452CB7100B53183 /* CustomHorizontalStackCollectionViewCell.xib in Resources */,
+				8612FEE22452CB7100B53183 /* ChatDefaultCollectionViewCell.xib in Resources */,
 				86B6897D244F2B0E009BEF0A /* 3.json in Resources */,
 				86B68979244F2B0E009BEF0A /* 6.json in Resources */,
-				86B6895C244F2B0E009BEF0A /* ChatMessageCollectionViewCell.xib in Resources */,
 				86B6897F244F2B0F009BEF0A /* 5.json in Resources */,
-				86B68967244F2B0E009BEF0A /* ChatDefaultCollectionViewCell.xib in Resources */,
+				8612FED82452CB7100B53183 /* VerticalStackViewiCollectionViewCell.xib in Resources */,
 				86B6897C244F2B0E009BEF0A /* 2.json in Resources */,
+				8612FEDF2452CB7100B53183 /* ChatAccountCollectionViewCell.xib in Resources */,
+				8612FEDA2452CB7100B53183 /* ChatMessageCollectionViewCell.xib in Resources */,
 				86B6897B244F2B0E009BEF0A /* 1.json in Resources */,
-				86B68964244F2B0E009BEF0A /* CustomHorizontalStackCollectionViewCell.xib in Resources */,
 				86B6897E244F2B0E009BEF0A /* 4.json in Resources */,
-				86B68973244F2B0E009BEF0A /* WelcomeStackView.xib in Resources */,
 				86B68974244F2B0E009BEF0A /* Hello.gif in Resources */,
-				86B68970244F2B0E009BEF0A /* VerticalStackViewiCollectionViewCell.xib in Resources */,
 				86D2A8C924509912009FC488 /* Main.storyboard in Resources */,
 				86B68998244F2B0F009BEF0A /* ChatSectionFooterReusableView.xib in Resources */,
-				86B68966244F2B0E009BEF0A /* ChatGiphyCollectionViewCell.xib in Resources */,
+				8612FEDE2452CB7100B53183 /* ChatConnectedAccountCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -629,8 +689,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8612FEEC2452FCF500B53183 /* ChatBubbleView.swift in Sources */,
+				8612FED92452CB7100B53183 /* VerticalStackViewiCollectionViewCell.swift in Sources */,
+				8612FEE52452F0DD00B53183 /* Account.swift in Sources */,
 				86B68990244F2B0F009BEF0A /* CardPopupViewController.swift in Sources */,
-				86B6895E244F2B0E009BEF0A /* ChatMessageCollectionViewCell.swift in Sources */,
 				86B68984244F2B0F009BEF0A /* Lorem.swift in Sources */,
 				86B6899E244F3410009BEF0A /* ChatColor.swift in Sources */,
 				86B68985244F2B0F009BEF0A /* SimpleData.swift in Sources */,
@@ -638,24 +700,26 @@
 				86B68977244F2B0E009BEF0A /* ChatCoreDataManager.swift in Sources */,
 				86B68995244F2B0F009BEF0A /* ChatDataController.swift in Sources */,
 				86B6898D244F2B0F009BEF0A /* ChatViewController.swift in Sources */,
+				8612FEDC2452CB7100B53183 /* ChatConnectedAccountCell.swift in Sources */,
 				86B68958244F2B0E009BEF0A /* ChatBWService.swift in Sources */,
 				8622F1A424516396007B8209 /* ChatKit.xcdatamodeld in Sources */,
 				86B6894F244F2B0E009BEF0A /* Date+Helper.swift in Sources */,
 				86B6898E244F2B0F009BEF0A /* ChatViewController+CollectionViewDataSource.swift in Sources */,
 				86B68989244F2B0F009BEF0A /* ChatDBUnsentMessageUpdateOperation.swift in Sources */,
-				86B68965244F2B0E009BEF0A /* ChatGiphyCollectionViewCell.swift in Sources */,
 				86B68996244F2B0F009BEF0A /* ChatMessageDataModel.swift in Sources */,
+				8612FEDB2452CB7100B53183 /* ChatMessageCollectionViewCell.swift in Sources */,
 				86B68950244F2B0E009BEF0A /* DateHelper.swift in Sources */,
 				86B6898A244F2B0F009BEF0A /* ChatDBUpdateOperation.swift in Sources */,
-				86B68968244F2B0E009BEF0A /* ChatDefaultCollectionViewCell.swift in Sources */,
 				86B68992244F2B0F009BEF0A /* ChatViewController+FetchedResultsController.swift in Sources */,
 				86B68982244F2B0F009BEF0A /* ChatEvaMessage.swift in Sources */,
 				86B68951244F2B0E009BEF0A /* ChatCustomMessagesFlowLayout.swift in Sources */,
 				86B689A9244F5A5D009BEF0A /* ChatFrameworkLauncher.swift in Sources */,
+				8612FEE92452F3B700B53183 /* WelcomeStackView.swift in Sources */,
+				8612FEDD2452CB7100B53183 /* ChatAccountCollectionViewCell.swift in Sources */,
 				86B68994244F2B0F009BEF0A /* ChatViewController+MessageCellDelegate.swift in Sources */,
+				8612FED62452CB7100B53183 /* CustomHorizontalStackCollectionViewCell.swift in Sources */,
 				86B68986244F2B0F009BEF0A /* MockMessage.swift in Sources */,
 				86B68999244F2B0F009BEF0A /* ChatSectionFooterReusableView.swift in Sources */,
-				86B68971244F2B0E009BEF0A /* WelcomeStackView.swift in Sources */,
 				86B68954244F2B0E009BEF0A /* ChatDBMessage+CoreDataClass.swift in Sources */,
 				86B68955244F2B0E009BEF0A /* ChatDBUnsentMessage+CoreDataProperties.swift in Sources */,
 				86B68959244F2B0E009BEF0A /* ChatMessageService.swift in Sources */,
@@ -666,18 +730,18 @@
 				86B689A1244F3760009BEF0A /* UIColor+colorFromHex.swift in Sources */,
 				86B68978244F2B0E009BEF0A /* NSManagedObjectContext+Helper.swift in Sources */,
 				86B68991244F2B0F009BEF0A /* ChatViewController+MessagesDisplayType.swift in Sources */,
+				8612FEE32452CB7100B53183 /* ChatDefaultCollectionViewCell.swift in Sources */,
 				86B689A2244F3760009BEF0A /* UIColor.swift in Sources */,
 				86B68976244F2B0E009BEF0A /* ChatCoreDataStack.swift in Sources */,
+				8612FEE02452CB7100B53183 /* ChatGiphyCollectionViewCell.swift in Sources */,
 				86B6899C244F2D95009BEF0A /* ChatConstant.swift in Sources */,
 				86B6898C244F2B0F009BEF0A /* ChatDBMessageUpdateOperation.swift in Sources */,
-				86B68972244F2B0E009BEF0A /* VerticalStackViewiCollectionViewCell.swift in Sources */,
 				86B68957244F2B0E009BEF0A /* ChatDBUnsentMessage+CoreDataClass.swift in Sources */,
 				86B68956244F2B0E009BEF0A /* ChatDBMessage+CoreDataProperties.swift in Sources */,
 				86B689A4244F421D009BEF0A /* JsonMapper.swift in Sources */,
 				86B68993244F2B0F009BEF0A /* ChatViewController+LoadMore.swift in Sources */,
 				86B68987244F2B0F009BEF0A /* MockUser.swift in Sources */,
 				8622F1AA24521446007B8209 /* TransactionDetails.swift in Sources */,
-				86B6895D244F2B0E009BEF0A /* CustomHorizontalStackCollectionViewCell.swift in Sources */,
 				86B68988244F2B0F009BEF0A /* ChatUtils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

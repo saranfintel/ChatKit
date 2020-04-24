@@ -35,7 +35,7 @@ open class ChatWorkflowManager: NSObject {
         return UIApplication.shared.delegate
     }
 
-    static var bundle:Bundle {
+    static var bundle: Bundle {
         return Bundle(for: self.classForCoder())
     }
 

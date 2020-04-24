@@ -17,7 +17,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="432" height="150"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NpJ-No-35I">
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NpJ-No-35I" customClass="ChatBubbleView" customModule="ChatKit" customModuleProvider="target">
                         <rect key="frame" x="40" y="0.0" width="100" height="130"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="sr0-zO-gPg">
@@ -45,18 +45,6 @@
                             <constraint firstAttribute="bottom" secondItem="sr0-zO-gPg" secondAttribute="bottom" id="m2L-4a-yOd"/>
                             <constraint firstItem="sr0-zO-gPg" firstAttribute="top" secondItem="NpJ-No-35I" secondAttribute="top" id="qo3-EQ-wdk"/>
                         </constraints>
-                        <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskToBounds" value="YES"/>
-                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                <integer key="value" value="5"/>
-                            </userDefinedRuntimeAttribute>
-                            <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
-                                <integer key="value" value="1"/>
-                            </userDefinedRuntimeAttribute>
-                            <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColor">
-                                <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </userDefinedRuntimeAttribute>
-                        </userDefinedRuntimeAttributes>
                     </view>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AppIcon" translatesAutoresizingMaskIntoConstraints="NO" id="isJ-lx-yGU">
                         <rect key="frame" x="5" y="120" width="30" height="30"/>

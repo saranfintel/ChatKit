@@ -132,7 +132,7 @@ class ChatViewController: MessagesViewController, UIGestureRecognizerDelegate {
         
         messagesCollectionView = MessagesCollectionView(frame: .zero, collectionViewLayout: ChatCustomMessagesFlowLayout())
        
-      
+      messagesCollectionView.register(UINib(nibName:"ChatAccountCollectionViewCell",bundle: ChatWorkflowManager.bundle), forCellWithReuseIdentifier: "ChatAccountCollectionViewCell")
        messagesCollectionView.register(UINib(nibName:"CustomHorizontalStackCollectionViewCell",bundle: ChatWorkflowManager.bundle), forCellWithReuseIdentifier: "CustomHorizontalStackCollectionViewCell")
         messagesCollectionView.register(UINib(nibName:"VerticalStackViewiCollectionViewCell",bundle: ChatWorkflowManager.bundle), forCellWithReuseIdentifier: "VerticalStackViewiCollectionViewCell")
         messagesCollectionView.register(UINib(nibName:"ChatDefaultCollectionViewCell",bundle: ChatWorkflowManager.bundle), forCellWithReuseIdentifier: "ChatDefaultCollectionViewCell")
@@ -556,18 +556,7 @@ class ChatViewController: MessagesViewController, UIGestureRecognizerDelegate {
                 self.messagesCollectionView.reloadDataAndKeepOffset()
             }
     }
-    
-    //MARK:- LoadmoreButton click on Transcations list
-    
-    func loadmoreButtonPressed(_ cell: UICollectionViewCell) {
-        print("loadmoreButtonPressed")
-        guard let indexPath = self.messagesCollectionView.indexPath(for: cell) else {
-            return
-        }
-        let message = self.fetchedResultsController.object(at: indexPath)
-        self.hitDB(body: message.body ?? "")
-    }
-    
+        
     //MARK:- Hide Activity Indicator View
 
     fileprivate func showhideActivityIndicatorView(show: Bool) {
@@ -608,6 +597,14 @@ class ChatViewController: MessagesViewController, UIGestureRecognizerDelegate {
             }
             if let displayType: DisplayType = DisplayType(rawValue: messageDB.displayType ?? "message") {
                 switch displayType {
+                case .accountsWithOutstandingRed, .accountsWithUtilizationRed, .accountsWithGreen, .accountsWithPayoffOrange:
+                    //Accounts
+                    guard let cell = messagesCollectionView.dequeueReusableCell(withReuseIdentifier: "ChatAccountCollectionViewCell", for: indexPath) as? ChatAccountCollectionViewCell else {
+                        return super.collectionView(collectionView, cellForItemAt: indexPath)
+                    }
+                    cell.delegate = self
+                    cell.configurationCell(message: messageDB)
+                    return cell
                 case .horizontalQuestions:
                     guard let cell = messagesCollectionView.dequeueReusableCell(withReuseIdentifier: "CustomHorizontalStackCollectionViewCell", for: indexPath) as? CustomHorizontalStackCollectionViewCell else {
                         return super.collectionView(collectionView, cellForItemAt: indexPath)
@@ -845,5 +842,16 @@ extension ChatViewController {
                 }
             }
         })
+    }
+}
+
+extension ChatViewController: loadMoreActionDelegate {
+    func loadmoreButtonPressed(_ cell: UICollectionViewCell) {
+        print("loadmoreButtonPressed")
+        guard let indexPath = self.messagesCollectionView.indexPath(for: cell) else {
+            return
+        }
+        let message = self.fetchedResultsController.object(at: indexPath)
+        self.hitDB(body: message.body ?? "")
     }
 }

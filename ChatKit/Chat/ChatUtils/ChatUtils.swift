@@ -11,6 +11,34 @@ import MessageKit
 
 
 struct ChatUtils {
+   
+    public static func formatStaticText(text: String) -> NSAttributedString? {
+        let attributedString = NSMutableAttributedString(string: text)
+        //Add spacing 0.5
+        attributedString.addAttribute(NSAttributedString.Key.kern, value: 0.5, range: NSMakeRange(0, text.count))
+        return attributedString
+    }
+
+    public static func formatPoint8Text(text: String) -> NSAttributedString? {
+        let attributedString = NSMutableAttributedString(string: text)
+        //Add spacing 0.8
+        attributedString.addAttribute(NSAttributedString.Key.kern, value: 0.8, range: NSMakeRange(0, text.count))
+        return attributedString
+    }
+    
+    public static func formatAmount(amount: String) -> NSAttributedString? {
+        let attributedString = NSMutableAttributedString(string: amount)
+        //Add spacing 1.0
+        attributedString.addAttribute(NSAttributedString.Key.kern, value: 1.0, range: NSMakeRange(0, amount.count))
+        return attributedString
+    }
+
+    static func getNumberFormatter(value: Double) -> String {
+        let amount = value as NSNumber
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currency
+        return formatter.string(from: amount) ?? EMPTY_STRING
+    }
 }
 
 extension ChatUtils {
