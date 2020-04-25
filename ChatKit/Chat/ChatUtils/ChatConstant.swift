@@ -54,23 +54,23 @@ enum DisplayType: String {
     case messageWithGraphTransactions   =   "message_graph_transactions"
     case messageWithBarTransactions     =   "message_bar_transactions"
     case messageWithPieTransactions     =   "message_pie_transactions"
-    case accountTransactions            =   "account_transactions"
-    case messageWithTransaction         =   "message_transaction"
-    case cardRecommendation             =   "card_view"
-    case message                        =   "message"
+    case accountTransactions            =   "account_transactions"//
+    case messageWithTransaction         =   "message_transaction"//
+    case cardRecommendation             =   "card_view"//
+    case message                        =   "message"//
     case messageWithAmount              =   "message_amount"
-    case messageWithNotes               =   "message_notes"
+    case messageWithNotes               =   "message_notes"//
     case messageWithGraph               =   "message_graph"
     case messageWithChart               =   "message_barchart"
-    case messageWithBarChat             =   "message_bar"
-    case messageWithPieChart            =   "message_piechart"
+    case messageWithBarChat             =   "message_bar"//
+    case messageWithPieChart            =   "message_piechart"//
     case messageWithError               =   "message_error"
-    case accountsWithOutstandingRed     =   "accounts_ored"
-    case accountsWithUtilizationRed     =   "accounts_ured"
-    case accountsWithGreen              =   "accounts_green"
+    case accountsWithOutstandingRed     =   "accounts_ored"//
+    case accountsWithUtilizationRed     =   "accounts_ured"//
+    case accountsWithGreen              =   "accounts_green"//
     case accountsWithPayoffOrange       =   "accounts_porange"
-    case verticalQuestions              =   "vertical_questions"
-    case horizontalQuestions            =   "horizontal_questions"
+    case verticalQuestions              =   "vertical_questions"//
+    case horizontalQuestions            =   "horizontal_questions"//
 }
 enum QueryType: String {
     case voiceSearch            =   "voiceSearch"

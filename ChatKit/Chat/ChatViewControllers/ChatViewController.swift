@@ -126,6 +126,9 @@ class ChatViewController: MessagesViewController, UIGestureRecognizerDelegate {
         view.layer.layoutIfNeeded()
     }
     
+    @IBAction func closeButtonClicked(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
     
     // MARK:-  Setup All CollectionView Cell on ChatViewController
     private func setupCollectionViewCell() {
@@ -154,7 +157,7 @@ class ChatViewController: MessagesViewController, UIGestureRecognizerDelegate {
     // MARK:- SetupView - ChatViewController Bottom menu (Type, Send, Audio controls)
 
     private func setupView() {
-        title = "Chat"
+        title = ChatLaunchServiceHandler.sharedManager.title()
         messageInputBar.setRightStackViewWidthConstant(to: 120, animated: false)
         messageInputBar.setStackViewItems([messageInputBar.sendButton, audioButton, changeLanguageButton], forStack: .right, animated: false)
 
@@ -762,9 +765,6 @@ class ChatViewController: MessagesViewController, UIGestureRecognizerDelegate {
         self.present(optionsAlertController, animated: true, completion: nil)
     }
     
-    @IBAction func cancelButtonClicked(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
-    }
 
     deinit {
         print("ChatViewController Deinit")

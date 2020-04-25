@@ -50,7 +50,7 @@ open class ChatFrameworkLauncher: NSObject, BaseFrameworkLauncher {
     }
 
     public func launchChatView() {
-        ChatWorkflowManager.sharedManager.performNavigationFor("ChatViewController", navType: NavType.push)
+        ChatWorkflowManager.sharedManager.performNavigationFor("ChatViewController", navType: NavType.model)
     }
 
     func baseURL() -> String {
@@ -58,6 +58,14 @@ open class ChatFrameworkLauncher: NSObject, BaseFrameworkLauncher {
             return baseURL
         }
         return EMPTY_STRING
+    }
+    
+    func title() -> String {
+        if let chatData = UserDefaults.standard.object(forKey: "ChatData") as? JSONDictionary, let title = chatData["title"] as? String {
+            return title
+        }
+        return EMPTY_STRING
+
     }
     
     func messageURL() -> String {
