@@ -171,6 +171,10 @@ class ChatDBMessageUpdateOperation: DBUpdateOperation {
                     height = Double(body.calculateHeight() + 50)
                 }
             case .messageWithNotes: height = 70.0
+            case.message:
+                if let mediaType = message["media_type"] as? String, mediaType == GIF {
+                    height = 186.0
+                }
             default: height = 70.0
             }
         }

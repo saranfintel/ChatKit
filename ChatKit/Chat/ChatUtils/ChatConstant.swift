@@ -97,3 +97,4 @@ enum QueryType: String {
 public let EMPTY_STRING = ""
 public let NULL_STRING = "null"
 public let EMPTY_INT = 0
+public let GIF = "gif"
