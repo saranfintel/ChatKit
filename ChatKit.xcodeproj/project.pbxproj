@@ -54,7 +54,6 @@
 		86B68980244F2B0F009BEF0A /* Message.json in Resources */ = {isa = PBXBuildFile; fileRef = 86B6892A244F2B0E009BEF0A /* Message.json */; };
 		86B68982244F2B0F009BEF0A /* ChatEvaMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B6892E244F2B0E009BEF0A /* ChatEvaMessage.swift */; };
 		86B68984244F2B0F009BEF0A /* Lorem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B68932244F2B0E009BEF0A /* Lorem.swift */; };
-		86B68985244F2B0F009BEF0A /* SimpleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B68933244F2B0E009BEF0A /* SimpleData.swift */; };
 		86B68986244F2B0F009BEF0A /* MockMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B68934244F2B0E009BEF0A /* MockMessage.swift */; };
 		86B68987244F2B0F009BEF0A /* MockUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B68935244F2B0E009BEF0A /* MockUser.swift */; };
 		86B68988244F2B0F009BEF0A /* ChatUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B68937244F2B0E009BEF0A /* ChatUtils.swift */; };
@@ -150,7 +149,6 @@
 		86B6892A244F2B0E009BEF0A /* Message.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Message.json; sourceTree = "<group>"; };
 		86B6892E244F2B0E009BEF0A /* ChatEvaMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatEvaMessage.swift; sourceTree = "<group>"; };
 		86B68932244F2B0E009BEF0A /* Lorem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Lorem.swift; sourceTree = "<group>"; };
-		86B68933244F2B0E009BEF0A /* SimpleData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleData.swift; sourceTree = "<group>"; };
 		86B68934244F2B0E009BEF0A /* MockMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockMessage.swift; sourceTree = "<group>"; };
 		86B68935244F2B0E009BEF0A /* MockUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockUser.swift; sourceTree = "<group>"; };
 		86B68937244F2B0E009BEF0A /* ChatUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatUtils.swift; sourceTree = "<group>"; };
@@ -453,7 +451,6 @@
 			isa = PBXGroup;
 			children = (
 				86B68932244F2B0E009BEF0A /* Lorem.swift */,
-				86B68933244F2B0E009BEF0A /* SimpleData.swift */,
 				86B68934244F2B0E009BEF0A /* MockMessage.swift */,
 				86B68935244F2B0E009BEF0A /* MockUser.swift */,
 			);
@@ -695,7 +692,6 @@
 				86B68990244F2B0F009BEF0A /* CardPopupViewController.swift in Sources */,
 				86B68984244F2B0F009BEF0A /* Lorem.swift in Sources */,
 				86B6899E244F3410009BEF0A /* ChatColor.swift in Sources */,
-				86B68985244F2B0F009BEF0A /* SimpleData.swift in Sources */,
 				86B6898B244F2B0F009BEF0A /* ChatEvaOperation.swift in Sources */,
 				86B68977244F2B0E009BEF0A /* ChatCoreDataManager.swift in Sources */,
 				86B68995244F2B0F009BEF0A /* ChatDataController.swift in Sources */,

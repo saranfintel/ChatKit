@@ -12,26 +12,37 @@ import CoreData
 import InputBarAccessoryView
 
 extension ChatViewController: MessagesDataSource {
-    
-    // MARK: - UICollectionViewDataSource
-    
-    // MARK: - UICollectionViewDataSource
+        
     func currentSender() -> SenderType {
-        return SampleData.shared.currentSender
+        return currentUser()
     }
     
     func anotherSender() -> SenderType {
-        return SampleData.shared.anotherSender
+        return anotherUser()
     }
     
     func currentUser() -> MockUser {
-        return MockUser(senderId: "000000", displayName: "System")
+        return MockUser(senderId: "000000", displayName: ChatLaunchServiceHandler.sharedManager.title())
     }
     
     func anotherUser() -> MockUser {
-        return MockUser(senderId: "000001", displayName: "Nathan Tannar")
+        return MockUser(senderId: "000001", displayName: ChatLaunchServiceHandler.sharedManager.title())
     }
     
+    func getAvatarFor(sender: SenderType) -> Avatar {
+        let firstName = sender.displayName.components(separatedBy: " ").first
+        let lastName = sender.displayName.components(separatedBy: " ").first
+        let initials = "\(firstName?.first ?? "A")\(lastName?.first ?? "A")"
+        switch sender.senderId {
+        case "000001":
+            return Avatar(image: UIImage.init(named: "AppIcon", in: ChatWorkflowManager.bundle, compatibleWith: nil)!, initials: initials)
+        case "000002":
+            return Avatar(image: UIImage.init(named: "chatuser", in: ChatWorkflowManager.bundle, compatibleWith: nil)!, initials: initials)
+        default:
+            return Avatar(image: nil, initials: initials)
+        }
+    }
+
     func numberOfSections(in messagesCollectionView: MessagesCollectionView) -> Int {
         let count = 1 // Add a section for unsent messages
         if let sections = self.fetchedResultsController.sections, sections.count > 0 {
