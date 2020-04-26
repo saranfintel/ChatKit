@@ -39,26 +39,18 @@ open class ChatWorkflowManager: NSObject {
         return Bundle(for: self.classForCoder())
     }
 
-    fileprivate func storyboardWithID(_ storyboardID: String) -> UIStoryboard? {
-        let storyboard = UIStoryboard(name: storyboardID, bundle: ChatWorkflowManager.bundle)
-        return storyboard
-    }
-
     open func performNavigationFor(_ vcName: String, navType: NavType, transitionWillStart: ((AnyObject) -> Void)? = nil, transitionDidFinish: ((AnyObject) -> Void)? = nil) {
         switch navType {
         case .model:
             if let topVC = appDelegate?.window??.rootViewController  {
-                if let insightsVC = storyboardWithID("Main")?.instantiateViewController(withIdentifier: vcName) {
-                    let nv = UINavigationController(rootViewController: insightsVC)
-                    nv.modalPresentationStyle = .fullScreen
-                    topVC.present(nv, animated: true, completion: nil)
-                }
+                let nv = VCNames.chatVC.navObject
+                nv.modalPresentationStyle = .fullScreen
+                topVC.present(nv, animated: true, completion: nil)
             }
         default:
             if let navVC = appDelegate?.window??.rootViewController as? UINavigationController {
-                if let insightsVC = storyboardWithID("Main")?.instantiateViewController(withIdentifier: vcName) {
-                    navVC.pushViewController(insightsVC, animated: true)
-                }
+                let chatVC = VCNames.chatVC.controllerObject
+                navVC.pushViewController(chatVC, animated: true)
             }
         }
     }

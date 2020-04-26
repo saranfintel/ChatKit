@@ -91,7 +91,7 @@ extension ChatUtils {
         }
     }
 
-    public static func loadJSONFromBundle(name:String,bundle:Bundle)->[String:Any]?{
+    public static func loadJSONFromBundle(name:String,bundle:Bundle)->[String:Any]? {
         if let path = bundle.path(forResource: name, ofType: "json"){
             let url = URL(fileURLWithPath: path)
             do{
@@ -126,6 +126,33 @@ extension ChatUtils {
     }
     
 }
+
+enum VCNames: String {
+    case chatVC         =   "ChatViewController"
+    case countryVC      =   "CountryPopViewController"
+
+    struct storyboardObject {
+        var storyboard: UIStoryboard
+        init() {
+            self.storyboard = UIStoryboard(name: "Main", bundle: ChatWorkflowManager.bundle)
+        }
+    }
+    
+    var controllerObject : UIViewController {
+        switch self {
+        case .chatVC:             return storyboardObject().storyboard.instantiateViewController(withIdentifier: VCNames.chatVC.rawValue)
+        case .countryVC:              return storyboardObject().storyboard.instantiateViewController(withIdentifier: VCNames.countryVC.rawValue)
+        }
+    }
+    
+    var navObject : UINavigationController {
+        switch self {
+        case .chatVC:             return UINavigationController(rootViewController: VCNames.chatVC.controllerObject)
+        case .countryVC:              return UINavigationController(rootViewController: VCNames.countryVC.controllerObject)
+        }
+    }
+}
+
 
 extension NSDate {
 

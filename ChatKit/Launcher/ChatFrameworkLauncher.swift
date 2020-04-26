@@ -71,7 +71,7 @@ open class ChatFrameworkLauncher: NSObject, BaseFrameworkLauncher {
     class func historyURL() -> String {
         return "chat/history/?page_size=20"
     }
-    
+        
     class func colorCode() -> String {
         if let chatData = UserDefaults.standard.object(forKey: "ChatData") as? JSONDictionary, let colorCode = chatData["colorCode"] as? String {
             return colorCode
@@ -152,23 +152,22 @@ open class ChatFrameworkLauncher: NSObject, BaseFrameworkLauncher {
         }
         return nil
     }
+    
     class func deleteImages() {
-        let documentsUrl =  FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
-        do {
-            let fileURLs = try FileManager.default.contentsOfDirectory(at: documentsUrl,
-                                                                       includingPropertiesForKeys: nil,
-                                                                       options: [.skipsHiddenFiles, .skipsSubdirectoryDescendants])
-            for fileURL in fileURLs {
-                print("fileURL: \(fileURL)")
-                if fileURL.pathExtension == "png" {
-                    print("InsidefileURL: \(fileURL)")
-                    try FileManager.default.removeItem(at: fileURL)
+        if let documentsUrl =  FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
+            do {
+                let fileURLs = try FileManager.default.contentsOfDirectory(at: documentsUrl,
+                                                                           includingPropertiesForKeys: nil,
+                                                                           options: [.skipsHiddenFiles, .skipsSubdirectoryDescendants])
+                for fileURL in fileURLs {
+                    if fileURL.pathExtension == "png" {
+                        try FileManager.default.removeItem(at: fileURL)
+                    }
                 }
-            }
-        } catch  { print(error) }
+            } catch  { print(error) }
+        }
     }
 
-    
 }
 
 extension UIViewController {

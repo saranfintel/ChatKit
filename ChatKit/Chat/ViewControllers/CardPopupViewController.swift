@@ -25,13 +25,13 @@ public class CardPopupViewController: UIViewController {
     public init(contentViewController viewController: UIViewController) {
         contentViewController = viewController
         contentView = viewController.view
-        super.init(nibName: nil, bundle: nil)
+        super.init(nibName: nil, bundle: ChatWorkflowManager.bundle)
     }
     
     public init(contentView view: UIView) {
         contentViewController = nil
         contentView = view
-        super.init(nibName: nil, bundle: nil)
+        super.init(nibName: nil, bundle: ChatWorkflowManager.bundle)
     }
     
     public func close() {
@@ -39,7 +39,6 @@ public class CardPopupViewController: UIViewController {
     }
     
     public func show(onViewController viewController: UIViewController) {
-        
         self.modalPresentationStyle = .overCurrentContext
         viewController.present(self, animated: false, completion: nil)
     }

@@ -33,7 +33,7 @@ extension Transactions: Mappable {
 }
 
 struct Suggestions {
-    var question: String = ""
+    var question: String = EMPTY_STRING
 }
 
 extension Suggestions: Mappable {

@@ -43,6 +43,8 @@ class ChatViewController: MessagesViewController, UIGestureRecognizerDelegate {
     fileprivate let audioEngine = AVAudioEngine()
     var timer:Timer?
     var count: Int = 0
+    
+    var chatViewModel: ChatViewModel? = ChatViewModel()
 
     // Date formatter
     lazy var formatter: DateFormatter = {
@@ -87,15 +89,6 @@ class ChatViewController: MessagesViewController, UIGestureRecognizerDelegate {
     override func viewDidLoad() {
         self.setupCollectionViewCell()
         super.viewDidLoad()
-        self.navigationController?.navigationBar.isTranslucent = false
-        self.navigationController?.navigationBar.barTintColor = .white
-        self.navigationController?.navigationBar.backgroundColor = .white
-        if let font = UIFont(name: "HelveticaNeue-Medium", size: 18.0) {
-            self.navigationController?.navigationBar.titleTextAttributes = [
-                NSAttributedString.Key.foregroundColor: UIColor.black,
-                NSAttributedString.Key.font: font,
-            ]
-        }
         self.setupView()
         self.setupFetchResultsView()
     }
@@ -110,12 +103,8 @@ class ChatViewController: MessagesViewController, UIGestureRecognizerDelegate {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         self.becomeFirstResponder()
+    }
 
-    }
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-    }
-    
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         self.resignFirstResponder()
@@ -159,6 +148,11 @@ class ChatViewController: MessagesViewController, UIGestureRecognizerDelegate {
 
     private func setupView() {
         title = ChatSession.title()
+    chatViewModel?.loadLanguageList(completionStatusHandler: { (isSuccess) in
+        DispatchQueue.main.async {
+            self.changeLanguageButton.title = self.chatViewModel?.selectedLanguage.initial
+        }
+    })
         messageInputBar.setRightStackViewWidthConstant(to: 120, animated: false)
         messageInputBar.setStackViewItems([messageInputBar.sendButton, audioButton, changeLanguageButton], forStack: .right, animated: false)
 
@@ -259,10 +253,12 @@ class ChatViewController: MessagesViewController, UIGestureRecognizerDelegate {
     }
 
     @objc func changeLanguageTapped(_ recognizer: UIGestureRecognizer?) {
-        //changeLanguageButton.title = (changeLanguageButton.title == "EN") ? "HI" : "EN"
-        /*let popup = CountryPopViewController.create()
-        let sbPopup = CardPopupViewController(contentViewController: popup)
-        sbPopup.show(onViewController: self)*/
+        if let countryVC = VCNames.countryVC.controllerObject as? CountryPopViewController {
+            countryVC.delegate = self
+            countryVC.chatViewModel = chatViewModel
+            let sbPopup = CardPopupViewController(contentViewController: countryVC)
+            sbPopup.show(onViewController: self)
+        }
     }
     
     //MARK:- Voice to Text - Speech Recognizer Methods
@@ -327,7 +323,7 @@ class ChatViewController: MessagesViewController, UIGestureRecognizerDelegate {
     }
     func startRecording() {
         var language = "en-US"
-        if let languageObj = UserDefaults(suiteName: App_Group_ID)?.object(forKey: voiceLanguage) as? String {
+        if let languageObj = UserDefaults.standard.object(forKey: voiceLanguage) as? String {
             language = languageObj
         }
         let locale = Locale(identifier: language)
@@ -769,6 +765,7 @@ class ChatViewController: MessagesViewController, UIGestureRecognizerDelegate {
 
     deinit {
         print("ChatViewController Deinit")
+        chatViewModel = nil
     }
 
 }
@@ -854,5 +851,12 @@ extension ChatViewController: loadMoreActionDelegate {
         }
         let message = self.fetchedResultsController.object(at: indexPath)
         self.hitDB(body: message.body ?? "")
+    }
+}
+
+extension ChatViewController: CountrySaveActionDelegate {
+    func saveButtonPressed() {
+        chatViewModel?.saveSelectedLanguage()
+        changeLanguageButton.title = chatViewModel?.selectedLanguage.initial
     }
 }

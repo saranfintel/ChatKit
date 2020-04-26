@@ -11,5 +11,5 @@ import Foundation
 class ChatDataController: NSObject {
     static var sharedInstance = ChatDataController()
     var currentDisplayType: DisplayType?
-    var evaMessage: ChatEvaMessage?
+//    var evaMessage: ChatEvaMessage?
 }

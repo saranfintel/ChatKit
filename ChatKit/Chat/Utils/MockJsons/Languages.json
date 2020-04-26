@@ -1,0 +1,33 @@
+{
+    "payload": [
+        {
+            "fullText": "English",
+            "locale": "en-US",
+            "initial": "EN"
+        },
+        {
+            "fullText": "Hindi",
+            "locale": "hi-IN",
+            "initial": "HI"
+        },
+        {
+            "fullText": "Arabic",
+            "locale": "ar-SA",
+            "initial": "AR"
+        },
+        {
+            "fullText": "Spanish",
+            "locale": "es-ES",
+            "initial": "SP"
+        },
+        {
+            "fullText": "French",
+            "locale": "fr_NE",
+            "initial": "FR"
+        }
+    ],
+    "message": {
+        "errors": {},
+        "success": true
+    }
+}
