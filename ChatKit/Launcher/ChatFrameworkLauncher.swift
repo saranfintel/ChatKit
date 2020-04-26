@@ -25,6 +25,7 @@ open class ChatFrameworkLauncher: NSObject, BaseFrameworkLauncher {
     public var callBackHandler: (([String : Any]) -> Void)?
         
     public func launchChat(parameters: JSONDictionary, sender: UIImage?, receiver: UIImage?) {
+        ChatSession.deleteImages()
         if let senderIcon = sender {
             ChatSession.store(image: senderIcon, forKey: "sender", withStorageType: .fileSystem)
         }
@@ -33,6 +34,7 @@ open class ChatFrameworkLauncher: NSObject, BaseFrameworkLauncher {
         }
         UserDefaults.standard.set(parameters, forKey: "ChatData")
         UserDefaults.standard.synchronize()
+   
     ChatWorkflowManager.sharedManager.performNavigationFor("ChatViewController", navType: NavType.model)
     }
     

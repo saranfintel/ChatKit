@@ -54,7 +54,8 @@ enum DisplayType: String {
     case messageWithPieTransactions     =   "message_pie_transactions"
     case accountTransactions            =   "account_transactions"//
     case messageWithTransaction         =   "message_transaction"//
-    case cardRecommendation             =   "card_view"//
+    case cardView                       =   "card_view"//
+    case cardRecommendation             =   "card_recommendation"//
     case message                        =   "message"//
     case messageWithAmount              =   "message_amount"
     case messageWithNotes               =   "message_notes"//

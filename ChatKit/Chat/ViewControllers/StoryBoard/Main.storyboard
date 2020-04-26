@@ -113,11 +113,13 @@
                     <size key="freeformSize" width="375" height="250"/>
                     <connections>
                         <outlet property="pickerView" destination="90T-wX-ZjG" id="7wK-XJ-lxi"/>
+                        <outlet property="saveButton" destination="Xce-5B-bfy" id="5bj-eD-8cl"/>
+                        <outlet property="selectLanguageLabel" destination="6bw-vi-kkw" id="usO-nM-mtc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bsv-hO-Eu7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1759.2" y="-1052.9556650246307"/>
+            <point key="canvasLocation" x="1814" y="-80"/>
         </scene>
     </scenes>
     <resources>

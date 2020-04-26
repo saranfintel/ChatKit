@@ -15,6 +15,8 @@ protocol CountrySaveActionDelegate: class {
 class CountryPopViewController: UIViewController, SBCardPopupContent {
     
     @IBOutlet weak var pickerView: UIPickerView!
+    @IBOutlet weak var selectLanguageLabel: UILabel!
+    @IBOutlet weak var saveButton: UIButton!
 
     var popupViewController: CardPopupViewController?
     var allowsTapToDismissPopupCard: Bool = true
@@ -24,6 +26,8 @@ class CountryPopViewController: UIViewController, SBCardPopupContent {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        saveButton.backgroundColor = ChatColor.appTheme()
+        selectLanguageLabel.backgroundColor = ChatColor.appTheme()
         pickerView.selectRow(chatViewModel?.selectedIndex ?? 0, inComponent: 0, animated: true)
     }
     

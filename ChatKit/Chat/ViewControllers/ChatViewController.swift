@@ -657,9 +657,6 @@ class ChatViewController: MessagesViewController, UIGestureRecognizerDelegate {
                                  viewForSupplementaryElementOfKind kind: String,
                                  at indexPath: IndexPath) -> UICollectionReusableView {
         switch kind {
-            //Swift4.2
-       // case UICollectionView.elementKindSectionHeader:
-            // Swift4.0
         case UICollectionView.elementKindSectionHeader:
             guard let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind,
                                                                                    withReuseIdentifier: "ChatSectionHeaderReusableView",
