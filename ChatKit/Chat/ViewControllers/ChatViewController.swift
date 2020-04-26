@@ -59,6 +59,12 @@ class ChatViewController: MessagesViewController, UIGestureRecognizerDelegate {
     fileprivate var lastString = ""
     fileprivate var lastStringLength = 0
 
+    var floatingQuestionViewFlag: Bool = false
+    var floatingQuestionView: SiriContentView = {
+        let myNewView = SiriContentView.instanceFromNib()
+        myNewView.setOldProperties()
+        return myNewView
+    }()
     /// A InputBarButtonItem used as the audio button and initially placed in the rightStackView
     var audioButton: InputBarButtonItem = {
         return InputBarButtonItem()
@@ -98,6 +104,10 @@ class ChatViewController: MessagesViewController, UIGestureRecognizerDelegate {
         if let sections = self.fetchedResultsController.sections, sections.count == 0 {
             self.loadMoreMessages()
         }
+        messageInputBar.bringSubviewToFront(messageInputBar.topStackView)
+        messageInputBar.topStackView.heightAnchor.constraint(equalToConstant: 50.0).isActive = true
+        floatingQuestionView.heightAnchor.constraint(equalToConstant: 50.0).isActive = true
+        messageInputBar.layoutStackViews()
     }
         
     override func viewDidAppear(_ animated: Bool) {
@@ -148,11 +158,24 @@ class ChatViewController: MessagesViewController, UIGestureRecognizerDelegate {
 
     private func setupView() {
         title = ChatSession.title()
-    chatViewModel?.loadLanguageList(completionStatusHandler: { (isSuccess) in
-        DispatchQueue.main.async {
-            self.changeLanguageButton.title = self.chatViewModel?.selectedLanguage.initial
-        }
-    })
+        chatViewModel?.loadLanguageList(completionStatusHandler: { (isSuccess) in
+            DispatchQueue.main.async {
+                self.changeLanguageButton.title = self.chatViewModel?.selectedLanguage.initial
+            }
+        })
+
+        //Top
+        messageInputBar.setStackViewItems([floatingQuestionView], forStack: .top, animated: false)
+        let thingsTapGesture = UITapGestureRecognizer(target: self, action: #selector(ChatViewController.thingMayAskTapped(_:)))
+        thingsTapGesture.numberOfTapsRequired = 1
+        floatingQuestionView.headerLabel?.addGestureRecognizer(thingsTapGesture)
+        floatingQuestionView.contentView?.isHidden = true
+
+        self.addTapGestureRecognizer(floatingQuestionView.firstInfoLabel ?? UILabel())
+        self.addTapGestureRecognizer(floatingQuestionView.secondInfoLabel ?? UILabel())
+        self.addTapGestureRecognizer(floatingQuestionView.thirdInfoLabel ?? UILabel())
+        self.addTapGestureRecognizer(floatingQuestionView.fourthInfoLabel ?? UILabel())
+
         messageInputBar.setRightStackViewWidthConstant(to: 120, animated: false)
         messageInputBar.setStackViewItems([messageInputBar.sendButton, audioButton, changeLanguageButton], forStack: .right, animated: false)
 
@@ -189,6 +212,18 @@ class ChatViewController: MessagesViewController, UIGestureRecognizerDelegate {
         self.initSFSpeechRecognizer()
     }
     
+    func addTapGestureRecognizer(_ label: UILabel) {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(ChatViewController.flyingLabelTapped(_:)))
+        tapGesture.delegate = self
+        label.addGestureRecognizer(tapGesture)
+    }
+
+    @objc func flyingLabelTapped(_ recognizer : UIGestureRecognizer) {
+        if let tappedlabel = recognizer.view as? UILabel, let text = tappedlabel.text, text != "" {
+            self.sendMessage(message: text)
+        }
+    }
+
     // MARK:- Configure CollectionView Delegates
 
     private func configureMessageCollectionView() {
@@ -848,6 +883,77 @@ extension ChatViewController: loadMoreActionDelegate {
         }
         let message = self.fetchedResultsController.object(at: indexPath)
         self.hitDB(body: message.body ?? "")
+    }
+    
+    @objc func thingMayAskTapped(_ recognizer: UIGestureRecognizer?) {
+        print("thingMayAskTapped")
+        messageInputBar.topStackView.removeArrangedSubview(floatingQuestionView)
+        NSLayoutConstraint.deactivate(messageInputBar.topStackView.constraints)
+        messageInputBar.topStackView.heightAnchor.constraint(equalToConstant: floatingQuestionViewFlag ? 50.0 : 325.0).isActive = true
+        floatingQuestionView.contentView?.isHidden = floatingQuestionViewFlag
+        messageInputBar.setStackViewItems([floatingQuestionView], forStack: .top, animated: false)
+        let thingsTapGesture = UITapGestureRecognizer(target: self, action: #selector(ChatViewController.thingMayAskTapped(_:)))
+        thingsTapGesture.numberOfTapsRequired = 1
+        floatingQuestionView.headerLabel?.addGestureRecognizer(thingsTapGesture)
+        messageInputBar.layoutStackViews()
+        floatingQuestionViewFlag = !floatingQuestionViewFlag
+    }
+}
+
+
+class FloatingView: UIView, InputItem {
+    
+    var inputBarAccessoryView: InputBarAccessoryView?
+    var parentStackViewPosition: InputStackView.Position?
+    
+    func textViewDidChangeAction(with textView: InputTextView) { }
+    func keyboardSwipeGestureAction(with gesture: UISwipeGestureRecognizer) { }
+    func keyboardEditingEndsAction() { }
+    func keyboardEditingBeginsAction() { }
+    
+    let thingsLabel: UILabel = UILabel()
+
+    let flyingView: UIView = UIView()
+
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        self.addCustomView()
+    }
+
+    required init(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    func addCustomView() {
+        
+        self.backgroundColor = UIColor.red
+
+        thingsLabel.frame = CGRect(x: 0, y: 15, width: self.frame.size.width, height: 21)
+        thingsLabel.backgroundColor=UIColor.green
+        thingsLabel.textAlignment = NSTextAlignment.center
+        thingsLabel.isUserInteractionEnabled = true
+        thingsLabel.text = "Things you may ask"
+        self.addSubview(thingsLabel)
+        
+        flyingView.frame = CGRect(x: 0, y: 50, width: self.frame.size.width, height: 200)
+        flyingView.backgroundColor=UIColor.red
+        flyingView.isHidden = true
+        self.addSubview(flyingView)
+        flyingView.clipsToBounds = true
+
+        self.heightConstaint?.constant = 50
+    }
+}
+
+
+extension UIView {
+    var heightConstaint: NSLayoutConstraint? {
+        get {
+            return constraints.first(where: {
+                $0.firstAttribute == .height && $0.relation == .equal
+            })
+        }
+        set { setNeedsLayout() }
     }
 }
 

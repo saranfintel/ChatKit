@@ -87,6 +87,10 @@
 		86B689A9244F5A5D009BEF0A /* ChatFrameworkLauncher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B689A8244F5A5C009BEF0A /* ChatFrameworkLauncher.swift */; };
 		86D2A8C924509912009FC488 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 86D2A8C824509912009FC488 /* Main.storyboard */; };
 		86D2A8EE2450A455009FC488 /* EvaWorkflowManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D2A8ED2450A454009FC488 /* EvaWorkflowManager.swift */; };
+		F04B684E245560140040E89A /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F04B684D245560140040E89A /* QuartzCore.framework */; };
+		F04B685624560C590040E89A /* SiriContentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F04B685224560C590040E89A /* SiriContentView.xib */; };
+		F04B685724560C590040E89A /* SwiftCarousel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F04B685424560C590040E89A /* SwiftCarousel.swift */; };
+		F04B685824560C590040E89A /* SiriContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F04B685524560C590040E89A /* SiriContentView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -188,6 +192,10 @@
 		86D2A8F72450B082009FC488 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		86D2A8F92450B0A8009FC488 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		86D2A8FD2450B0E7009FC488 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F04B684D245560140040E89A /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
+		F04B685224560C590040E89A /* SiriContentView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SiriContentView.xib; sourceTree = "<group>"; };
+		F04B685424560C590040E89A /* SwiftCarousel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftCarousel.swift; sourceTree = "<group>"; };
+		F04B685524560C590040E89A /* SiriContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SiriContentView.swift; sourceTree = "<group>"; };
 		F36389A33B2A2B571AEAAB0E /* Pods-ChatKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChatKit.debug.xcconfig"; path = "Target Support Files/Pods-ChatKit/Pods-ChatKit.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -196,6 +204,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F04B684E245560140040E89A /* QuartzCore.framework in Frameworks */,
 				0D2CDF0F5B031D30D7F5ED59 /* Pods_ChatKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -206,6 +215,7 @@
 		4FD6485CDC2F48D825EA0003 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F04B684D245560140040E89A /* QuartzCore.framework */,
 				86D2A8FD2450B0E7009FC488 /* Alamofire.framework */,
 				86D2A8F92450B0A8009FC488 /* Alamofire.framework */,
 				86D2A8F72450B082009FC488 /* Alamofire.framework */,
@@ -345,6 +355,7 @@
 		863671C924559B6400CCC7A1 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				F04B685324560C590040E89A /* CircularScrollView */,
 				86B688EB244F2B0E009BEF0A /* ChatCustomMessagesFlowLayout.swift */,
 				86B6893E244F2B0E009BEF0A /* ChatViewController.swift */,
 				86B6893F244F2B0E009BEF0A /* ChatViewController+CollectionViewDataSource.swift */,
@@ -544,6 +555,16 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		F04B685324560C590040E89A /* CircularScrollView */ = {
+			isa = PBXGroup;
+			children = (
+				F04B685524560C590040E89A /* SiriContentView.swift */,
+				F04B685224560C590040E89A /* SiriContentView.xib */,
+				F04B685424560C590040E89A /* SwiftCarousel.swift */,
+			);
+			path = CircularScrollView;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -631,6 +652,7 @@
 				86B6897C244F2B0E009BEF0A /* 2.json in Resources */,
 				8612FEDF2452CB7100B53183 /* ChatAccountCollectionViewCell.xib in Resources */,
 				8612FEDA2452CB7100B53183 /* ChatMessageCollectionViewCell.xib in Resources */,
+				F04B685624560C590040E89A /* SiriContentView.xib in Resources */,
 				86B6897B244F2B0E009BEF0A /* 1.json in Resources */,
 				86B6897E244F2B0E009BEF0A /* 4.json in Resources */,
 				86B68974244F2B0E009BEF0A /* Hello.gif in Resources */,
@@ -692,6 +714,7 @@
 				8612FEDB2452CB7100B53183 /* ChatMessageCollectionViewCell.swift in Sources */,
 				86B68950244F2B0E009BEF0A /* DateHelper.swift in Sources */,
 				86B6898A244F2B0F009BEF0A /* ChatDBUpdateOperation.swift in Sources */,
+				F04B685824560C590040E89A /* SiriContentView.swift in Sources */,
 				86B68992244F2B0F009BEF0A /* ChatViewController+FetchedResultsController.swift in Sources */,
 				86B68982244F2B0F009BEF0A /* Language.swift in Sources */,
 				86B68951244F2B0E009BEF0A /* ChatCustomMessagesFlowLayout.swift in Sources */,
@@ -721,6 +744,7 @@
 				86B6899C244F2D95009BEF0A /* ChatConstant.swift in Sources */,
 				86B6898C244F2B0F009BEF0A /* ChatDBMessageUpdateOperation.swift in Sources */,
 				86B68957244F2B0E009BEF0A /* ChatDBUnsentMessage+CoreDataClass.swift in Sources */,
+				F04B685724560C590040E89A /* SwiftCarousel.swift in Sources */,
 				86B68956244F2B0E009BEF0A /* ChatDBMessage+CoreDataProperties.swift in Sources */,
 				86B689A4244F421D009BEF0A /* JsonMapper.swift in Sources */,
 				86B68993244F2B0F009BEF0A /* ChatViewController+LoadMore.swift in Sources */,
