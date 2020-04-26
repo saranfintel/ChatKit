@@ -64,6 +64,13 @@ open class ChatFrameworkLauncher: NSObject, BaseFrameworkLauncher {
         return EMPTY_STRING
     }
     
+    class func fontSize() -> CGFloat {
+        if let chatData = UserDefaults.standard.object(forKey: "ChatData") as? JSONDictionary, let fontSize = chatData["fontSize"] as? CGFloat {
+            return fontSize
+        }
+        return 0.0
+    }
+    
     class func messageURL() -> String {
         return "user-query-v1/"
     }

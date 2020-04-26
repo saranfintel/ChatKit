@@ -17,14 +17,21 @@ open class CustomHorizontalStackCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var bubbleLabel: UILabel!
     @IBOutlet weak var scrollViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var dateLabel: UILabel?
-    @IBOutlet weak var receiverImageview: UIImageView!
+    @IBOutlet weak var avatarIcon: UIImageView!
+    @IBOutlet weak var avatarlabel: ChatLabel!
 
     var transactionResponse: Transactions? = nil
 
     override open func awakeFromNib() {
         super.awakeFromNib()
         bubbleWidthConstraint.constant = UIDevice().chatViewMaxWidth
-        receiverImageview.image = ChatSession.receiveIcon()
+        if let icon = ChatSession.receiveIcon() {
+            self.avatarIcon.image = icon
+            self.avatarIcon.isHidden = false
+        } else {
+            self.avatarlabel.text = ChatSession.receiveTitle()
+            self.avatarlabel.isHidden = false
+        }
     }
     
     func configureCell(message: ChatDBMessage) {

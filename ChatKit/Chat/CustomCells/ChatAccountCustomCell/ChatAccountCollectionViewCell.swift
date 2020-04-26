@@ -17,6 +17,8 @@ open class ChatAccountCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var loadMoreHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var dateLabel: UILabel?
+    @IBOutlet weak var avatarIcon: UIImageView!
+    @IBOutlet weak var avatarlabel: ChatLabel!
     @IBOutlet weak var receiverImageview: UIImageView!
     @IBOutlet weak var tableView: UITableView?
     @IBOutlet weak var bubbleWidthConstraint: NSLayoutConstraint!
@@ -32,7 +34,13 @@ open class ChatAccountCollectionViewCell: UICollectionViewCell {
     }
     
     func setUpViews() {
-        self.receiverImageview.image = ChatSession.receiveIcon()
+        if let icon = ChatSession.receiveIcon() {
+            self.avatarIcon.image = icon
+            self.avatarIcon.isHidden = false
+        } else {
+            self.avatarlabel.text = ChatSession.receiveTitle()
+            self.avatarlabel.isHidden = false
+        }
         self.tableView?.register(UINib(nibName: "ChatConnectedAccountCell", bundle: ChatWorkflowManager.bundle), forCellReuseIdentifier: "ChatConnectedAccountCell")
         self.tableView?.separatorColor = UIColor.colorFromHex(hexString: "#eaeaea")
         self.loadMoreButton.backgroundColor = ChatColor.appTheme()

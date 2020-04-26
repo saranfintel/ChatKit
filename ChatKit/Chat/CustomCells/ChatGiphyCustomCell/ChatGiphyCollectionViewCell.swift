@@ -16,12 +16,19 @@ open class ChatGiphyCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var bubbleView: ChatBubbleView!
     @IBOutlet weak var giphyButton: UIButton!
     @IBOutlet weak var dateLabel: UILabel!
-    @IBOutlet weak var receiverImageview: UIImageView!
-    
+    @IBOutlet weak var avatarIcon: UIImageView!
+    @IBOutlet weak var avatarlabel: ChatLabel!
+
     override open func awakeFromNib() {
         super.awakeFromNib()
         bubbleWidthConstraint.constant = UIDevice().chatViewMaxWidth
-        receiverImageview.image = ChatSession.receiveIcon()
+        if let icon = ChatSession.receiveIcon() {
+            self.avatarIcon.image = icon
+            self.avatarIcon.isHidden = false
+        } else {
+            self.avatarlabel.text = ChatSession.receiveTitle()
+            self.avatarlabel.isHidden = false
+        }
         self.imageView.kf.setImage(with: URL(string:"https://s3-us-west-2.amazonaws.com/fintellabs-apps/Images/Hello.gif"), placeholder: nil, options: nil, progressBlock: nil, completionHandler: {
             image, error, cacheType, imageURL in
             if let image = image {

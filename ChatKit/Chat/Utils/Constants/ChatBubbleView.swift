@@ -23,3 +23,16 @@ class ChatBubbleView: UIView {
         self.layer.masksToBounds = true
     }
 }
+
+class ChatAvatharView: UIView {
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        applyStyle()
+    }
+    
+    func applyStyle() {
+        self.backgroundColor = UIColor.clear
+        self.layer.cornerRadius = 15.0
+        self.layer.masksToBounds = true
+    }
+}

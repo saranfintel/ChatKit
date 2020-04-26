@@ -22,11 +22,11 @@ extension ChatViewController: MessagesDataSource {
     }
     
     func currentUser() -> MockUser {
-        return MockUser(senderId: "000000", displayName: ChatSession.receiveTitle())
+        return MockUser(senderId: "000000", displayName: ChatSession.senderTitle())
     }
     
     func anotherUser() -> MockUser {
-        return MockUser(senderId: "000001", displayName: ChatSession.senderTitle())
+        return MockUser(senderId: "000001", displayName: ChatSession.receiveTitle())
     }
     
     func getAvatarFor(sender: SenderType) -> Avatar {
