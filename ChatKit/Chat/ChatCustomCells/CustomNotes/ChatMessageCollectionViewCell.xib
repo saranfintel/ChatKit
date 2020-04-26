@@ -26,7 +26,7 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AppIcon" translatesAutoresizingMaskIntoConstraints="NO" id="307-pJ-4Em">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="307-pJ-4Em">
                         <rect key="frame" x="5" y="220" width="30" height="30"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="30" id="C6c-ca-2VA"/>
@@ -90,13 +90,10 @@
                 <outlet property="bubbleView" destination="EFH-c9-fKV" id="IMs-dO-nbB"/>
                 <outlet property="bubbleWidthConstraint" destination="Lre-5v-R01" id="K4b-t0-xi6"/>
                 <outlet property="dateLabel" destination="J0u-1r-ly7" id="c2V-gJ-oTW"/>
-                <outlet property="imgView" destination="307-pJ-4Em" id="vcF-d7-f51"/>
+                <outlet property="receiverImageview" destination="307-pJ-4Em" id="nme-2F-p1U"/>
                 <outlet property="textViewDisplayNotes" destination="DGg-sC-aPO" id="X8q-eQ-s5W"/>
             </connections>
             <point key="canvasLocation" x="442.02898550724643" y="140.625"/>
         </collectionViewCell>
     </objects>
-    <resources>
-        <image name="AppIcon" width="40" height="40"/>
-    </resources>
 </document>

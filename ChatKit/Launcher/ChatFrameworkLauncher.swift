@@ -15,7 +15,7 @@ public protocol BaseFrameworkLauncher {
 
     func launch(_ presentedViewController: UIViewController?)
     
-    func launchChat(parameters: JSONDictionary)
+    func launchChat(parameters: JSONDictionary, sender: UIImage?, receiver: UIImage?)
     
     func exitFramework()
 }
@@ -24,10 +24,16 @@ open class ChatFrameworkLauncher: NSObject, BaseFrameworkLauncher {
     
     public var callBackHandler: (([String : Any]) -> Void)?
         
-    public func launchChat(parameters: JSONDictionary) {
+    public func launchChat(parameters: JSONDictionary, sender: UIImage?, receiver: UIImage?) {
+        if let senderIcon = sender {
+            ChatSession.store(image: senderIcon, forKey: "sender", withStorageType: .fileSystem)
+        }
+        if let receiverIcon = receiver {
+            ChatSession.store(image: receiverIcon, forKey: "receiver", withStorageType: .fileSystem)
+        }
         UserDefaults.standard.set(parameters, forKey: "ChatData")
         UserDefaults.standard.synchronize()
-        ChatLaunchServiceHandler.sharedManager.launchChatView()
+    ChatWorkflowManager.sharedManager.performNavigationFor("ChatViewController", navType: NavType.model)
     }
     
     public func launch(_ presentedViewController: UIViewController?) {
@@ -37,52 +43,132 @@ open class ChatFrameworkLauncher: NSObject, BaseFrameworkLauncher {
     public func exitFramework() {
         
     }
+    
+
 }
 
 
- class ChatLaunchServiceHandler: NSObject {
+ class ChatSession {
     
-    open class var sharedManager: ChatLaunchServiceHandler {
-        struct Singleton {
-            static let instance = ChatLaunchServiceHandler()
-        }
-        return Singleton.instance
-    }
-
-    public func launchChatView() {
-        ChatWorkflowManager.sharedManager.performNavigationFor("ChatViewController", navType: NavType.model)
-    }
-
-    func baseURL() -> String {
+    class func baseURL() -> String {
         if let chatData = UserDefaults.standard.object(forKey: "ChatData") as? JSONDictionary, let baseURL = chatData["baseURL"] as? String {
             return baseURL
         }
         return EMPTY_STRING
     }
     
-    func title() -> String {
+    class func title() -> String {
         if let chatData = UserDefaults.standard.object(forKey: "ChatData") as? JSONDictionary, let title = chatData["title"] as? String {
             return title
         }
         return EMPTY_STRING
-
     }
     
-    func messageURL() -> String {
+    class func messageURL() -> String {
         return "user-query-v1/"
     }
     
-    func historyURL() -> String {
+    class func historyURL() -> String {
         return "chat/history/?page_size=20"
     }
     
-    func colorCode() -> String {
+    class func colorCode() -> String {
         if let chatData = UserDefaults.standard.object(forKey: "ChatData") as? JSONDictionary, let colorCode = chatData["colorCode"] as? String {
             return colorCode
         }
         return EMPTY_STRING
     }
+    
+    class func senderTitle() -> String {
+        if let chatData = UserDefaults.standard.object(forKey: "ChatData") as? JSONDictionary, let senderTitle = chatData["senderTitle"] as? String {
+            return senderTitle
+        }
+        return EMPTY_STRING
+    }
+    
+    class func receiveTitle() -> String {
+        if let chatData = UserDefaults.standard.object(forKey: "ChatData") as? JSONDictionary, let receiveTitle = chatData["receiveTitle"] as? String {
+            return receiveTitle
+        }
+        return EMPTY_STRING
+    }
+    
+    class func senderIcon() -> UIImage? {
+        if let image = self.retrieveImage(forKey: "sender", inStorageType: .fileSystem) {
+            return image
+        }
+        return nil
+    }
+    
+    class func receiveIcon() -> UIImage? {
+        if let image = self.retrieveImage(forKey: "receiver", inStorageType: .fileSystem) {
+            return image
+        }
+        return nil
+    }
 
+    class func filePath(forKey key: String) -> URL? {
+        let fileManager = FileManager.default
+        guard let documentURL = fileManager.urls(for: .documentDirectory,
+                                                in: FileManager.SearchPathDomainMask.userDomainMask).first else { return nil }
+        
+        return documentURL.appendingPathComponent(key + ".png")
+    }
+
+    class func store(image: UIImage,
+                        forKey key: String,
+                        withStorageType storageType: StorageType) {
+        if let pngRepresentation = image.pngData() {
+            switch storageType {
+            case .fileSystem:
+                if let filePath = filePath(forKey: key) {
+                    do  {
+                        try pngRepresentation.write(to: filePath,
+                                                    options: .atomic)
+                    } catch let err {
+                        print("Saving file resulted in error: ", err)
+                    }
+                }
+            case .userDefaults:
+                UserDefaults.standard.set(pngRepresentation,
+                                            forKey: key)
+            }
+        }
+    }
+
+    class func retrieveImage(forKey key: String,
+                                inStorageType storageType: StorageType) -> UIImage? {
+        switch storageType {
+        case .fileSystem:
+            if let filePath = self.filePath(forKey: key),
+                 let image = UIImage(contentsOfFile: filePath.path) {
+                return image
+            }
+        case .userDefaults:
+            if let imageData = UserDefaults.standard.object(forKey: key) as? Data,
+                let image = UIImage(data: imageData) {
+                return image
+            }
+        }
+        return nil
+    }
+    class func deleteImages() {
+        let documentsUrl =  FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+        do {
+            let fileURLs = try FileManager.default.contentsOfDirectory(at: documentsUrl,
+                                                                       includingPropertiesForKeys: nil,
+                                                                       options: [.skipsHiddenFiles, .skipsSubdirectoryDescendants])
+            for fileURL in fileURLs {
+                print("fileURL: \(fileURL)")
+                if fileURL.pathExtension == "png" {
+                    print("InsidefileURL: \(fileURL)")
+                    try FileManager.default.removeItem(at: fileURL)
+                }
+            }
+        } catch  { print(error) }
+    }
+
+    
 }
 
 extension UIViewController {

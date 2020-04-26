@@ -14,8 +14,6 @@ import UIKit
 let KEY_LAUNCH_TYPE                                       =   "launchType"
 let LAUNCH_TYPE_INSIGHTS                                  =   "insights"
 let KEY_SESSIONTOKEN                                      =   "SessionToken"
-let userImage   = "KrishUser"
-let senderImage = "AppIcon"
 let timeFormat   =  "h:mm a"
 let messageCount = "messageCount"
 let voiceLanguage = "voiceLanguage"
@@ -92,6 +90,11 @@ enum QueryType: String {
     case recordUserSession      =   "recordUserSession"
     case deleteAccount          =   "delete_account"
     case deleteUser             =   "delete_eva_account"
+}
+
+enum StorageType {
+    case userDefaults
+    case fileSystem
 }
 
 public let EMPTY_STRING = ""

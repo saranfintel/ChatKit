@@ -22,22 +22,20 @@ extension ChatViewController: MessagesDataSource {
     }
     
     func currentUser() -> MockUser {
-        return MockUser(senderId: "000000", displayName: ChatLaunchServiceHandler.sharedManager.title())
+        return MockUser(senderId: "000000", displayName: ChatSession.receiveTitle())
     }
     
     func anotherUser() -> MockUser {
-        return MockUser(senderId: "000001", displayName: ChatLaunchServiceHandler.sharedManager.title())
+        return MockUser(senderId: "000001", displayName: ChatSession.senderTitle())
     }
     
     func getAvatarFor(sender: SenderType) -> Avatar {
-        let firstName = sender.displayName.components(separatedBy: " ").first
-        let lastName = sender.displayName.components(separatedBy: " ").first
-        let initials = "\(firstName?.first ?? "A")\(lastName?.first ?? "A")"
+        let initials = sender.displayName
         switch sender.senderId {
+        case "000000":
+            return Avatar(image: ChatSession.senderIcon(), initials: initials)
         case "000001":
-            return Avatar(image: UIImage.init(named: "AppIcon", in: ChatWorkflowManager.bundle, compatibleWith: nil)!, initials: initials)
-        case "000002":
-            return Avatar(image: UIImage.init(named: "chatuser", in: ChatWorkflowManager.bundle, compatibleWith: nil)!, initials: initials)
+            return Avatar(image: ChatSession.receiveIcon(), initials: initials)
         default:
             return Avatar(image: nil, initials: initials)
         }

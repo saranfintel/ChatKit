@@ -15,13 +15,13 @@ open class VerticalStackViewiCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var bubbleView: ChatBubbleView!
 //    var transactionResponse: Transactions? = nil
     @IBOutlet weak var dateLabel: UILabel?
-    @IBOutlet weak var imgView: UIImageView?
+    @IBOutlet weak var receiverImageview: UIImageView!
 
 
     override open func awakeFromNib() {
         super.awakeFromNib()
         bubbleWidthConstraint.constant = UIDevice().chatViewMaxWidth
-        self.imgView?.image = UIImage.init(named: senderImage, in: ChatWorkflowManager.bundle, compatibleWith: nil)
+        receiverImageview.image = ChatSession.receiveIcon()
     }
 
     func configureCell(message: ChatDBMessage) {

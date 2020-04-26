@@ -55,7 +55,7 @@
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </view>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AppIcon" translatesAutoresizingMaskIntoConstraints="NO" id="R98-bq-Zpg">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="R98-bq-Zpg">
                         <rect key="frame" x="5" y="120" width="30" height="30"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="30" id="J7c-Qn-faE"/>
@@ -95,13 +95,10 @@
                 <outlet property="bubbleView" destination="sVO-ch-uKG" id="7k5-ql-1nV"/>
                 <outlet property="bubbleWidthConstraint" destination="EEz-JO-EcT" id="GEB-oC-KKA"/>
                 <outlet property="dateLabel" destination="Bqg-FZ-OdY" id="QQN-ma-g0O"/>
-                <outlet property="imgView" destination="R98-bq-Zpg" id="EnE-eD-kYX"/>
+                <outlet property="receiverImageview" destination="R98-bq-Zpg" id="Ka4-HC-hGL"/>
                 <outlet property="stackView" destination="B8d-t1-MjD" id="yBs-ls-JZ3"/>
             </connections>
             <point key="canvasLocation" x="442.02898550724643" y="140.625"/>
         </collectionViewCell>
     </objects>
-    <resources>
-        <image name="AppIcon" width="40" height="40"/>
-    </resources>
 </document>

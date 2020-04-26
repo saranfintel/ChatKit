@@ -12,7 +12,7 @@ class ChatColor: UIColor {
     
     // Blue
     class func appTheme() -> UIColor {
-        return UIColor.colorFromHex(hexString: ChatLaunchServiceHandler.sharedManager.colorCode())
+        return UIColor.colorFromHex(hexString: ChatSession.colorCode())
     }
     // Light Blue
     class func bubbleTheme() -> UIColor {

@@ -14,8 +14,7 @@ open class ChatMessageCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var bubbleView: ChatBubbleView!
     @IBOutlet weak var textViewDisplayNotes: UITextView?
     @IBOutlet weak var dateLabel: UILabel?
-    @IBOutlet weak var imgView: UIImageView?
-
+    @IBOutlet weak var receiverImageview: UIImageView!
 
     override open func awakeFromNib() {
         super.awakeFromNib()
@@ -23,8 +22,7 @@ open class ChatMessageCollectionViewCell: UICollectionViewCell {
         bubbleWidthConstraint.constant = UIDevice().chatViewMaxWidth
         textViewDisplayNotes?.isScrollEnabled = true
         self.textViewDisplayNotes?.font = UIFont.systemFont(ofSize: 17.0)
-        self.imgView?.image = UIImage.init(named: senderImage, in: ChatWorkflowManager.bundle, compatibleWith: nil)
-
+        receiverImageview.image = ChatSession.receiveIcon()
     }
     
     func configureCell(message: ChatDBMessage) {

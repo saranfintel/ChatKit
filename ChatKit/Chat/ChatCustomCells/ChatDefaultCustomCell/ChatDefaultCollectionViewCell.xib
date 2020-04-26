@@ -26,7 +26,7 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AppIcon" translatesAutoresizingMaskIntoConstraints="NO" id="4nr-vq-usb">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4nr-vq-usb">
                         <rect key="frame" x="0.0" y="70" width="30" height="30"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="30" id="YXs-wf-qdp"/>
@@ -75,11 +75,9 @@
                 <outlet property="bubbleView" destination="GDn-Kj-qRN" id="jTm-Bs-9B6"/>
                 <outlet property="bubbleWidthConstraint" destination="hPH-0x-Wva" id="wx4-tA-YFl"/>
                 <outlet property="dateLabel" destination="B4h-el-Atu" id="tH9-Ai-sFk"/>
+                <outlet property="receiverImageview" destination="4nr-vq-usb" id="DVW-7D-bTB"/>
             </connections>
             <point key="canvasLocation" x="139" y="110"/>
         </collectionViewCell>
     </objects>
-    <resources>
-        <image name="AppIcon" width="40" height="40"/>
-    </resources>
 </document>

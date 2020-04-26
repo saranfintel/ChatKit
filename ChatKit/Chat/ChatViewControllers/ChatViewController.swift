@@ -127,6 +127,7 @@ class ChatViewController: MessagesViewController, UIGestureRecognizerDelegate {
     }
     
     @IBAction func closeButtonClicked(_ sender: Any) {
+        ChatSession.deleteImages()
         self.dismiss(animated: true, completion: nil)
     }
     
@@ -157,7 +158,7 @@ class ChatViewController: MessagesViewController, UIGestureRecognizerDelegate {
     // MARK:- SetupView - ChatViewController Bottom menu (Type, Send, Audio controls)
 
     private func setupView() {
-        title = ChatLaunchServiceHandler.sharedManager.title()
+        title = ChatSession.title()
         messageInputBar.setRightStackViewWidthConstant(to: 120, animated: false)
         messageInputBar.setStackViewItems([messageInputBar.sendButton, audioButton, changeLanguageButton], forStack: .right, animated: false)
 

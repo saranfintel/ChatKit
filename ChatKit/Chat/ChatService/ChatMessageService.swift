@@ -19,7 +19,7 @@ class ChatMessageService: NSObject {
         ChatCoreDataManager.getUnsentMessage(withClientTempID: clientTempId, context: ChatCoreDataStack.sharedInstance.mainManagedObjectContext) { (object) in
             if let unsentMessage = object as? ChatDBUnsentMessage {
                 let parameters = unsentMessage.payload(clientTempId: clientTempId)
-                let url = ChatLaunchServiceHandler.sharedManager.baseURL() + ChatLaunchServiceHandler.sharedManager.messageURL()
+                let url = ChatSession.baseURL() + ChatSession.messageURL()
                 ChatBWService.request(url, method: .post, parameters: parameters) { (isSuccess, result, error) in
                     completionHandler(isSuccess, result, error)
                 }
@@ -28,7 +28,7 @@ class ChatMessageService: NSObject {
     }
     
     func getListMessages(messageID: Int16? = nil, completionHandler: @escaping ChatCompletionHandler) {
-        var url = ChatLaunchServiceHandler.sharedManager.baseURL() + ChatLaunchServiceHandler.sharedManager.historyURL()
+        var url = ChatSession.baseURL() + ChatSession.historyURL()
         if let id = messageID {
             url = "\(url)&message_id=\(id)"
         }
