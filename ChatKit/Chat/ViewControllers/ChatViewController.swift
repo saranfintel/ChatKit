@@ -59,6 +59,8 @@ class ChatViewController: MessagesViewController, UIGestureRecognizerDelegate {
     fileprivate var lastString = ""
     fileprivate var lastStringLength = 0
 
+    let typingBubble = TypingBubble(frame: CGRect(origin: .zero, size: CGSize(width: 80, height: 50)))
+
     var floatingQuestionViewFlag: Bool = false
     var floatingQuestionView: SiriContentView = {
         let myNewView = SiriContentView.instanceFromNib()
@@ -509,15 +511,16 @@ class ChatViewController: MessagesViewController, UIGestureRecognizerDelegate {
 
     fileprivate func createActivityIndicatorView() {
         additionalBottomInset = 0;
-        customView = UIView(frame: CGRect(x: self.view.frame.origin.x, y: messageInputBar.frame.origin.y, width: self.view.frame.size.width, height: 20))
+        customView = UIView(frame: CGRect(x: self.view.frame.origin.x, y: messageInputBar.frame.origin.y, width: self.view.frame.size.width, height: 50))
         customView?.backgroundColor = UIColor.clear
         messageInputBar.addSubview(customView ?? UIView())
-        let activityView = UIActivityIndicatorView(style: .whiteLarge)
-        activityView.frame = CGRect(x: self.view.frame.size.width - 70, y: -2, width: 30, height: 30)
-        activityView.color = ChatColor.appTheme()
-        activityView.transform = CGAffineTransform(scaleX: 0.7, y: 0.7)
-        activityView.startAnimating()
-        customView?.addSubview(activityView)
+        customView?.addSubview(typingBubble)
+        typingBubble.backgroundColor = .clear
+        typingBubble.center = CGPoint(x: self.view.frame.size.width - 75, y: 14)
+        typingBubble.typingIndicator.dotColor = UIColor.red
+        typingBubble.typingIndicator.isBounceEnabled = true
+        typingBubble.typingIndicator.isFadeEnabled = true
+        typingBubble.isPulseEnabled = true
         customView?.isHidden = true
     }
     
@@ -595,6 +598,11 @@ class ChatViewController: MessagesViewController, UIGestureRecognizerDelegate {
     fileprivate func showhideActivityIndicatorView(show: Bool) {
         messageInputBar.bringSubviewToFront(customView ?? UIView())
         customView?.isHidden = (show == true) ? false : true
+        if show {
+            typingBubble.startAnimating()
+        } else {
+            typingBubble.stopAnimating()
+        }
     }
     
     //MARK:-Collection View Cell Animation.
@@ -817,7 +825,9 @@ extension ChatViewController: InputBarAccessoryViewDelegate {
     }
 
     func sendMessage(message: String) {
-        self.showhideActivityIndicatorView(show: true)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+            self.showhideActivityIndicatorView(show: true)
+        }
         if let messageDict = ChatMessageDataModel.messagePayloadDictionary(forText: message) {
             ChatMessageDataModel.insertUnsentMessageToDB(fromMessageDetails: messageDict, completionHandler: { (isSuccess, resultt, error) in
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {
