@@ -6,7 +6,10 @@
 //  Copyright © 2020 saran. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
+#import "EvaCarouselItem.h"
+#import "EvaCarouselView.h"
+#import "ZCAnimatedLabel.h"
 
 //! Project version number for ChatKit.
 FOUNDATION_EXPORT double ChatKitVersionNumber;

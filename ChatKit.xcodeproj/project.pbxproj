@@ -11,6 +11,21 @@
 		86093F3C2456C807004B3952 /* Emoji.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86093F392456C807004B3952 /* Emoji.swift */; };
 		86093F3D2456C807004B3952 /* Emoji.h in Headers */ = {isa = PBXBuildFile; fileRef = 86093F3A2456C807004B3952 /* Emoji.h */; };
 		86093F3E2456C807004B3952 /* String+Emoji.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86093F3B2456C807004B3952 /* String+Emoji.swift */; };
+		86093F972456E186004B3952 /* WCLShineLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86093F912456E186004B3952 /* WCLShineLayer.swift */; };
+		86093F982456E186004B3952 /* WCLShineClickLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86093F922456E186004B3952 /* WCLShineClickLayer.swift */; };
+		86093F992456E186004B3952 /* WCLShineParams.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86093F932456E186004B3952 /* WCLShineParams.swift */; };
+		86093F9A2456E186004B3952 /* WCLShineButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86093F942456E186004B3952 /* WCLShineButton.swift */; };
+		86093F9C2456E186004B3952 /* WCLShineAngleLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86093F962456E186004B3952 /* WCLShineAngleLayer.swift */; };
+		86093F9D2456E345004B3952 /* EvaCarouselItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 86093F742456E073004B3952 /* EvaCarouselItem.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		86093F9F2456E354004B3952 /* EvaCarouselView.h in Headers */ = {isa = PBXBuildFile; fileRef = 86093F752456E073004B3952 /* EvaCarouselView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		86093FA02456E3C9004B3952 /* ZCAnimatedLabel.h in Headers */ = {isa = PBXBuildFile; fileRef = 86093F792456E073004B3952 /* ZCAnimatedLabel.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		86093FA12456E3CE004B3952 /* ZCCoreTextLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = 86093F7B2456E073004B3952 /* ZCCoreTextLayout.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		86093FA22456E3D4004B3952 /* ZCEasingUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = 86093F7E2456E073004B3952 /* ZCEasingUtil.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		86093FA42456E5D8004B3952 /* CardRecommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86093FA32456E5D8004B3952 /* CardRecommand.swift */; };
+		86093FA62456E64F004B3952 /* EvaInsetLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86093FA52456E64F004B3952 /* EvaInsetLabel.swift */; };
+		86093FAB2456EB9B004B3952 /* ChatCardRecommendHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86093FA82456EB9B004B3952 /* ChatCardRecommendHelper.swift */; };
+		86093FAC2456EB9B004B3952 /* ChatCardRecoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86093FA92456EB9B004B3952 /* ChatCardRecoCollectionViewCell.xib */; };
+		86093FAD2456EB9B004B3952 /* ChatCardRecoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86093FAA2456EB9B004B3952 /* ChatCardRecoCollectionViewCell.swift */; };
 		8612FED62452CB7100B53183 /* CustomHorizontalStackCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8612FEC32452CB7000B53183 /* CustomHorizontalStackCollectionViewCell.swift */; };
 		8612FED72452CB7100B53183 /* CustomHorizontalStackCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8612FEC42452CB7000B53183 /* CustomHorizontalStackCollectionViewCell.xib */; };
 		8612FED82452CB7100B53183 /* VerticalStackViewiCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8612FEC62452CB7000B53183 /* VerticalStackViewiCollectionViewCell.xib */; };
@@ -40,6 +55,14 @@
 		863671D82456AF8800CCC7A1 /* ChatTransactionInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 863671D42456AF8800CCC7A1 /* ChatTransactionInfoCell.xib */; };
 		863671D92456AF8800CCC7A1 /* ChatTransactionCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 863671D52456AF8800CCC7A1 /* ChatTransactionCollectionViewCell.xib */; };
 		863671DA2456AF8800CCC7A1 /* ChatTransactionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 863671D62456AF8800CCC7A1 /* ChatTransactionCollectionViewCell.swift */; };
+		86AF8A882456EE1800CB4991 /* ZCAnimatedLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 86093F7C2456E073004B3952 /* ZCAnimatedLabel.m */; };
+		86AF8A892456EE1F00CB4991 /* ZCEasingUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 86093F7A2456E073004B3952 /* ZCEasingUtil.m */; };
+		86AF8A8A2456EE2500CB4991 /* ZCCoreTextLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 86093F7D2456E073004B3952 /* ZCCoreTextLayout.m */; };
+		86AF8A8B2456EE2B00CB4991 /* EvaCarouselItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 86093F762456E073004B3952 /* EvaCarouselItem.m */; };
+		86AF8A8C2456EE2E00CB4991 /* EvaCarouselView.m in Sources */ = {isa = PBXBuildFile; fileRef = 86093F772456E073004B3952 /* EvaCarouselView.m */; };
+		86AF8A8D2456EEEE00CB4991 /* SwiftCarousel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86093F872456E073004B3952 /* SwiftCarousel.swift */; };
+		86AF8A8E2456EEF100CB4991 /* SiriContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86093F892456E073004B3952 /* SiriContentView.swift */; };
+		86AF8A8F2456EEF900CB4991 /* SiriContentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86093F882456E073004B3952 /* SiriContentView.xib */; };
 		86B688DF244DBE68009BEF0A /* ChatKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 86B688DD244DBE68009BEF0A /* ChatKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		86B6894F244F2B0E009BEF0A /* Date+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B688E8244F2B0E009BEF0A /* Date+Helper.swift */; };
 		86B68950244F2B0E009BEF0A /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B688E9244F2B0E009BEF0A /* DateHelper.swift */; };
@@ -95,9 +118,6 @@
 		86D2A8C924509912009FC488 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 86D2A8C824509912009FC488 /* Main.storyboard */; };
 		86D2A8EE2450A455009FC488 /* EvaWorkflowManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D2A8ED2450A454009FC488 /* EvaWorkflowManager.swift */; };
 		F04B684E245560140040E89A /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F04B684D245560140040E89A /* QuartzCore.framework */; };
-		F04B685624560C590040E89A /* SiriContentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F04B685224560C590040E89A /* SiriContentView.xib */; };
-		F04B685724560C590040E89A /* SwiftCarousel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F04B685424560C590040E89A /* SwiftCarousel.swift */; };
-		F04B685824560C590040E89A /* SiriContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F04B685524560C590040E89A /* SiriContentView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -119,6 +139,30 @@
 		86093F392456C807004B3952 /* Emoji.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Emoji.swift; sourceTree = "<group>"; };
 		86093F3A2456C807004B3952 /* Emoji.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Emoji.h; sourceTree = "<group>"; };
 		86093F3B2456C807004B3952 /* String+Emoji.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Emoji.swift"; sourceTree = "<group>"; };
+		86093F742456E073004B3952 /* EvaCarouselItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EvaCarouselItem.h; sourceTree = "<group>"; };
+		86093F752456E073004B3952 /* EvaCarouselView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EvaCarouselView.h; sourceTree = "<group>"; };
+		86093F762456E073004B3952 /* EvaCarouselItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EvaCarouselItem.m; sourceTree = "<group>"; };
+		86093F772456E073004B3952 /* EvaCarouselView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EvaCarouselView.m; sourceTree = "<group>"; };
+		86093F792456E073004B3952 /* ZCAnimatedLabel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZCAnimatedLabel.h; sourceTree = "<group>"; };
+		86093F7A2456E073004B3952 /* ZCEasingUtil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZCEasingUtil.m; sourceTree = "<group>"; };
+		86093F7B2456E073004B3952 /* ZCCoreTextLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZCCoreTextLayout.h; sourceTree = "<group>"; };
+		86093F7C2456E073004B3952 /* ZCAnimatedLabel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZCAnimatedLabel.m; sourceTree = "<group>"; };
+		86093F7D2456E073004B3952 /* ZCCoreTextLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZCCoreTextLayout.m; sourceTree = "<group>"; };
+		86093F7E2456E073004B3952 /* ZCEasingUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZCEasingUtil.h; sourceTree = "<group>"; };
+		86093F872456E073004B3952 /* SwiftCarousel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftCarousel.swift; sourceTree = "<group>"; };
+		86093F882456E073004B3952 /* SiriContentView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SiriContentView.xib; sourceTree = "<group>"; };
+		86093F892456E073004B3952 /* SiriContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SiriContentView.swift; sourceTree = "<group>"; };
+		86093F912456E186004B3952 /* WCLShineLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WCLShineLayer.swift; sourceTree = "<group>"; };
+		86093F922456E186004B3952 /* WCLShineClickLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WCLShineClickLayer.swift; sourceTree = "<group>"; };
+		86093F932456E186004B3952 /* WCLShineParams.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WCLShineParams.swift; sourceTree = "<group>"; };
+		86093F942456E186004B3952 /* WCLShineButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WCLShineButton.swift; sourceTree = "<group>"; };
+		86093F952456E186004B3952 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		86093F962456E186004B3952 /* WCLShineAngleLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WCLShineAngleLayer.swift; sourceTree = "<group>"; };
+		86093FA32456E5D8004B3952 /* CardRecommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardRecommand.swift; sourceTree = "<group>"; };
+		86093FA52456E64F004B3952 /* EvaInsetLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EvaInsetLabel.swift; sourceTree = "<group>"; };
+		86093FA82456EB9B004B3952 /* ChatCardRecommendHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatCardRecommendHelper.swift; sourceTree = "<group>"; };
+		86093FA92456EB9B004B3952 /* ChatCardRecoCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChatCardRecoCollectionViewCell.xib; sourceTree = "<group>"; };
+		86093FAA2456EB9B004B3952 /* ChatCardRecoCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatCardRecoCollectionViewCell.swift; sourceTree = "<group>"; };
 		8612FEC32452CB7000B53183 /* CustomHorizontalStackCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomHorizontalStackCollectionViewCell.swift; sourceTree = "<group>"; };
 		8612FEC42452CB7000B53183 /* CustomHorizontalStackCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomHorizontalStackCollectionViewCell.xib; sourceTree = "<group>"; };
 		8612FEC62452CB7000B53183 /* VerticalStackViewiCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VerticalStackViewiCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -207,9 +251,6 @@
 		86D2A8F92450B0A8009FC488 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		86D2A8FD2450B0E7009FC488 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F04B684D245560140040E89A /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
-		F04B685224560C590040E89A /* SiriContentView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SiriContentView.xib; sourceTree = "<group>"; };
-		F04B685424560C590040E89A /* SwiftCarousel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftCarousel.swift; sourceTree = "<group>"; };
-		F04B685524560C590040E89A /* SiriContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SiriContentView.swift; sourceTree = "<group>"; };
 		F36389A33B2A2B571AEAAB0E /* Pods-ChatKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChatKit.debug.xcconfig"; path = "Target Support Files/Pods-ChatKit/Pods-ChatKit.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -246,6 +287,75 @@
 				86093F3B2456C807004B3952 /* String+Emoji.swift */,
 			);
 			path = EmojiDisplay;
+			sourceTree = "<group>";
+		};
+		86093F722456E073004B3952 /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				86093FA52456E64F004B3952 /* EvaInsetLabel.swift */,
+				86093F902456E186004B3952 /* WCLShineButton */,
+				86093F732456E073004B3952 /* CarouselItem */,
+				86093F782456E073004B3952 /* CardRecAnimatedLabel */,
+				86093F862456E073004B3952 /* CircularScrollView */,
+			);
+			path = CustomViews;
+			sourceTree = "<group>";
+		};
+		86093F732456E073004B3952 /* CarouselItem */ = {
+			isa = PBXGroup;
+			children = (
+				86093F742456E073004B3952 /* EvaCarouselItem.h */,
+				86093F752456E073004B3952 /* EvaCarouselView.h */,
+				86093F762456E073004B3952 /* EvaCarouselItem.m */,
+				86093F772456E073004B3952 /* EvaCarouselView.m */,
+			);
+			path = CarouselItem;
+			sourceTree = "<group>";
+		};
+		86093F782456E073004B3952 /* CardRecAnimatedLabel */ = {
+			isa = PBXGroup;
+			children = (
+				86093F792456E073004B3952 /* ZCAnimatedLabel.h */,
+				86093F7A2456E073004B3952 /* ZCEasingUtil.m */,
+				86093F7B2456E073004B3952 /* ZCCoreTextLayout.h */,
+				86093F7C2456E073004B3952 /* ZCAnimatedLabel.m */,
+				86093F7D2456E073004B3952 /* ZCCoreTextLayout.m */,
+				86093F7E2456E073004B3952 /* ZCEasingUtil.h */,
+			);
+			path = CardRecAnimatedLabel;
+			sourceTree = "<group>";
+		};
+		86093F862456E073004B3952 /* CircularScrollView */ = {
+			isa = PBXGroup;
+			children = (
+				86093F872456E073004B3952 /* SwiftCarousel.swift */,
+				86093F882456E073004B3952 /* SiriContentView.xib */,
+				86093F892456E073004B3952 /* SiriContentView.swift */,
+			);
+			path = CircularScrollView;
+			sourceTree = "<group>";
+		};
+		86093F902456E186004B3952 /* WCLShineButton */ = {
+			isa = PBXGroup;
+			children = (
+				86093F912456E186004B3952 /* WCLShineLayer.swift */,
+				86093F922456E186004B3952 /* WCLShineClickLayer.swift */,
+				86093F932456E186004B3952 /* WCLShineParams.swift */,
+				86093F942456E186004B3952 /* WCLShineButton.swift */,
+				86093F952456E186004B3952 /* Info.plist */,
+				86093F962456E186004B3952 /* WCLShineAngleLayer.swift */,
+			);
+			path = WCLShineButton;
+			sourceTree = "<group>";
+		};
+		86093FA72456EB9B004B3952 /* CardRecoCustomCell */ = {
+			isa = PBXGroup;
+			children = (
+				86093FA82456EB9B004B3952 /* ChatCardRecommendHelper.swift */,
+				86093FA92456EB9B004B3952 /* ChatCardRecoCollectionViewCell.xib */,
+				86093FAA2456EB9B004B3952 /* ChatCardRecoCollectionViewCell.swift */,
+			);
+			path = CardRecoCustomCell;
 			sourceTree = "<group>";
 		};
 		8612FEC22452CB7000B53183 /* CustomHorizontalStackView */ = {
@@ -339,6 +449,7 @@
 				8622F1A924521446007B8209 /* TransactionDetails.swift */,
 				8612FEE42452F0DD00B53183 /* Account.swift */,
 				86B6892E244F2B0E009BEF0A /* Language.swift */,
+				86093FA32456E5D8004B3952 /* CardRecommand.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -357,7 +468,7 @@
 			children = (
 				86B6891A244F2B0E009BEF0A /* Hello.gif */,
 				86B68938244F2B0E009BEF0A /* Operations */,
-				86B68936244F2B0E009BEF0A /* Constants */,
+				86B68936244F2B0E009BEF0A /* Helper */,
 				86B68931244F2B0E009BEF0A /* ChatMessageKitClasses */,
 				86B68922244F2B0E009BEF0A /* MockJsons */,
 				86B6891E244F2B0E009BEF0A /* CoreDataStack */,
@@ -379,7 +490,6 @@
 		863671C924559B6400CCC7A1 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				F04B685324560C590040E89A /* CircularScrollView */,
 				86B688EB244F2B0E009BEF0A /* ChatCustomMessagesFlowLayout.swift */,
 				86B6893E244F2B0E009BEF0A /* ChatViewController.swift */,
 				86B6893F244F2B0E009BEF0A /* ChatViewController+CollectionViewDataSource.swift */,
@@ -397,6 +507,7 @@
 		863671CC24559BC200CCC7A1 /* CustomCells */ = {
 			isa = PBXGroup;
 			children = (
+				86093FA72456EB9B004B3952 /* CardRecoCustomCell */,
 				863671D22456AF8800CCC7A1 /* TransactionCustomCell */,
 				86B6894A244F2B0E009BEF0A /* HeaderAndFooterCells */,
 				8612FEE62452F3B700B53183 /* WelcomeStackView */,
@@ -437,9 +548,9 @@
 		86B688D0244DBE68009BEF0A = {
 			isa = PBXGroup;
 			children = (
-				8622F1A52451A45A007B8209 /* Resources */,
 				86B688DC244DBE68009BEF0A /* ChatKit */,
 				86B688DB244DBE68009BEF0A /* Products */,
+				8622F1A52451A45A007B8209 /* Resources */,
 				DA68D846DAEFE97EF4F2E4F9 /* Pods */,
 				4FD6485CDC2F48D825EA0003 /* Frameworks */,
 			);
@@ -469,6 +580,7 @@
 			isa = PBXGroup;
 			children = (
 				863671C924559B6400CCC7A1 /* ViewControllers */,
+				86093F722456E073004B3952 /* CustomViews */,
 				863671CC24559BC200CCC7A1 /* CustomCells */,
 				863671C824559B6400CCC7A1 /* ViewModels */,
 				863671C524559B6400CCC7A1 /* Models */,
@@ -523,7 +635,7 @@
 			path = ChatMessageKitClasses;
 			sourceTree = "<group>";
 		};
-		86B68936244F2B0E009BEF0A /* Constants */ = {
+		86B68936244F2B0E009BEF0A /* Helper */ = {
 			isa = PBXGroup;
 			children = (
 				86B689A3244F421D009BEF0A /* JsonMapper.swift */,
@@ -533,7 +645,7 @@
 				8612FEEB2452FCF500B53183 /* ChatBubbleView.swift */,
 				863671CE2455BBA500CCC7A1 /* ChatLabel.swift */,
 			);
-			path = Constants;
+			path = Helper;
 			sourceTree = "<group>";
 		};
 		86B68938244F2B0E009BEF0A /* Operations */ = {
@@ -592,16 +704,6 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		F04B685324560C590040E89A /* CircularScrollView */ = {
-			isa = PBXGroup;
-			children = (
-				F04B685524560C590040E89A /* SiriContentView.swift */,
-				F04B685224560C590040E89A /* SiriContentView.xib */,
-				F04B685424560C590040E89A /* SwiftCarousel.swift */,
-			);
-			path = CircularScrollView;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -609,8 +711,13 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				86093FA22456E3D4004B3952 /* ZCEasingUtil.h in Headers */,
+				86093F9F2456E354004B3952 /* EvaCarouselView.h in Headers */,
+				86093FA02456E3C9004B3952 /* ZCAnimatedLabel.h in Headers */,
 				86B688DF244DBE68009BEF0A /* ChatKit.h in Headers */,
+				86093F9D2456E345004B3952 /* EvaCarouselItem.h in Headers */,
 				86093F3D2456C807004B3952 /* Emoji.h in Headers */,
+				86093FA12456E3CE004B3952 /* ZCCoreTextLayout.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -677,6 +784,8 @@
 				86B68980244F2B0F009BEF0A /* Message.json in Resources */,
 				8612FEEA2452F3B700B53183 /* WelcomeStackView.xib in Resources */,
 				86B6897A244F2B0E009BEF0A /* 7.json in Resources */,
+				86AF8A8F2456EEF900CB4991 /* SiriContentView.xib in Resources */,
+				86093FAC2456EB9B004B3952 /* ChatCardRecoCollectionViewCell.xib in Resources */,
 				8612FEE12452CB7100B53183 /* ChatGiphyCollectionViewCell.xib in Resources */,
 				86B68997244F2B0F009BEF0A /* ChatSectionHeaderReusableView.xib in Resources */,
 				863671D92456AF8800CCC7A1 /* ChatTransactionCollectionViewCell.xib in Resources */,
@@ -692,7 +801,6 @@
 				863671D82456AF8800CCC7A1 /* ChatTransactionInfoCell.xib in Resources */,
 				8612FEDF2452CB7100B53183 /* ChatAccountCollectionViewCell.xib in Resources */,
 				8612FEDA2452CB7100B53183 /* ChatMessageCollectionViewCell.xib in Resources */,
-				F04B685624560C590040E89A /* SiriContentView.xib in Resources */,
 				86B6897B244F2B0E009BEF0A /* 1.json in Resources */,
 				86B6897E244F2B0E009BEF0A /* 4.json in Resources */,
 				86B68974244F2B0E009BEF0A /* Hello.gif in Resources */,
@@ -737,6 +845,7 @@
 				8612FEEC2452FCF500B53183 /* ChatBubbleView.swift in Sources */,
 				8612FED92452CB7100B53183 /* VerticalStackViewiCollectionViewCell.swift in Sources */,
 				8612FEE52452F0DD00B53183 /* Account.swift in Sources */,
+				86093FAB2456EB9B004B3952 /* ChatCardRecommendHelper.swift in Sources */,
 				86B68990244F2B0F009BEF0A /* CardPopupViewController.swift in Sources */,
 				863671DA2456AF8800CCC7A1 /* ChatTransactionCollectionViewCell.swift in Sources */,
 				86B68984244F2B0F009BEF0A /* Lorem.swift in Sources */,
@@ -744,9 +853,14 @@
 				86B6898B244F2B0F009BEF0A /* ChatEvaOperation.swift in Sources */,
 				86B68977244F2B0E009BEF0A /* ChatCoreDataManager.swift in Sources */,
 				86B68995244F2B0F009BEF0A /* ChatDataController.swift in Sources */,
+				86AF8A892456EE1F00CB4991 /* ZCEasingUtil.m in Sources */,
+				86093F9C2456E186004B3952 /* WCLShineAngleLayer.swift in Sources */,
 				86B6898D244F2B0F009BEF0A /* ChatViewController.swift in Sources */,
 				8612FEDC2452CB7100B53183 /* ChatConnectedAccountCell.swift in Sources */,
 				86B68958244F2B0E009BEF0A /* ChatBWService.swift in Sources */,
+				86AF8A8C2456EE2E00CB4991 /* EvaCarouselView.m in Sources */,
+				86093F9A2456E186004B3952 /* WCLShineButton.swift in Sources */,
+				86AF8A882456EE1800CB4991 /* ZCAnimatedLabel.m in Sources */,
 				8622F1A424516396007B8209 /* ChatKit.xcdatamodeld in Sources */,
 				86B6894F244F2B0E009BEF0A /* Date+Helper.swift in Sources */,
 				86B6898E244F2B0F009BEF0A /* ChatViewController+CollectionViewDataSource.swift in Sources */,
@@ -755,8 +869,8 @@
 				86B68996244F2B0F009BEF0A /* ChatMessageDataModel.swift in Sources */,
 				8612FEDB2452CB7100B53183 /* ChatMessageCollectionViewCell.swift in Sources */,
 				86B68950244F2B0E009BEF0A /* DateHelper.swift in Sources */,
+				86AF8A8D2456EEEE00CB4991 /* SwiftCarousel.swift in Sources */,
 				86B6898A244F2B0F009BEF0A /* ChatDBUpdateOperation.swift in Sources */,
-				F04B685824560C590040E89A /* SiriContentView.swift in Sources */,
 				86B68992244F2B0F009BEF0A /* ChatViewController+FetchedResultsController.swift in Sources */,
 				86B68982244F2B0F009BEF0A /* Language.swift in Sources */,
 				86B68951244F2B0E009BEF0A /* ChatCustomMessagesFlowLayout.swift in Sources */,
@@ -764,16 +878,22 @@
 				8612FEE92452F3B700B53183 /* WelcomeStackView.swift in Sources */,
 				8612FEDD2452CB7100B53183 /* ChatAccountCollectionViewCell.swift in Sources */,
 				86B68994244F2B0F009BEF0A /* ChatViewController+MessageCellDelegate.swift in Sources */,
+				86AF8A8B2456EE2B00CB4991 /* EvaCarouselItem.m in Sources */,
+				86093F992456E186004B3952 /* WCLShineParams.swift in Sources */,
+				86093F972456E186004B3952 /* WCLShineLayer.swift in Sources */,
 				86093F3C2456C807004B3952 /* Emoji.swift in Sources */,
 				8612FED62452CB7100B53183 /* CustomHorizontalStackCollectionViewCell.swift in Sources */,
+				86093FAD2456EB9B004B3952 /* ChatCardRecoCollectionViewCell.swift in Sources */,
 				86B68986244F2B0F009BEF0A /* MockMessage.swift in Sources */,
 				86B68999244F2B0F009BEF0A /* ChatSectionFooterReusableView.swift in Sources */,
 				863671CF2455BBA500CCC7A1 /* ChatLabel.swift in Sources */,
 				86B68954244F2B0E009BEF0A /* ChatDBMessage+CoreDataClass.swift in Sources */,
 				86B68955244F2B0E009BEF0A /* ChatDBUnsentMessage+CoreDataProperties.swift in Sources */,
 				86B68959244F2B0E009BEF0A /* ChatMessageService.swift in Sources */,
+				86AF8A8A2456EE2500CB4991 /* ZCCoreTextLayout.m in Sources */,
 				86B6899A244F2B0F009BEF0A /* ChatSectionHeaderReusableView.swift in Sources */,
 				863671CB24559B9200CCC7A1 /* ChatViewModel.swift in Sources */,
+				86093F982456E186004B3952 /* WCLShineClickLayer.swift in Sources */,
 				86B689A6244F4DD4009BEF0A /* String.swift in Sources */,
 				86B6898F244F2B0F009BEF0A /* CountryPopViewController.swift in Sources */,
 				86D2A8EE2450A455009FC488 /* EvaWorkflowManager.swift in Sources */,
@@ -788,11 +908,13 @@
 				86B6899C244F2D95009BEF0A /* ChatConstant.swift in Sources */,
 				86B6898C244F2B0F009BEF0A /* ChatDBMessageUpdateOperation.swift in Sources */,
 				86B68957244F2B0E009BEF0A /* ChatDBUnsentMessage+CoreDataClass.swift in Sources */,
-				F04B685724560C590040E89A /* SwiftCarousel.swift in Sources */,
 				86B68956244F2B0E009BEF0A /* ChatDBMessage+CoreDataProperties.swift in Sources */,
 				86B689A4244F421D009BEF0A /* JsonMapper.swift in Sources */,
+				86AF8A8E2456EEF100CB4991 /* SiriContentView.swift in Sources */,
 				86B68993244F2B0F009BEF0A /* ChatViewController+LoadMore.swift in Sources */,
+				86093FA62456E64F004B3952 /* EvaInsetLabel.swift in Sources */,
 				86B68987244F2B0F009BEF0A /* MockUser.swift in Sources */,
+				86093FA42456E5D8004B3952 /* CardRecommand.swift in Sources */,
 				8622F1AA24521446007B8209 /* TransactionDetails.swift in Sources */,
 				86B68988244F2B0F009BEF0A /* ChatUtils.swift in Sources */,
 			);

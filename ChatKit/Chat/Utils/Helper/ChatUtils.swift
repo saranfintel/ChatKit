@@ -11,7 +11,11 @@ import MessageKit
 
 
 struct ChatUtils {
-   
+    
+   static func getFont(of name: String,of size: CGFloat) -> UIFont {
+       return UIFont(name:name, size:size) ?? UIFont.systemFont(ofSize: size)
+   }
+
     public static func formatStaticText(text: String) -> NSAttributedString? {
         let attributedString = NSMutableAttributedString(string: text)
         //Add spacing 0.5
@@ -91,6 +95,23 @@ struct ChatUtils {
         //print(validDateString)
         return ", "+validDateString
     }
+    
+    //Card recommendation & display notes only... Don't use for others
+    public static func stringMediumFontFromHtml(string: String) -> NSAttributedString? {
+        if let data = string.data(using: String.Encoding.unicode, allowLossyConversion: true) {
+            let attrStr = try? NSMutableAttributedString(data: data, options: [ .documentType: NSAttributedString.DocumentType.html],documentAttributes: nil)
+            //FIX:- Later
+            //UIFont(name: AppDelegateManager.FONT_MEDIUM, size:17.0)!
+            attrStr?.addAttribute(NSAttributedString.Key.font, value: UIFont.systemFont(ofSize: 17.0, weight: .medium), range: attrStr?.string.fullrange() ?? NSMakeRange(0, 0))
+           //
+            attrStr?.addAttribute(NSAttributedString.Key.foregroundColor, value: ChatColor.chatDarkTheme() , range: attrStr?.string.fullrange() ?? NSMakeRange(0, 0))
+            //Add spacing 1.0
+            attrStr?.addAttribute(NSAttributedString.Key.kern, value: 1.0, range: attrStr?.string.fullrange() ?? NSMakeRange(0, 0))
+            return attrStr
+        }
+        return nil
+    }
+
         
 }
 

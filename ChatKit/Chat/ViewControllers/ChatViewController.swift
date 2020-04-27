@@ -140,6 +140,8 @@ class ChatViewController: MessagesViewController, UIGestureRecognizerDelegate {
         messagesCollectionView.register(UINib(nibName:"ChatTransactionCollectionViewCell",bundle: ChatWorkflowManager.bundle), forCellWithReuseIdentifier: "ChatTransactionCollectionViewCell")
         messagesCollectionView.register(UINib(nibName:"CustomHorizontalStackCollectionViewCell",bundle: ChatWorkflowManager.bundle), forCellWithReuseIdentifier: "CustomHorizontalStackCollectionViewCell")
         messagesCollectionView.register(UINib(nibName:"VerticalStackViewiCollectionViewCell",bundle: ChatWorkflowManager.bundle), forCellWithReuseIdentifier: "VerticalStackViewiCollectionViewCell")
+       
+        messagesCollectionView.register(UINib(nibName:"ChatCardRecoCollectionViewCell",bundle: ChatWorkflowManager.bundle), forCellWithReuseIdentifier: "ChatCardRecoCollectionViewCell")
         messagesCollectionView.register(UINib(nibName:"ChatDefaultCollectionViewCell",bundle: ChatWorkflowManager.bundle), forCellWithReuseIdentifier: "ChatDefaultCollectionViewCell")
         messagesCollectionView.register(UINib(nibName:"ChatGiphyCollectionViewCell",bundle: ChatWorkflowManager.bundle), forCellWithReuseIdentifier: "ChatGiphyCollectionViewCell")
         messagesCollectionView.register(UINib(nibName:"ChatMessageCollectionViewCell",bundle: ChatWorkflowManager.bundle), forCellWithReuseIdentifier: "ChatMessageCollectionViewCell")
@@ -650,6 +652,13 @@ class ChatViewController: MessagesViewController, UIGestureRecognizerDelegate {
                 case .messageWithAmountTransactions, .messageWithGraphTransactions, .messageWithBarTransactions, .messageWithPieTransactions, .accountTransactions, .messageWithTransaction:
                     //Transactions
                     guard let cell = messagesCollectionView.dequeueReusableCell(withReuseIdentifier: "ChatTransactionCollectionViewCell", for: indexPath) as? ChatTransactionCollectionViewCell else {
+                        return super.collectionView(collectionView, cellForItemAt: indexPath)
+                    }
+                    cell.configurationCell(message: messageDB)
+                    return cell
+                case .cardRecommendation:
+                    //Card Reco
+                    guard let cell = messagesCollectionView.dequeueReusableCell(withReuseIdentifier: "ChatCardRecoCollectionViewCell", for: indexPath) as? ChatCardRecoCollectionViewCell else {
                         return super.collectionView(collectionView, cellForItemAt: indexPath)
                     }
                     cell.configurationCell(message: messageDB)

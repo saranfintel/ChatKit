@@ -161,13 +161,14 @@ struct Transactions {
     var transactionDetails: [TransactionDetails] = []
     var suggestions: [Suggestions] = []
     var accounts: [Account] = []
+    var cardRecommands: [CardRecommand] = []
 }
 
 
 extension Transactions: Mappable {
     
     static func empty() -> Transactions {
-        return Transactions(transactionDetails: [], suggestions: [], accounts: [])
+        return Transactions(transactionDetails: [], suggestions: [], accounts: [], cardRecommands: [])
     }
     
     static func Map(_ json: JSONObject) -> Transactions? {
@@ -177,7 +178,8 @@ extension Transactions: Mappable {
         let transactionDetails: [TransactionDetails] = (d <-- "transactions") ?? []
         let suggestions: [Suggestions] = (d <-- "questionsList") ?? []
         let accounts : [Account] = (d <-- "account_data") ?? []
-        return Transactions(transactionDetails: transactionDetails, suggestions: suggestions, accounts: accounts)
+        let cardRecommands : [CardRecommand] = (d <-- "card_reco_data") ?? []
+        return Transactions(transactionDetails: transactionDetails, suggestions: suggestions, accounts: accounts, cardRecommands: cardRecommands)
     }
     
 }
