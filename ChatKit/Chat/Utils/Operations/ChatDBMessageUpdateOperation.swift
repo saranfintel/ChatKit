@@ -111,11 +111,11 @@ class ChatDBMessageUpdateOperation: DBUpdateOperation {
             messageVar.setValue(userID, forKey: "userID")
         }
         if let displayType = message["display_type"] as? String {
-            messageVar.setValue(getHeightValue(message: message, canShowSuggestions: canShowSuggestions, displayTypeName: displayType), forKey: "chatHeight")
             if self.operationType == .DetailsUpdate,
                  displayType == DisplayType.verticalQuestions.rawValue || displayType == DisplayType.horizontalQuestions.rawValue {
                     canShowSuggestions = true
             }
+            messageVar.setValue(getHeightValue(message: message, canShowSuggestions: canShowSuggestions, displayTypeName: displayType), forKey: "chatHeight")
             messageVar.setValue(canShowSuggestions, forKey: "canShowSuggestions")
             messageVar.setValue(displayType, forKey: "displayType")
         }
@@ -156,7 +156,9 @@ class ChatDBMessageUpdateOperation: DBUpdateOperation {
                 if let bodyStr = message["body"] as? String {
                     body = bodyStr
                 }
-                height = Double(body.calculateHeight() + (canShowSuggestions == true ? 75 : 40))
+                let stackViewHeight = canShowSuggestions == true ? 80 : 40
+                let bodyHeight = body.calculateHeight()
+                height = (Double(bodyHeight) + Double(stackViewHeight))
             case .verticalQuestions:
                 var body = ""
                 var count = 0

@@ -516,8 +516,8 @@ class ChatViewController: MessagesViewController, UIGestureRecognizerDelegate {
         messageInputBar.addSubview(customView ?? UIView())
         customView?.addSubview(typingBubble)
         typingBubble.backgroundColor = .clear
-        typingBubble.center = CGPoint(x: self.view.frame.size.width - 75, y: 14)
-        typingBubble.typingIndicator.dotColor = UIColor.red
+        typingBubble.center = CGPoint(x: 30, y: 14)
+        typingBubble.typingIndicator.dotColor = ChatColor.appTheme()
         typingBubble.typingIndicator.isBounceEnabled = true
         typingBubble.typingIndicator.isFadeEnabled = true
         typingBubble.isPulseEnabled = true

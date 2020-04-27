@@ -56,7 +56,7 @@ open class CustomHorizontalStackCollectionViewCell: UICollectionViewCell {
                 self.stackView.addArrangedSubview(welcomeStackView)
             }
         }
-        scrollViewHeightConstraint.constant = 35.0
+        scrollViewHeightConstraint.constant = 40.0
         self.updateConstraint()
     }
     
