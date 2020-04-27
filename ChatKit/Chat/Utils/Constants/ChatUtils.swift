@@ -33,12 +33,65 @@ struct ChatUtils {
         return attributedString
     }
 
+    public static func formatAmountWithFont(amount: String) -> NSAttributedString? {
+        let attributedString = NSMutableAttributedString(string: amount)
+        //Add spacing 1.0
+        attributedString.addAttribute(NSAttributedString.Key.kern, value: 1.0, range: NSMakeRange(0, amount.count))
+        //FIX:- Later
+        //UIFont(name: AppDelegateManager.FONT_LIGHT, size:15.0)!
+        attributedString.addAttribute(NSAttributedString.Key.font, value: UIFont.systemFont(ofSize: 15.0, weight: .light), range: attributedString.string.fullrange() )
+        
+        return attributedString
+    }
+    
+    public static func formatAmountWithBoldFont(amount: String) -> NSAttributedString? {
+        let attributedString = NSMutableAttributedString(string: amount)
+        //Add spacing 1.0
+        attributedString.addAttribute(NSAttributedString.Key.kern, value: 1.0, range: NSMakeRange(0, amount.count))
+        //FIX:- Later
+        //UIFont(name:AppDelegateManager.FONT_BOLD, size:15.0)!
+        attributedString.addAttribute(NSAttributedString.Key.font, value: UIFont.systemFont(ofSize: 15.0, weight: .bold) , range: attributedString.string.fullrange() )
+        return attributedString
+    }
+
     static func getNumberFormatter(value: Double) -> String {
         let amount = value as NSNumber
         let formatter = NumberFormatter()
         formatter.numberStyle = .currency
         return formatter.string(from: amount) ?? EMPTY_STRING
     }
+    
+    static func getCategoryDisplayName(_ category0: String, _ category1: String, _ category2: String) -> String {
+        var categoryName = EMPTY_STRING
+        categoryName = categoryName + (category0.count > 0 ? category0 : EMPTY_STRING)
+        categoryName = categoryName + (category1.count > 0 ? ", " + category1 : EMPTY_STRING)
+        categoryName = categoryName + (category2.count > 0 ? ", " + category2 : EMPTY_STRING)
+        
+        return categoryName
+    }
+    
+    static func getDayOfWeek(_ date: String) -> String? {
+        let formatter  = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        guard let date = formatter.date(from: date) else { return nil }
+        let format = DateFormatter()
+        format.dateFormat = "EEE"
+        return format.string(from: date)
+    }
+    
+    static func convertToDateString(_ dateString: String) -> String {
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        guard let date = dateFormatter.date(from:dateString) else {
+            return ""
+        }
+        dateFormatter.dateFormat = "MMM dd, yyyy"
+        let validDateString = dateFormatter.string(from:date as Date)
+        //print(validDateString)
+        return ", "+validDateString
+    }
+        
 }
 
 extension ChatUtils {

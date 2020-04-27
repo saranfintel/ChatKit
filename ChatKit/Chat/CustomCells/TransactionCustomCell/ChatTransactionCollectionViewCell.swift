@@ -1,5 +1,5 @@
 //
-//  ChatAccountCollectionViewCell.swift
+//  ChatTransactionCollectionViewCell.swift
 //  ChatApp
 //
 //  Created by pooma on 12/23/18.
@@ -9,25 +9,20 @@
 import UIKit
 import MessageKit
 
-protocol loadMoreActionDelegate: class {
-  func loadmoreButtonPressed(_ cell: UICollectionViewCell)
-}
-
-open class ChatAccountCollectionViewCell: UICollectionViewCell {
+open class ChatTransactionCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var loadMoreHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var bubbleWidthConstraint: NSLayoutConstraint!
+    @IBOutlet weak var bubbleView: ChatBubbleView!
     @IBOutlet weak var dateLabel: UILabel?
     @IBOutlet weak var avatarIcon: UIImageView!
     @IBOutlet weak var avatarlabel: ChatLabel!
-    @IBOutlet weak var receiverImageview: UIImageView!
     @IBOutlet weak var tableView: UITableView?
-    @IBOutlet weak var bubbleWidthConstraint: NSLayoutConstraint!
-    @IBOutlet weak var bubbleView: ChatBubbleView!
-    @IBOutlet weak var loadMoreButton: UIButton!
-    
-    var transactionResponse: Transactions? = nil
-    weak var delegate: loadMoreActionDelegate?
+    @IBOutlet weak var loadMoreButton: UIButton?
 
+    var transactionResponse: Transactions? = nil
+    var displayType: String = ""
+    
     override open func awakeFromNib() {
         super.awakeFromNib()
         setUpViews()
@@ -41,9 +36,9 @@ open class ChatAccountCollectionViewCell: UICollectionViewCell {
             self.avatarlabel.text = ChatSession.receiveTitle()
             self.avatarlabel.isHidden = false
         }
-        self.tableView?.register(UINib(nibName: "ChatConnectedAccountCell", bundle: ChatWorkflowManager.bundle), forCellReuseIdentifier: "ChatConnectedAccountCell")
+        loadMoreButton?.backgroundColor = ChatColor.appTheme()
+        self.tableView?.register(UINib(nibName: "ChatTransactionInfoCell", bundle: ChatWorkflowManager.bundle), forCellReuseIdentifier: "ChatTransactionInfoCell")
         self.tableView?.separatorColor = UIColor.colorFromHex(hexString: "#eaeaea")
-        self.loadMoreButton.backgroundColor = ChatColor.appTheme()
     }
     
     func configurationCell(message: ChatDBMessage) {
@@ -52,25 +47,25 @@ open class ChatAccountCollectionViewCell: UICollectionViewCell {
         }
         dateLabel?.text = message.postedAt?.dateToTimeFormat(withFormat: timeFormat)
         transactionResponse = Transactions.Map(transactionsMessage)
-        let count = transactionResponse?.accounts.count ?? 0
+        let count = transactionResponse?.transactionDetails.count ?? 0
         loadMoreHeightConstraint.constant = CGFloat(count > 3 ? LOAD_MORE_HEIGHT : 0)
         self.tableView?.reloadData()
     }
     
     @IBAction func loadMoreButtonClicked(_ sender: Any) {
-        self.delegate?.loadmoreButtonPressed(self)
+        
     }
     
     deinit {
         print("ChatAccountCollectionViewCell deinit")
-        delegate = nil
         transactionResponse = nil
     }
+
 }
 
-extension ChatAccountCollectionViewCell: UITableViewDataSource, UITableViewDelegate {
+extension ChatTransactionCollectionViewCell: UITableViewDataSource, UITableViewDelegate {
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let count = transactionResponse?.accounts.count ?? 0
+        let count = transactionResponse?.transactionDetails.count ?? 0
         if count > 2 {
             return 3
         }
@@ -78,19 +73,16 @@ extension ChatAccountCollectionViewCell: UITableViewDataSource, UITableViewDeleg
     }
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = self.tableView?.dequeueReusableCell(withIdentifier: "ChatConnectedAccountCell") as? ChatConnectedAccountCell, let account = transactionResponse?.accounts[indexPath.row] else {
+        guard let cell = self.tableView?.dequeueReusableCell(withIdentifier: "ChatTransactionInfoCell") as? ChatTransactionInfoCell, let transactionDetails = transactionResponse?.transactionDetails[indexPath.row] else {
             return UITableViewCell()
         }
-        cell.selectionStyle = .none
-        cell.updateCellValues(at: indexPath, account: account)
+        cell.updateCellValues(at: indexPath,transactions: transactionDetails, displayType: displayType)
         return cell
     }
     
     public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return CGFloat(CELL_HEIGHT)
     }
-    public func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-        return CGFloat(CELL_HEIGHT)
-    }
 }
+
 

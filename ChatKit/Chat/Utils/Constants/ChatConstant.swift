@@ -23,7 +23,8 @@ let timeoutForSendingMessages = 15.0
 let kMessageThreshold = 20
 let kTimeDifferenceAllowedForClubbingMessages : TimeInterval = 120
 let kLoadingCellTag = 200
-
+let CELL_HEIGHT  = 100.0
+let LOAD_MORE_HEIGHT =  40.0
 typealias FetchCompletionHandler = (_ object: NSManagedObject?) -> Void
 typealias FetchObjectsCompletionHandler = (_ object: [NSManagedObject]?) -> Void
 typealias ChatCompletionHandler = (_ success: Bool, _ result: Any?, _ error: NSError?) -> Void

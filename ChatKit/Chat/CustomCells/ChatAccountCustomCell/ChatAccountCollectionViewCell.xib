@@ -20,12 +20,12 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BSs-WE-h3T" customClass="ChatBubbleView" customModule="ChatKit" customModuleProvider="target">
                         <rect key="frame" x="36" y="0.0" width="356" height="340"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="X19-Iw-EN5">
-                                <rect key="frame" x="0.0" y="0.0" width="356" height="308"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="AcB-Ge-QjE">
+                                <rect key="frame" x="0.0" y="0.0" width="356" height="300"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <connections>
-                                    <outlet property="dataSource" destination="gTV-IL-0wX" id="iKR-DL-uwC"/>
-                                    <outlet property="delegate" destination="gTV-IL-0wX" id="TsP-A6-tUn"/>
+                                    <outlet property="dataSource" destination="gTV-IL-0wX" id="wMC-X0-3Jo"/>
+                                    <outlet property="delegate" destination="gTV-IL-0wX" id="JuP-MI-15G"/>
                                 </connections>
                             </tableView>
                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NTa-fo-R0Y">
@@ -44,17 +44,17 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="NTa-fo-R0Y" firstAttribute="top" secondItem="X19-Iw-EN5" secondAttribute="bottom" constant="-8" id="1zi-pW-EG3"/>
-                            <constraint firstItem="X19-Iw-EN5" firstAttribute="leading" secondItem="BSs-WE-h3T" secondAttribute="leading" id="4qs-7X-mH6"/>
+                            <constraint firstItem="AcB-Ge-QjE" firstAttribute="leading" secondItem="BSs-WE-h3T" secondAttribute="leading" id="0h1-Dg-bsa"/>
+                            <constraint firstAttribute="trailing" secondItem="AcB-Ge-QjE" secondAttribute="trailing" id="7nU-Te-fdU"/>
                             <constraint firstAttribute="trailing" secondItem="NTa-fo-R0Y" secondAttribute="trailing" id="GSN-bF-J69"/>
-                            <constraint firstAttribute="trailing" secondItem="X19-Iw-EN5" secondAttribute="trailing" id="IrK-FX-Lg7"/>
                             <constraint firstAttribute="bottom" secondItem="NTa-fo-R0Y" secondAttribute="bottom" id="WVA-4A-JKD"/>
+                            <constraint firstItem="AcB-Ge-QjE" firstAttribute="top" secondItem="BSs-WE-h3T" secondAttribute="top" id="Yyq-Nb-BYe"/>
                             <constraint firstItem="NTa-fo-R0Y" firstAttribute="leading" secondItem="BSs-WE-h3T" secondAttribute="leading" id="ZVZ-GL-pBq"/>
-                            <constraint firstItem="X19-Iw-EN5" firstAttribute="top" secondItem="BSs-WE-h3T" secondAttribute="top" id="vmh-KC-wsQ"/>
+                            <constraint firstItem="NTa-fo-R0Y" firstAttribute="top" secondItem="AcB-Ge-QjE" secondAttribute="bottom" id="s3K-LZ-WjE"/>
                         </constraints>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10:06PM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vpo-92-LSJ">
-                        <rect key="frame" x="40" y="339" width="387" height="20"/>
+                        <rect key="frame" x="40" y="340" width="387" height="20"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="20" id="E7o-FZ-dSn"/>
                         </constraints>
@@ -63,7 +63,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Km-t0-Jwf" customClass="ChatAvatharView" customModule="ChatKit" customModuleProvider="target">
-                        <rect key="frame" x="2" y="329" width="30" height="30"/>
+                        <rect key="frame" x="2" y="330" width="30" height="30"/>
                         <subviews>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XQL-Kh-IsK" customClass="ChatLabel" customModule="ChatKit" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
@@ -101,10 +101,11 @@
                 <constraint firstItem="Vpo-92-LSJ" firstAttribute="leading" secondItem="BSs-WE-h3T" secondAttribute="leading" constant="4" id="7es-Jl-xej"/>
                 <constraint firstAttribute="trailing" secondItem="Vpo-92-LSJ" secondAttribute="trailing" constant="5" id="8TB-sm-uYa"/>
                 <constraint firstAttribute="trailing" secondItem="BSs-WE-h3T" secondAttribute="trailing" constant="40" id="U9f-qv-7lR"/>
+                <constraint firstAttribute="bottom" secondItem="Vpo-92-LSJ" secondAttribute="bottom" id="aJo-b2-Vmt"/>
                 <constraint firstItem="1Km-t0-Jwf" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="2" id="afd-GW-Yyd"/>
                 <constraint firstItem="BSs-WE-h3T" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="h5e-Bd-UF0"/>
-                <constraint firstItem="Vpo-92-LSJ" firstAttribute="bottom" secondItem="oFq-wt-cJ1" secondAttribute="bottom" id="ngg-Jl-kVL"/>
-                <constraint firstAttribute="bottom" secondItem="1Km-t0-Jwf" secondAttribute="bottom" constant="1" id="tbi-XG-PdK"/>
+                <constraint firstItem="Vpo-92-LSJ" firstAttribute="top" secondItem="BSs-WE-h3T" secondAttribute="bottom" id="n25-Rz-Wd3"/>
+                <constraint firstAttribute="bottom" secondItem="1Km-t0-Jwf" secondAttribute="bottom" id="tbi-XG-PdK"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="432" height="360"/>
@@ -116,7 +117,7 @@
                 <outlet property="loadMoreButton" destination="NTa-fo-R0Y" id="0KW-WQ-NZ5"/>
                 <outlet property="loadMoreHeightConstraint" destination="iK2-wi-yzD" id="nEb-VG-Yhe"/>
                 <outlet property="receiverImageview" destination="oFq-wt-cJ1" id="Euc-XV-aZT"/>
-                <outlet property="tableView" destination="X19-Iw-EN5" id="UWf-qK-en2"/>
+                <outlet property="tableView" destination="AcB-Ge-QjE" id="BYS-so-jxr"/>
             </connections>
             <point key="canvasLocation" x="754" y="163"/>
         </collectionViewCell>

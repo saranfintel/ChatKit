@@ -136,17 +136,17 @@ class ChatDBMessageUpdateOperation: DBUpdateOperation {
         if let displayType: DisplayType = DisplayType(rawValue: displayTypeName) {
             switch displayType {
             case .accountsWithOutstandingRed, .accountsWithUtilizationRed, .accountsWithGreen, .accountsWithPayoffOrange:
-                var count = 0
+                var count: Double = 0.0
                 if let kindDict = message["kind"] as? [String: Any], let accountsList = kindDict["account_data"] as? [[String: Any]] {
-                    count = accountsList.count
+                    count = Double(accountsList.count)
                 }
-                height = Double( count > 3 ? (340) : (count * 100))
+                height = Double(count > 3 ? ((3 * CELL_HEIGHT) + LOAD_MORE_HEIGHT) : (count * CELL_HEIGHT)) + 20.0
             case .messageWithAmountTransactions, .messageWithGraphTransactions, .messageWithBarTransactions, .messageWithPieTransactions, .accountTransactions, .messageWithTransaction:
-                var count = 0
+                var count: Double = 0.0
                 if let kindDict = message["kind"] as? [String: Any], let transcationList = kindDict["transactions"] as? [[String: Any]] {
-                    count = transcationList.count
+                    count = Double(transcationList.count)
                 }
-                height = Double( count > 3 ? (340) : (count * 110))
+                height = Double(count > 3 ? ((3 * CELL_HEIGHT) + LOAD_MORE_HEIGHT) : (count * CELL_HEIGHT)) + 20.0
             case .messageWithPieChart, .messageWithChart:
                 height = 300.0
             case .cardRecommendation:

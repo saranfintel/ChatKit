@@ -136,9 +136,9 @@ class ChatViewController: MessagesViewController, UIGestureRecognizerDelegate {
     private func setupCollectionViewCell() {
         
         messagesCollectionView = MessagesCollectionView(frame: .zero, collectionViewLayout: ChatCustomMessagesFlowLayout())
-       
-      messagesCollectionView.register(UINib(nibName:"ChatAccountCollectionViewCell",bundle: ChatWorkflowManager.bundle), forCellWithReuseIdentifier: "ChatAccountCollectionViewCell")
-       messagesCollectionView.register(UINib(nibName:"CustomHorizontalStackCollectionViewCell",bundle: ChatWorkflowManager.bundle), forCellWithReuseIdentifier: "CustomHorizontalStackCollectionViewCell")
+        messagesCollectionView.register(UINib(nibName:"ChatAccountCollectionViewCell",bundle: ChatWorkflowManager.bundle), forCellWithReuseIdentifier: "ChatAccountCollectionViewCell")
+        messagesCollectionView.register(UINib(nibName:"ChatTransactionCollectionViewCell",bundle: ChatWorkflowManager.bundle), forCellWithReuseIdentifier: "ChatTransactionCollectionViewCell")
+        messagesCollectionView.register(UINib(nibName:"CustomHorizontalStackCollectionViewCell",bundle: ChatWorkflowManager.bundle), forCellWithReuseIdentifier: "CustomHorizontalStackCollectionViewCell")
         messagesCollectionView.register(UINib(nibName:"VerticalStackViewiCollectionViewCell",bundle: ChatWorkflowManager.bundle), forCellWithReuseIdentifier: "VerticalStackViewiCollectionViewCell")
         messagesCollectionView.register(UINib(nibName:"ChatDefaultCollectionViewCell",bundle: ChatWorkflowManager.bundle), forCellWithReuseIdentifier: "ChatDefaultCollectionViewCell")
         messagesCollectionView.register(UINib(nibName:"ChatGiphyCollectionViewCell",bundle: ChatWorkflowManager.bundle), forCellWithReuseIdentifier: "ChatGiphyCollectionViewCell")
@@ -647,6 +647,13 @@ class ChatViewController: MessagesViewController, UIGestureRecognizerDelegate {
                     cell.delegate = self
                     cell.configurationCell(message: messageDB)
                     return cell
+                case .messageWithAmountTransactions, .messageWithGraphTransactions, .messageWithBarTransactions, .messageWithPieTransactions, .accountTransactions, .messageWithTransaction:
+                    //Transactions
+                    guard let cell = messagesCollectionView.dequeueReusableCell(withReuseIdentifier: "ChatTransactionCollectionViewCell", for: indexPath) as? ChatTransactionCollectionViewCell else {
+                        return super.collectionView(collectionView, cellForItemAt: indexPath)
+                    }
+                    cell.configurationCell(message: messageDB)
+                    return cell
                 case .horizontalQuestions:
                     guard let cell = messagesCollectionView.dequeueReusableCell(withReuseIdentifier: "CustomHorizontalStackCollectionViewCell", for: indexPath) as? CustomHorizontalStackCollectionViewCell else {
                         return super.collectionView(collectionView, cellForItemAt: indexPath)
@@ -932,9 +939,7 @@ class FloatingView: UIView, InputItem {
     }
     
     func addCustomView() {
-        
-        self.backgroundColor = UIColor.red
-
+        self.backgroundColor = ChatColor.appTheme()
         thingsLabel.frame = CGRect(x: 0, y: 15, width: self.frame.size.width, height: 21)
         thingsLabel.backgroundColor=UIColor.green
         thingsLabel.textAlignment = NSTextAlignment.center
@@ -943,7 +948,7 @@ class FloatingView: UIView, InputItem {
         self.addSubview(thingsLabel)
         
         flyingView.frame = CGRect(x: 0, y: 50, width: self.frame.size.width, height: 200)
-        flyingView.backgroundColor=UIColor.red
+        flyingView.backgroundColor = ChatColor.appTheme()
         flyingView.isHidden = true
         self.addSubview(flyingView)
         flyingView.clipsToBounds = true

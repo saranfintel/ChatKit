@@ -57,6 +57,7 @@ class ChatBWService: NSObject {
             default:
                 print("unknown error \(httpResponse.statusCode)")
             }
+            print("response.result.value: \(response.result.value)")
             completionHandler(isSuccess, response.result.value as AnyObject?, response.error as NSError?)
         }
     }
