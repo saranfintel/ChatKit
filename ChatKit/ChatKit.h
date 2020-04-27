@@ -10,6 +10,8 @@
 #import "EvaCarouselItem.h"
 #import "EvaCarouselView.h"
 #import "ZCAnimatedLabel.h"
+#import "VBPieChart.h"
+#import "UIColor+HexColor.h"
 
 //! Project version number for ChatKit.
 FOUNDATION_EXPORT double ChatKitVersionNumber;

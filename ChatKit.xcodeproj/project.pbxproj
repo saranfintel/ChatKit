@@ -63,6 +63,16 @@
 		86AF8A8D2456EEEE00CB4991 /* SwiftCarousel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86093F872456E073004B3952 /* SwiftCarousel.swift */; };
 		86AF8A8E2456EEF100CB4991 /* SiriContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86093F892456E073004B3952 /* SiriContentView.swift */; };
 		86AF8A8F2456EEF900CB4991 /* SiriContentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86093F882456E073004B3952 /* SiriContentView.xib */; };
+		86AF8A9824570E3200CB4991 /* VBPieChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 86AF8A9124570E3200CB4991 /* VBPieChart.m */; };
+		86AF8A9924570E3200CB4991 /* VBPiePiece.m in Sources */ = {isa = PBXBuildFile; fileRef = 86AF8A9224570E3200CB4991 /* VBPiePiece.m */; };
+		86AF8A9A24570E3200CB4991 /* VBPiePiece_private.h in Headers */ = {isa = PBXBuildFile; fileRef = 86AF8A9324570E3200CB4991 /* VBPiePiece_private.h */; };
+		86AF8A9B24570E3200CB4991 /* UIColor+HexColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 86AF8A9424570E3200CB4991 /* UIColor+HexColor.m */; };
+		86AF8A9C24570E3200CB4991 /* VBPiePiece.h in Headers */ = {isa = PBXBuildFile; fileRef = 86AF8A9524570E3200CB4991 /* VBPiePiece.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		86AF8A9D24570E3200CB4991 /* VBPieChart.h in Headers */ = {isa = PBXBuildFile; fileRef = 86AF8A9624570E3200CB4991 /* VBPieChart.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		86AF8A9E24570E3200CB4991 /* UIColor+HexColor.h in Headers */ = {isa = PBXBuildFile; fileRef = 86AF8A9724570E3200CB4991 /* UIColor+HexColor.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		86AF8AA224570EAD00CB4991 /* ChatPieChartCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86AF8AA024570EAD00CB4991 /* ChatPieChartCollectionViewCell.xib */; };
+		86AF8AA324570EAD00CB4991 /* ChatPieChartCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86AF8AA124570EAD00CB4991 /* ChatPieChartCollectionViewCell.swift */; };
+		86AF8AA524570F4E00CB4991 /* GraphData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86AF8AA424570F4E00CB4991 /* GraphData.swift */; };
 		86B688DF244DBE68009BEF0A /* ChatKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 86B688DD244DBE68009BEF0A /* ChatKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		86B6894F244F2B0E009BEF0A /* Date+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B688E8244F2B0E009BEF0A /* Date+Helper.swift */; };
 		86B68950244F2B0E009BEF0A /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B688E9244F2B0E009BEF0A /* DateHelper.swift */; };
@@ -191,6 +201,16 @@
 		863671D42456AF8800CCC7A1 /* ChatTransactionInfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChatTransactionInfoCell.xib; sourceTree = "<group>"; };
 		863671D52456AF8800CCC7A1 /* ChatTransactionCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChatTransactionCollectionViewCell.xib; sourceTree = "<group>"; };
 		863671D62456AF8800CCC7A1 /* ChatTransactionCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatTransactionCollectionViewCell.swift; sourceTree = "<group>"; };
+		86AF8A9124570E3200CB4991 /* VBPieChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBPieChart.m; sourceTree = "<group>"; };
+		86AF8A9224570E3200CB4991 /* VBPiePiece.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBPiePiece.m; sourceTree = "<group>"; };
+		86AF8A9324570E3200CB4991 /* VBPiePiece_private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBPiePiece_private.h; sourceTree = "<group>"; };
+		86AF8A9424570E3200CB4991 /* UIColor+HexColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+HexColor.m"; sourceTree = "<group>"; };
+		86AF8A9524570E3200CB4991 /* VBPiePiece.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBPiePiece.h; sourceTree = "<group>"; };
+		86AF8A9624570E3200CB4991 /* VBPieChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBPieChart.h; sourceTree = "<group>"; };
+		86AF8A9724570E3200CB4991 /* UIColor+HexColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+HexColor.h"; sourceTree = "<group>"; };
+		86AF8AA024570EAD00CB4991 /* ChatPieChartCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChatPieChartCollectionViewCell.xib; sourceTree = "<group>"; };
+		86AF8AA124570EAD00CB4991 /* ChatPieChartCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatPieChartCollectionViewCell.swift; sourceTree = "<group>"; };
+		86AF8AA424570F4E00CB4991 /* GraphData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphData.swift; sourceTree = "<group>"; };
 		86B688DA244DBE68009BEF0A /* ChatKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ChatKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		86B688DD244DBE68009BEF0A /* ChatKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChatKit.h; sourceTree = "<group>"; };
 		86B688DE244DBE68009BEF0A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -293,6 +313,7 @@
 			isa = PBXGroup;
 			children = (
 				86093FA52456E64F004B3952 /* EvaInsetLabel.swift */,
+				86AF8A9024570E3200CB4991 /* PieChart */,
 				86093F902456E186004B3952 /* WCLShineButton */,
 				86093F732456E073004B3952 /* CarouselItem */,
 				86093F782456E073004B3952 /* CardRecAnimatedLabel */,
@@ -450,6 +471,7 @@
 				8612FEE42452F0DD00B53183 /* Account.swift */,
 				86B6892E244F2B0E009BEF0A /* Language.swift */,
 				86093FA32456E5D8004B3952 /* CardRecommand.swift */,
+				86AF8AA424570F4E00CB4991 /* GraphData.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -507,6 +529,7 @@
 		863671CC24559BC200CCC7A1 /* CustomCells */ = {
 			isa = PBXGroup;
 			children = (
+				86AF8A9F24570EAD00CB4991 /* ChatPieChartCustomCell */,
 				86093FA72456EB9B004B3952 /* CardRecoCustomCell */,
 				863671D22456AF8800CCC7A1 /* TransactionCustomCell */,
 				86B6894A244F2B0E009BEF0A /* HeaderAndFooterCells */,
@@ -543,6 +566,29 @@
 				863671D62456AF8800CCC7A1 /* ChatTransactionCollectionViewCell.swift */,
 			);
 			path = TransactionCustomCell;
+			sourceTree = "<group>";
+		};
+		86AF8A9024570E3200CB4991 /* PieChart */ = {
+			isa = PBXGroup;
+			children = (
+				86AF8A9124570E3200CB4991 /* VBPieChart.m */,
+				86AF8A9224570E3200CB4991 /* VBPiePiece.m */,
+				86AF8A9324570E3200CB4991 /* VBPiePiece_private.h */,
+				86AF8A9424570E3200CB4991 /* UIColor+HexColor.m */,
+				86AF8A9524570E3200CB4991 /* VBPiePiece.h */,
+				86AF8A9624570E3200CB4991 /* VBPieChart.h */,
+				86AF8A9724570E3200CB4991 /* UIColor+HexColor.h */,
+			);
+			path = PieChart;
+			sourceTree = "<group>";
+		};
+		86AF8A9F24570EAD00CB4991 /* ChatPieChartCustomCell */ = {
+			isa = PBXGroup;
+			children = (
+				86AF8AA024570EAD00CB4991 /* ChatPieChartCollectionViewCell.xib */,
+				86AF8AA124570EAD00CB4991 /* ChatPieChartCollectionViewCell.swift */,
+			);
+			path = ChatPieChartCustomCell;
 			sourceTree = "<group>";
 		};
 		86B688D0244DBE68009BEF0A = {
@@ -711,11 +757,15 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				86AF8A9A24570E3200CB4991 /* VBPiePiece_private.h in Headers */,
+				86AF8A9C24570E3200CB4991 /* VBPiePiece.h in Headers */,
 				86093FA22456E3D4004B3952 /* ZCEasingUtil.h in Headers */,
 				86093F9F2456E354004B3952 /* EvaCarouselView.h in Headers */,
+				86AF8A9D24570E3200CB4991 /* VBPieChart.h in Headers */,
 				86093FA02456E3C9004B3952 /* ZCAnimatedLabel.h in Headers */,
 				86B688DF244DBE68009BEF0A /* ChatKit.h in Headers */,
 				86093F9D2456E345004B3952 /* EvaCarouselItem.h in Headers */,
+				86AF8A9E24570E3200CB4991 /* UIColor+HexColor.h in Headers */,
 				86093F3D2456C807004B3952 /* Emoji.h in Headers */,
 				86093FA12456E3CE004B3952 /* ZCCoreTextLayout.h in Headers */,
 			);
@@ -804,6 +854,7 @@
 				86B6897B244F2B0E009BEF0A /* 1.json in Resources */,
 				86B6897E244F2B0E009BEF0A /* 4.json in Resources */,
 				86B68974244F2B0E009BEF0A /* Hello.gif in Resources */,
+				86AF8AA224570EAD00CB4991 /* ChatPieChartCollectionViewCell.xib in Resources */,
 				86D2A8C924509912009FC488 /* Main.storyboard in Resources */,
 				86B68998244F2B0F009BEF0A /* ChatSectionFooterReusableView.xib in Resources */,
 				8612FEDE2452CB7100B53183 /* ChatConnectedAccountCell.xib in Resources */,
@@ -880,9 +931,11 @@
 				86B68994244F2B0F009BEF0A /* ChatViewController+MessageCellDelegate.swift in Sources */,
 				86AF8A8B2456EE2B00CB4991 /* EvaCarouselItem.m in Sources */,
 				86093F992456E186004B3952 /* WCLShineParams.swift in Sources */,
+				86AF8AA524570F4E00CB4991 /* GraphData.swift in Sources */,
 				86093F972456E186004B3952 /* WCLShineLayer.swift in Sources */,
 				86093F3C2456C807004B3952 /* Emoji.swift in Sources */,
 				8612FED62452CB7100B53183 /* CustomHorizontalStackCollectionViewCell.swift in Sources */,
+				86AF8A9B24570E3200CB4991 /* UIColor+HexColor.m in Sources */,
 				86093FAD2456EB9B004B3952 /* ChatCardRecoCollectionViewCell.swift in Sources */,
 				86B68986244F2B0F009BEF0A /* MockMessage.swift in Sources */,
 				86B68999244F2B0F009BEF0A /* ChatSectionFooterReusableView.swift in Sources */,
@@ -897,6 +950,7 @@
 				86B689A6244F4DD4009BEF0A /* String.swift in Sources */,
 				86B6898F244F2B0F009BEF0A /* CountryPopViewController.swift in Sources */,
 				86D2A8EE2450A455009FC488 /* EvaWorkflowManager.swift in Sources */,
+				86AF8A9924570E3200CB4991 /* VBPiePiece.m in Sources */,
 				86093F3E2456C807004B3952 /* String+Emoji.swift in Sources */,
 				86B689A1244F3760009BEF0A /* UIColor+colorFromHex.swift in Sources */,
 				86B68978244F2B0E009BEF0A /* NSManagedObjectContext+Helper.swift in Sources */,
@@ -914,9 +968,11 @@
 				86B68993244F2B0F009BEF0A /* ChatViewController+LoadMore.swift in Sources */,
 				86093FA62456E64F004B3952 /* EvaInsetLabel.swift in Sources */,
 				86B68987244F2B0F009BEF0A /* MockUser.swift in Sources */,
+				86AF8AA324570EAD00CB4991 /* ChatPieChartCollectionViewCell.swift in Sources */,
 				86093FA42456E5D8004B3952 /* CardRecommand.swift in Sources */,
 				8622F1AA24521446007B8209 /* TransactionDetails.swift in Sources */,
 				86B68988244F2B0F009BEF0A /* ChatUtils.swift in Sources */,
+				86AF8A9824570E3200CB4991 /* VBPieChart.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

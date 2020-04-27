@@ -656,6 +656,13 @@ class ChatViewController: MessagesViewController, UIGestureRecognizerDelegate {
                     }
                     cell.configurationCell(message: messageDB)
                     return cell
+                case .messageWithPieChart:
+                    //Piechart
+                    guard let cell = messagesCollectionView.dequeueReusableCell(withReuseIdentifier: "ChatPieChartCollectionViewCell", for: indexPath) as? ChatPieChartCollectionViewCell else {
+                        return super.collectionView(collectionView, cellForItemAt: indexPath)
+                    }
+                    cell.configurationCell(message: messageDB)
+                    return cell
                 case .cardRecommendation:
                     //Card Reco
                     guard let cell = messagesCollectionView.dequeueReusableCell(withReuseIdentifier: "ChatCardRecoCollectionViewCell", for: indexPath) as? ChatCardRecoCollectionViewCell else {
