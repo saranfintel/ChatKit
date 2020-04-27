@@ -61,5 +61,7 @@ class ChatColor: UIColor {
     class func chatDarkTheme() -> UIColor {
         return UIColor.colorFromHex(hexString: "#4A4A4A")
     }
-
+    class func barChatDarkTheme() -> UIColor {
+        return UIColor.colorFromHex(hexString: "#9B9B9B")
+    }
 }

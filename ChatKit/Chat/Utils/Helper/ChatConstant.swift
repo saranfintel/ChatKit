@@ -103,4 +103,5 @@ public let EMPTY_STRING = ""
 public let NULL_STRING = "null"
 public let EMPTY_INT = 0
 public let EMPTY_FLOAT: Float = 0.0
+public let XPosition: CGFloat = 20.0
 public let GIF = "gif"

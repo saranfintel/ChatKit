@@ -73,6 +73,9 @@
 		86AF8AA224570EAD00CB4991 /* ChatPieChartCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86AF8AA024570EAD00CB4991 /* ChatPieChartCollectionViewCell.xib */; };
 		86AF8AA324570EAD00CB4991 /* ChatPieChartCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86AF8AA124570EAD00CB4991 /* ChatPieChartCollectionViewCell.swift */; };
 		86AF8AA524570F4E00CB4991 /* GraphData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86AF8AA424570F4E00CB4991 /* GraphData.swift */; };
+		86AF8AA92457282500CB4991 /* ChatBarChartCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86AF8AA72457282500CB4991 /* ChatBarChartCollectionViewCell.swift */; };
+		86AF8AAA2457282500CB4991 /* ChatBarChartCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86AF8AA82457282500CB4991 /* ChatBarChartCollectionViewCell.xib */; };
+		86AF8AAC245728B200CB4991 /* ScrollableGraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86AF8AAB245728B200CB4991 /* ScrollableGraphView.swift */; };
 		86B688DF244DBE68009BEF0A /* ChatKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 86B688DD244DBE68009BEF0A /* ChatKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		86B6894F244F2B0E009BEF0A /* Date+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B688E8244F2B0E009BEF0A /* Date+Helper.swift */; };
 		86B68950244F2B0E009BEF0A /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B688E9244F2B0E009BEF0A /* DateHelper.swift */; };
@@ -211,6 +214,9 @@
 		86AF8AA024570EAD00CB4991 /* ChatPieChartCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChatPieChartCollectionViewCell.xib; sourceTree = "<group>"; };
 		86AF8AA124570EAD00CB4991 /* ChatPieChartCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatPieChartCollectionViewCell.swift; sourceTree = "<group>"; };
 		86AF8AA424570F4E00CB4991 /* GraphData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphData.swift; sourceTree = "<group>"; };
+		86AF8AA72457282500CB4991 /* ChatBarChartCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatBarChartCollectionViewCell.swift; sourceTree = "<group>"; };
+		86AF8AA82457282500CB4991 /* ChatBarChartCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChatBarChartCollectionViewCell.xib; sourceTree = "<group>"; };
+		86AF8AAB245728B200CB4991 /* ScrollableGraphView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrollableGraphView.swift; sourceTree = "<group>"; };
 		86B688DA244DBE68009BEF0A /* ChatKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ChatKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		86B688DD244DBE68009BEF0A /* ChatKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChatKit.h; sourceTree = "<group>"; };
 		86B688DE244DBE68009BEF0A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -313,6 +319,7 @@
 			isa = PBXGroup;
 			children = (
 				86093FA52456E64F004B3952 /* EvaInsetLabel.swift */,
+				86AF8AAB245728B200CB4991 /* ScrollableGraphView.swift */,
 				86AF8A9024570E3200CB4991 /* PieChart */,
 				86093F902456E186004B3952 /* WCLShineButton */,
 				86093F732456E073004B3952 /* CarouselItem */,
@@ -529,6 +536,7 @@
 		863671CC24559BC200CCC7A1 /* CustomCells */ = {
 			isa = PBXGroup;
 			children = (
+				86AF8AA62457282500CB4991 /* ChatBarChartCustomCell */,
 				86AF8A9F24570EAD00CB4991 /* ChatPieChartCustomCell */,
 				86093FA72456EB9B004B3952 /* CardRecoCustomCell */,
 				863671D22456AF8800CCC7A1 /* TransactionCustomCell */,
@@ -589,6 +597,15 @@
 				86AF8AA124570EAD00CB4991 /* ChatPieChartCollectionViewCell.swift */,
 			);
 			path = ChatPieChartCustomCell;
+			sourceTree = "<group>";
+		};
+		86AF8AA62457282500CB4991 /* ChatBarChartCustomCell */ = {
+			isa = PBXGroup;
+			children = (
+				86AF8AA72457282500CB4991 /* ChatBarChartCollectionViewCell.swift */,
+				86AF8AA82457282500CB4991 /* ChatBarChartCollectionViewCell.xib */,
+			);
+			path = ChatBarChartCustomCell;
 			sourceTree = "<group>";
 		};
 		86B688D0244DBE68009BEF0A = {
@@ -848,6 +865,7 @@
 				86B6897F244F2B0F009BEF0A /* 5.json in Resources */,
 				8612FED82452CB7100B53183 /* VerticalStackViewiCollectionViewCell.xib in Resources */,
 				86B6897C244F2B0E009BEF0A /* 2.json in Resources */,
+				86AF8AAA2457282500CB4991 /* ChatBarChartCollectionViewCell.xib in Resources */,
 				863671D82456AF8800CCC7A1 /* ChatTransactionInfoCell.xib in Resources */,
 				8612FEDF2452CB7100B53183 /* ChatAccountCollectionViewCell.xib in Resources */,
 				8612FEDA2452CB7100B53183 /* ChatMessageCollectionViewCell.xib in Resources */,
@@ -903,6 +921,7 @@
 				86B6899E244F3410009BEF0A /* ChatColor.swift in Sources */,
 				86B6898B244F2B0F009BEF0A /* ChatEvaOperation.swift in Sources */,
 				86B68977244F2B0E009BEF0A /* ChatCoreDataManager.swift in Sources */,
+				86AF8AA92457282500CB4991 /* ChatBarChartCollectionViewCell.swift in Sources */,
 				86B68995244F2B0F009BEF0A /* ChatDataController.swift in Sources */,
 				86AF8A892456EE1F00CB4991 /* ZCEasingUtil.m in Sources */,
 				86093F9C2456E186004B3952 /* WCLShineAngleLayer.swift in Sources */,
@@ -962,6 +981,7 @@
 				86B6899C244F2D95009BEF0A /* ChatConstant.swift in Sources */,
 				86B6898C244F2B0F009BEF0A /* ChatDBMessageUpdateOperation.swift in Sources */,
 				86B68957244F2B0E009BEF0A /* ChatDBUnsentMessage+CoreDataClass.swift in Sources */,
+				86AF8AAC245728B200CB4991 /* ScrollableGraphView.swift in Sources */,
 				86B68956244F2B0E009BEF0A /* ChatDBMessage+CoreDataProperties.swift in Sources */,
 				86B689A4244F421D009BEF0A /* JsonMapper.swift in Sources */,
 				86AF8A8E2456EEF100CB4991 /* SiriContentView.swift in Sources */,

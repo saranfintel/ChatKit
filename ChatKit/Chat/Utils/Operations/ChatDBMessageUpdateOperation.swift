@@ -147,7 +147,7 @@ class ChatDBMessageUpdateOperation: DBUpdateOperation {
                     count = Double(transcationList.count)
                 }
                 height = Double(count > 3 ? ((3 * CELL_HEIGHT) + LOAD_MORE_HEIGHT) : (count * CELL_HEIGHT)) + 20.0
-            case .messageWithPieChart, .messageWithChart:
+            case .messageWithPieChart, .messageWithBarChat:
                 height = 300.0
             case .cardRecommendation:
                 height = 412.0

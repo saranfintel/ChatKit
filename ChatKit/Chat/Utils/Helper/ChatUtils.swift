@@ -84,7 +84,6 @@ struct ChatUtils {
     }
     
     static func convertToDateString(_ dateString: String) -> String {
-        
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
         guard let date = dateFormatter.date(from:dateString) else {
@@ -100,13 +99,13 @@ struct ChatUtils {
     public static func stringMediumFontFromHtml(string: String) -> NSAttributedString? {
         if let data = string.data(using: String.Encoding.unicode, allowLossyConversion: true) {
             let attrStr = try? NSMutableAttributedString(data: data, options: [ .documentType: NSAttributedString.DocumentType.html],documentAttributes: nil)
-            //FIX:- Later
-            //UIFont(name: AppDelegateManager.FONT_MEDIUM, size:17.0)!
-            attrStr?.addAttribute(NSAttributedString.Key.font, value: UIFont.systemFont(ofSize: 17.0, weight: .medium), range: attrStr?.string.fullrange() ?? NSMakeRange(0, 0))
-           //
-            attrStr?.addAttribute(NSAttributedString.Key.foregroundColor, value: ChatColor.chatDarkTheme() , range: attrStr?.string.fullrange() ?? NSMakeRange(0, 0))
+            let rangeStr = attrStr?.mutableString.range(of: attrStr?.string ?? "", options:NSString.CompareOptions.caseInsensitive)
+            // adding font
+            attrStr?.addAttribute(NSAttributedString.Key.font, value: UIFont(name:"HelveticaNeue-Medium", size: 17.0) ?? UIFont.systemFont(ofSize: 17.0), range: rangeStr ?? NSMakeRange(0, 0))
+             //adding color
+            attrStr?.addAttribute(NSAttributedString.Key.foregroundColor, value: ChatColor.chatDarkTheme(), range: rangeStr ?? NSMakeRange(0, 0))
             //Add spacing 1.0
-            attrStr?.addAttribute(NSAttributedString.Key.kern, value: 1.0, range: attrStr?.string.fullrange() ?? NSMakeRange(0, 0))
+            attrStr?.addAttribute(NSAttributedString.Key.kern, value: 1.0, range: rangeStr ?? NSMakeRange(0, 0))
             return attrStr
         }
         return nil
