@@ -508,16 +508,14 @@ class ChatViewController: MessagesViewController, UIGestureRecognizerDelegate {
     //MARK:- Activity Inidicator view
 
     fileprivate func createActivityIndicatorView() {
-        additionalBottomInset = 20;
-        customView = UIView(frame: CGRect(x: self.view.frame.origin.x, y: messageInputBar.frame.origin.y - 20, width: self.view.frame.size.width, height: 20))
+        additionalBottomInset = 0;
+        customView = UIView(frame: CGRect(x: self.view.frame.origin.x, y: messageInputBar.frame.origin.y, width: self.view.frame.size.width, height: 20))
+        customView?.backgroundColor = UIColor.clear
         messageInputBar.addSubview(customView ?? UIView())
-        //Swift4.2
-       // let activityView = UIActivityIndicatorView(style: .whiteLarge)
-        //Swift4.0
         let activityView = UIActivityIndicatorView(style: .whiteLarge)
-        activityView.frame = CGRect(x: self.view.frame.size.width - 70, y: 0, width: 20, height: 20)
-        activityView.color = UIColor(red: 0/255, green: 183/255, blue: 96/255, alpha: 1)
-        activityView.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
+        activityView.frame = CGRect(x: self.view.frame.size.width - 70, y: -2, width: 30, height: 30)
+        activityView.color = ChatColor.appTheme()
+        activityView.transform = CGAffineTransform(scaleX: 0.7, y: 0.7)
         activityView.startAnimating()
         customView?.addSubview(activityView)
         customView?.isHidden = true
@@ -595,6 +593,7 @@ class ChatViewController: MessagesViewController, UIGestureRecognizerDelegate {
     //MARK:- Hide Activity Indicator View
 
     fileprivate func showhideActivityIndicatorView(show: Bool) {
+        messageInputBar.bringSubviewToFront(customView ?? UIView())
         customView?.isHidden = (show == true) ? false : true
     }
     
@@ -818,12 +817,10 @@ extension ChatViewController: InputBarAccessoryViewDelegate {
     }
 
     func sendMessage(message: String) {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-            self.showhideActivityIndicatorView(show: true)
-        }
+        self.showhideActivityIndicatorView(show: true)
         if let messageDict = ChatMessageDataModel.messagePayloadDictionary(forText: message) {
             ChatMessageDataModel.insertUnsentMessageToDB(fromMessageDetails: messageDict, completionHandler: { (isSuccess, resultt, error) in
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {
                     self.showhideActivityIndicatorView(show: false)
                 }
             })
