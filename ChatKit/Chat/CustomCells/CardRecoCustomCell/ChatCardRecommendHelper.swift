@@ -24,7 +24,7 @@ class ChatCardRecommendHelper: NSObject {
         vc?.pageControl?.numberOfPages = vc?._arrCarouselItems?.count ?? 0
         vc?.pageControl?.currentPage = 0
         vc?.pageControl?.pageIndicatorTintColor = UIColor.colorFromHex(hexString: "#929292")
-        vc?.pageControl?.currentPageIndicatorTintColor = ChatColor.mapGreenTheme()
+        vc?.pageControl?.currentPageIndicatorTintColor = ChatColor.appTheme()
     }
 
     func setupNavigationBar(_ vc: ChatCardRecoCollectionViewCell?) {
