@@ -21,7 +21,8 @@ open class CustomHorizontalStackCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var avatarlabel: ChatLabel!
 
     var transactionResponse: Transactions? = nil
-
+    var isStackViewAdded: Bool = false
+    
     override open func awakeFromNib() {
         super.awakeFromNib()
         bubbleWidthConstraint.constant = UIDevice().chatViewMaxWidth
@@ -47,15 +48,19 @@ open class CustomHorizontalStackCollectionViewCell: UICollectionViewCell {
             self.updateConstraint()
             return
         }
-        for index in 0..<suggestions.count {
-            if let welcomeStackView = ChatWorkflowManager.bundle.loadNibNamed("WelcomeStackView", owner: nil, options: nil)!.first as? WelcomeStackView {
-                welcomeStackView.translatesAutoresizingMaskIntoConstraints = false
-                welcomeStackView.selectButton.setTitle(suggestions[index].question, for: .normal)
-                welcomeStackView.selectButton.tag = Int(message.messageId)
-                welcomeStackView.widthAnchor.constraint(equalToConstant: welcomeStackView.selectButton.intrinsicContentSize.width + 20).isActive = true
-                self.stackView.addArrangedSubview(welcomeStackView)
+        if isStackViewAdded == false {
+            for index in 0..<suggestions.count {
+                if let welcomeStackView = ChatWorkflowManager.bundle.loadNibNamed("WelcomeStackView", owner: nil, options: nil)!.first as? WelcomeStackView {
+                    welcomeStackView.translatesAutoresizingMaskIntoConstraints = false
+                    welcomeStackView.selectButton.setTitle(suggestions[index].question, for: .normal)
+                    welcomeStackView.selectButton.tag = Int(message.messageId)
+                    welcomeStackView.widthAnchor.constraint(equalToConstant: welcomeStackView.selectButton.intrinsicContentSize.width + 20).isActive = true
+                    self.stackView.addArrangedSubview(welcomeStackView)
+                }
             }
+            isStackViewAdded = true
         }
+        stackView.reloadInputViews()
         scrollViewHeightConstraint.constant = 40.0
         self.updateConstraint()
     }

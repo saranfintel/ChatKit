@@ -74,6 +74,8 @@ class ChatDBMessageUpdateOperation: DBUpdateOperation {
                 for object in objects {
                     if let message = object as? ChatDBMessage {
                         message.setValue(false, forKey: "canShowSuggestions")
+                        let height = message.chatHeight - 40.0
+                        message.setValue(height, forKey: "chatHeight")
                     }
                 }
             }
