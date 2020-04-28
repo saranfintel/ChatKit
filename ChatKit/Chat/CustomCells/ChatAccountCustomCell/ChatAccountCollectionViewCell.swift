@@ -9,8 +9,8 @@
 import UIKit
 import MessageKit
 
-protocol loadMoreActionDelegate: class {
-  func loadmoreButtonPressed(_ cell: UICollectionViewCell)
+protocol loadMoreAccountsDelegate: class {
+    func loadmoreButtonPressed(_ accounts: [Account])
 }
 
 open class ChatAccountCollectionViewCell: UICollectionViewCell {
@@ -26,7 +26,7 @@ open class ChatAccountCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var loadMoreButton: UIButton!
     
     var transactionResponse: Transactions? = nil
-    weak var delegate: loadMoreActionDelegate?
+    weak var delegate: loadMoreAccountsDelegate?
 
     override open func awakeFromNib() {
         super.awakeFromNib()
@@ -42,7 +42,7 @@ open class ChatAccountCollectionViewCell: UICollectionViewCell {
             self.avatarlabel.isHidden = false
         }
         self.tableView?.register(UINib(nibName: "ChatConnectedAccountCell", bundle: ChatWorkflowManager.bundle), forCellReuseIdentifier: "ChatConnectedAccountCell")
-        self.tableView?.separatorColor = UIColor.colorFromHex(hexString: "#eaeaea")
+        self.tableView?.separatorColor = ChatColor.sepertorLineTheme()
         self.loadMoreButton.backgroundColor = ChatColor.appTheme()
     }
     
@@ -58,7 +58,7 @@ open class ChatAccountCollectionViewCell: UICollectionViewCell {
     }
     
     @IBAction func loadMoreButtonClicked(_ sender: Any) {
-        self.delegate?.loadmoreButtonPressed(self)
+        self.delegate?.loadmoreButtonPressed(transactionResponse?.accounts ?? [])
     }
     
     deinit {

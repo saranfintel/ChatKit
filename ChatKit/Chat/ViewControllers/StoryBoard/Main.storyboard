@@ -30,6 +30,80 @@
             </objects>
             <point key="canvasLocation" x="908.69565217391312" y="105.80357142857143"/>
         </scene>
+        <!--Accounts-->
+        <scene sceneID="aeb-hk-7Az">
+            <objects>
+                <viewController storyboardIdentifier="AccountsViewController" id="hUZ-71-obp" customClass="AccountsViewController" customModule="ChatKit" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="6hG-O5-lJY">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="dK4-fj-MCk">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="hUZ-71-obp" id="bcB-CA-2k9"/>
+                                    <outlet property="delegate" destination="hUZ-71-obp" id="vH2-Fn-w4a"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="dK4-fj-MCk" firstAttribute="top" secondItem="D9l-le-JZm" secondAttribute="top" id="5z2-z2-lud"/>
+                            <constraint firstItem="dK4-fj-MCk" firstAttribute="leading" secondItem="D9l-le-JZm" secondAttribute="leading" id="ADa-u9-ZU1"/>
+                            <constraint firstItem="D9l-le-JZm" firstAttribute="trailing" secondItem="dK4-fj-MCk" secondAttribute="trailing" id="X6e-Xl-eLL"/>
+                            <constraint firstItem="D9l-le-JZm" firstAttribute="bottom" secondItem="dK4-fj-MCk" secondAttribute="bottom" id="wio-36-uDf"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="D9l-le-JZm"/>
+                    </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Accounts" id="DTa-Ti-OMx"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="tableView" destination="dK4-fj-MCk" id="WZe-0R-NCi"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zMt-j2-O3N" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1658" y="106"/>
+        </scene>
+        <!--Transcations-->
+        <scene sceneID="3Ej-Vt-rdJ">
+            <objects>
+                <viewController storyboardIdentifier="TranscationsViewController" id="nEX-25-eXW" customClass="TranscationsViewController" customModule="ChatKit" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="zDo-KE-3OS">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="k16-GV-eQR">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="nEX-25-eXW" id="tsr-Dg-iqx"/>
+                                    <outlet property="delegate" destination="nEX-25-eXW" id="gL5-vh-0Kg"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="k16-GV-eQR" firstAttribute="leading" secondItem="R5j-xi-rdo" secondAttribute="leading" id="6kV-fH-epe"/>
+                            <constraint firstItem="k16-GV-eQR" firstAttribute="top" secondItem="R5j-xi-rdo" secondAttribute="top" id="ELK-yD-eos"/>
+                            <constraint firstItem="R5j-xi-rdo" firstAttribute="bottom" secondItem="k16-GV-eQR" secondAttribute="bottom" id="V1r-Ze-SXl"/>
+                            <constraint firstItem="R5j-xi-rdo" firstAttribute="trailing" secondItem="k16-GV-eQR" secondAttribute="trailing" id="fgL-E2-Zox"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="R5j-xi-rdo"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Transcations" id="tB6-rO-XoG"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="tableView" destination="k16-GV-eQR" id="Tik-Lv-rDO"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ErX-2c-KCY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2488" y="106"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="B80-pD-Gla">
             <objects>
@@ -119,7 +193,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bsv-hO-Eu7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1814" y="-80"/>
+            <point key="canvasLocation" x="938" y="-405"/>
         </scene>
     </scenes>
     <resources>

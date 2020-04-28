@@ -64,4 +64,7 @@ class ChatColor: UIColor {
     class func barChatDarkTheme() -> UIColor {
         return UIColor.colorFromHex(hexString: "#9B9B9B")
     }
+    class func sepertorLineTheme() -> UIColor {
+        return UIColor.colorFromHex(hexString: "#eaeaea")
+    }
 }

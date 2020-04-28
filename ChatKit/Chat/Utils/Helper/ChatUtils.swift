@@ -201,8 +201,10 @@ extension ChatUtils {
 }
 
 enum VCNames: String {
-    case chatVC         =   "ChatViewController"
-    case countryVC      =   "CountryPopViewController"
+    case chatVC              =   "ChatViewController"
+    case countryVC           =   "CountryPopViewController"
+    case transactionsVC      =   "TranscationsViewController"
+    case accountsVC          =   "AccountsViewController"
 
     struct storyboardObject {
         var storyboard: UIStoryboard
@@ -215,6 +217,8 @@ enum VCNames: String {
         switch self {
         case .chatVC:             return storyboardObject().storyboard.instantiateViewController(withIdentifier: VCNames.chatVC.rawValue)
         case .countryVC:              return storyboardObject().storyboard.instantiateViewController(withIdentifier: VCNames.countryVC.rawValue)
+        case .transactionsVC:              return storyboardObject().storyboard.instantiateViewController(withIdentifier: VCNames.transactionsVC.rawValue)
+        case .accountsVC:              return storyboardObject().storyboard.instantiateViewController(withIdentifier: VCNames.accountsVC.rawValue)
         }
     }
     
@@ -222,6 +226,8 @@ enum VCNames: String {
         switch self {
         case .chatVC:             return UINavigationController(rootViewController: VCNames.chatVC.controllerObject)
         case .countryVC:              return UINavigationController(rootViewController: VCNames.countryVC.controllerObject)
+        case .transactionsVC:              return UINavigationController(rootViewController: VCNames.transactionsVC.controllerObject)
+        case .accountsVC:              return UINavigationController(rootViewController: VCNames.accountsVC.controllerObject)
         }
     }
 }

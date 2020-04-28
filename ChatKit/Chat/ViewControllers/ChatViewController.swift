@@ -38,9 +38,9 @@ class ChatViewController: MessagesViewController, UIGestureRecognizerDelegate {
 
     // Voice to Text vars
     var speechRecognizer = SFSpeechRecognizer(locale: Locale(identifier: "en-US"))!
-    fileprivate var recognitionRequest: SFSpeechAudioBufferRecognitionRequest?
-    fileprivate var recognitionTask: SFSpeechRecognitionTask?
-    fileprivate let audioEngine = AVAudioEngine()
+    var recognitionRequest: SFSpeechAudioBufferRecognitionRequest?
+    var recognitionTask: SFSpeechRecognitionTask?
+    let audioEngine = AVAudioEngine()
     var timer:Timer?
     var count: Int = 0
     
@@ -54,10 +54,10 @@ class ChatViewController: MessagesViewController, UIGestureRecognizerDelegate {
     }()
 
     //BOA changes
-    fileprivate var updatedMicStatus = true
-    fileprivate var listenerTimer:Timer?
-    fileprivate var lastString = ""
-    fileprivate var lastStringLength = 0
+    var updatedMicStatus = true
+    var listenerTimer:Timer?
+    var lastString = ""
+    var lastStringLength = 0
 
     let typingBubble = TypingBubble(frame: CGRect(origin: .zero, size: CGSize(width: 80, height: 50)))
 
@@ -126,12 +126,7 @@ class ChatViewController: MessagesViewController, UIGestureRecognizerDelegate {
         super.viewDidLayoutSubviews()
         view.layer.layoutIfNeeded()
     }
-    
-    @IBAction func closeButtonClicked(_ sender: Any) {
-        ChatSession.deleteImages()
-        self.dismiss(animated: true, completion: nil)
-    }
-    
+        
     // MARK:-  Setup All CollectionView Cell on ChatViewController
     private func setupCollectionViewCell() {
         
@@ -243,188 +238,7 @@ class ChatViewController: MessagesViewController, UIGestureRecognizerDelegate {
         createActivityIndicatorView()
     }
         
-    //MARK:- Glow Animation On MIC button
-    // Creates a glow effect in the button by setting its layer shadow properties
-    func startGlowWithCGColor (growColor:CGColor) {
-        
-        audioButton.layer.shadowColor = growColor
-        audioButton.layer.shadowRadius = 5.0
-        audioButton.layer.shadowOpacity = 1.0
-        audioButton.layer.shadowOffset = CGSize.zero // CGSize(width: 0.0, height: 2.0) // CGSize.zero
-        audioButton.layer.masksToBounds = false
-        // audioButton.layer.shadowPath = UIBezierPath(rect: audioButton.bounds).cgPath
-        // Autoreverse, Repeat and allow user interaction.
-        UIView.animate(withDuration: 0.6, delay: 0, options: UIView.AnimationOptions(rawValue: UIView.AnimationOptions.autoreverse.rawValue |                                                         UIView.AnimationOptions.curveEaseInOut.rawValue | UIView.AnimationOptions.repeat.rawValue
-            | UIView.AnimationOptions.allowUserInteraction.rawValue),
-                       animations: { () -> Void in
-                        // Make it a 15% bigger
-                        self.audioButton.transform = CGAffineTransform(scaleX: 1.25, y: 1.25)
-        }) { (Bool) -> Void in
-            // Return to original size
-            self.audioButton.layer.shadowRadius = 0.0
-            self.audioButton.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
-        }
-        
-    }
-
-    // Removes the animation
-    func stopGlow () {
-        audioButton.layer.shadowRadius = 0.0
-        audioButton.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
-        audioButton.layer.removeAllAnimations()
-        audioButton.layer.masksToBounds = true
-        audioButton.layer.shadowPath = nil
-    }
-    
-    
-    @objc func microphoneTapped(_ recognizer: UIGestureRecognizer?) {
-        self.microphoneStatusChanged(isStart: updatedMicStatus)
-        if updatedMicStatus {
-            self.startRecordingTimer()
-            audioButton.backgroundColor = UIColor.clear
-            self.startGlowWithCGColor(growColor: ChatColor.appTheme().cgColor)
-            
-        } else {
-            self.stopRecordingTimer()
-            self.stopGlow()
-        }
-        updatedMicStatus = !updatedMicStatus
-    }
-
-    @objc func changeLanguageTapped(_ recognizer: UIGestureRecognizer?) {
-        if let countryVC = VCNames.countryVC.controllerObject as? CountryPopViewController {
-            countryVC.delegate = self
-            countryVC.chatViewModel = chatViewModel
-            let sbPopup = CardPopupViewController(contentViewController: countryVC)
-            sbPopup.show(onViewController: self)
-        }
-    }
-    
-    //MARK:- Voice to Text - Speech Recognizer Methods
-    /**
-     Initiate SFSpeech Recognizer properties for voice recording
-     */
-    func initSFSpeechRecognizer() {
-        speechRecognizer.delegate = self
-        SFSpeechRecognizer.requestAuthorization { (authStatus) in
-            var isButtonEnabled = false
-            switch authStatus {
-            case .authorized:
-                isButtonEnabled = true
-                let VOICEResponse = UserDefaults.standard.value(forKey: "VOICERESPONSE")
-                if VOICEResponse == nil {
-                    UserDefaults.standard.set("true", forKey: "VOICERESPONSE")
-                    UserDefaults.standard.synchronize()
-                }
-                // Microphone permision check here
-                // Todo: right now handled alert - replace to place holder text
-                _ = self.microPhonePermissionCheck()
-            case .denied:
-                isButtonEnabled = true
-            //self.showNotEnabledAlert(message: "MicroPhoneDeniedText")
-            case .restricted:
-                isButtonEnabled = true
-            //self.showNotEnabledAlert(message: "MicroPhoneRestrictedText")
-            case .notDetermined:
-                isButtonEnabled = true
-                //self.showNotEnabledAlert(message: "MicroPhoneNotDeterminedText")
-            }
-            OperationQueue.main.addOperation() {
-                self.audioButton.isEnabled = isButtonEnabled
-            }
-        }
-    }
-    
-    /**
-     Micro phone permission check here
-     */
-    func microPhonePermissionCheck() {
-        AVCaptureDevice.requestAccess(for: AVMediaType.audio) { response in
-            if response == false {
-                //self.showNotEnabledAlert(message: "MicroPhoneMessage".localized())
-            }
-        }
-    }
-    
-    func microphoneStatusChanged(isStart: Bool) {
-        //stop
-        if isStart == false {
-            if audioEngine.isRunning { audioEngine.stop(); recognitionRequest?.endAudio() }
-            audioEngine.inputNode.removeTap(onBus: 0)
-            if let runningTimer = timer, runningTimer.isValid {
-                runningTimer.invalidate()
-            }
-        } else  {
-            startRecording()
-            if let runningTimer = timer, runningTimer.isValid { runningTimer.invalidate() }
-            timer = Timer.scheduledTimer(timeInterval: 0.08, target: self, selector: #selector(ChatViewController.refreshAudioView(_:)), userInfo:  nil, repeats: true)
-        }
-    }
-    func startRecording() {
-        var language = "en-US"
-        if let languageObj = UserDefaults.standard.object(forKey: voiceLanguage) as? String {
-            language = languageObj
-        }
-        let locale = Locale(identifier: language)
-        speechRecognizer = SFSpeechRecognizer(locale: locale)!
-        if recognitionTask != nil {  //1
-            recognitionTask?.cancel()
-            recognitionTask = nil
-        }
-        recognitionRequest = SFSpeechAudioBufferRecognitionRequest()  //3
-        let inputNode = audioEngine.inputNode
-        
-        guard let recognitionRequest = recognitionRequest else {
-            fatalError("Unable to create an SFSpeechAudioBufferRecognitionRequest object")
-        } //5
-        
-        recognitionRequest.shouldReportPartialResults = true  //6
-        
-        recognitionTask = speechRecognizer.recognitionTask(with: recognitionRequest, resultHandler: { (result, error) in  //7
-            
-            var isFinal = false  //8
-            
-            if result != nil {
-                self.messageInputBar.inputTextView.text = result?.bestTranscription.formattedString
-                
-                self.lastString = result?.bestTranscription.formattedString ?? ""
-                isFinal = (result?.isFinal)!
-                if isFinal {
-                    //self.sendMessage(message: self.textView?.text ?? "")
-                }
-            }
-            
-            if error != nil || isFinal {  //10
-                self.audioEngine.stop()
-                inputNode.removeTap(onBus: 0)
-                self.recognitionRequest = nil
-                self.recognitionTask = nil
-                //                self.audioButton.isEnabled = true
-            }
-        })
-        
-        let recordingFormat = inputNode.outputFormat(forBus: 0)  //11
-        inputNode.installTap(onBus: 0, bufferSize: 1024, format: recordingFormat) { (buffer, when) in
-            self.recognitionRequest?.append(buffer)
-        }
-        
-        audioEngine.prepare()  //12
-        
-        do {
-            try audioEngine.start()
-        } catch {
-            //print("audioEngine couldn't start because of an error.")
-        }
-    }
-    
-    @objc internal func refreshAudioView(_:Timer) {
-        //        let siriWave = timer?.userInfo as? EvaSiriWave
-        //        siriWave?.update(withLevel: _normalizedPowerLevel(fromDecibels: 0.1))
-    }
-    
-   
     //MARK:- Fetch all message from Core Data Methods
-
     private func setupFetchResultsView() {
         //FecthRequest delegate methods declared
         fetchLimit = kMessageThreshold
@@ -510,7 +324,6 @@ class ChatViewController: MessagesViewController, UIGestureRecognizerDelegate {
     
     
     //MARK:- Activity Inidicator view
-
     fileprivate func createActivityIndicatorView() {
         additionalBottomInset = 0;
         customView = UIView(frame: CGRect(x: self.view.frame.origin.x, y: messageInputBar.frame.origin.y, width: self.view.frame.size.width, height: 50))
@@ -525,83 +338,8 @@ class ChatViewController: MessagesViewController, UIGestureRecognizerDelegate {
         typingBubble.isPulseEnabled = true
         customView?.isHidden = true
     }
-    
-    
-    //MARK:- Load Earlier Messages
-    
-    @objc func loadMoreMessages() {
-        print("loadMoreMessages")
-        DispatchQueue.main.async {
-            guard let fetchedObjects = self.fetchedResultsController.fetchedObjects else {
-                // Do Refreshing and Set messgae Offet
-                self.messagesCollectionView.reloadDataAndKeepOffset()
-                return
-            }
-            // Increase the fetch limit to load more messsages by kMessageThreshold
-            self.fetchLimit = fetchedObjects.count + kMessageThreshold
-            let totalCount = ChatCoreDataManager.getTotalCountOfSentMessages(context: ChatCoreDataStack.sharedInstance.mainManagedObjectContext) ?? 0
-            if totalCount != 0 {
-                if totalCount - self.fetchLimit < 20 {
-                    self.fetchedResultsController.fetchRequest.fetchLimit = totalCount
-                    self.fetchedResultsController.fetchRequest.fetchOffset = 0
-                    self.canMakeLoadMoreCall = false
-                } else {
-                    self.fetchedResultsController.fetchRequest.fetchLimit = self.fetchLimit
-                    self.fetchedResultsController.fetchRequest.fetchOffset = totalCount - self.fetchLimit
-                }
-            }
-            do {
-                try self.fetchedResultsController.performFetch()
-            } catch {
-                print("fetch error: \(error)")
-            }
-            guard let newlyFetchedObjects = self.fetchedResultsController.fetchedObjects else {
-                // Do Refreshing and Set messgae Offet
-                self.messagesCollectionView.reloadDataAndKeepOffset()
-                return
-            }
-            // If the new fetch yields less number of messages than required, check if the user/channel has no more messages.
-            // If yes, show "no eralier messages"
-            // else fetch from server
-            if newlyFetchedObjects.count < self.fetchLimit, self.isFetchingEarlierMessages == false {
-                // fetch from server
-                var messageID: Int16? = nil
-                if let earliestMessageID = ChatCoreDataManager.getEarliestMessageIDOnUserDM(context: ChatCoreDataStack.sharedInstance.mainManagedObjectContext) {
-                    messageID = earliestMessageID
-                }
-                ChatMessageDataModel.listMessagesHandler(messageID: messageID, completionStatusHandler: { (isSuccess) in
-                    print("isSuccess earliestMessageID")
-                    DispatchQueue.main.async {
-                        sleep(1)
-                        // Do Refreshing and Set messgae Offet
-                        self.refreshControl.endRefreshing()
-                        self.messagesCollectionView.reloadDataAndKeepOffset()
-                        if isSuccess == false {
-                            self.isFetchingEarlierMessages = true
-                            self.canMakeLoadMoreCall = false
-                            return
-                        }
-                    }
-                })
-            } else {
-                self.messagesCollectionView.reloadDataAndKeepOffset()
-                self.messagesCollectionView.performBatchUpdates(nil, completion: { (result) in
-                    if totalCount != newlyFetchedObjects.count {
-                        self.canMakeLoadMoreCall = true
-                    }
-                    DispatchQueue.main.async {
-                        sleep(1)
-                        self.refreshControl.endRefreshing()
-                    }
-                })
-            }
-            // Do Refreshing and Set messgae Offet
-            self.messagesCollectionView.reloadDataAndKeepOffset()
-        }
-    }
-        
+            
     //MARK:- Hide Activity Indicator View
-
     fileprivate func showhideActivityIndicatorView(show: Bool) {
         messageInputBar.bringSubviewToFront(customView ?? UIView())
         customView?.isHidden = (show == true) ? false : true
@@ -659,6 +397,8 @@ class ChatViewController: MessagesViewController, UIGestureRecognizerDelegate {
                     guard let cell = messagesCollectionView.dequeueReusableCell(withReuseIdentifier: "ChatTransactionCollectionViewCell", for: indexPath) as? ChatTransactionCollectionViewCell else {
                         return super.collectionView(collectionView, cellForItemAt: indexPath)
                     }
+                    cell.delegate = self
+                    cell.displayType = messageDB.displayType ?? ""
                     cell.configurationCell(message: messageDB)
                     return cell
                 case .messageWithPieChart:
@@ -763,7 +503,6 @@ class ChatViewController: MessagesViewController, UIGestureRecognizerDelegate {
         }
     }
     
-    
     /**
      Long Press
      */
@@ -836,6 +575,10 @@ class ChatViewController: MessagesViewController, UIGestureRecognizerDelegate {
         self.present(optionsAlertController, animated: true, completion: nil)
     }
     
+    @IBAction func closeButtonClicked(_ sender: Any) {
+        ChatSession.deleteImages()
+        self.dismiss(animated: true, completion: nil)
+    }
 
     deinit {
         print("ChatViewController Deinit")
@@ -873,133 +616,5 @@ extension ChatViewController: InputBarAccessoryViewDelegate {
     }
 }
 
-// MARK: -  extension : SFSpeechRecognizerDelegate Method
-
-extension ChatViewController: SFSpeechRecognizerDelegate {
-    func speechRecognizer(_ speechRecognizer: SFSpeechRecognizer, availabilityDidChange available: Bool) {
-        if available {
-            audioButton.isEnabled = true
-        } else {
-            audioButton.isEnabled = false
-        }
-    }
-}
-
-//BOA changes
-extension ChatViewController {
-    
-    func startRecordingTimer() {
-        lastString = ""
-        createTimerTimer(3)
-    }
-    func stopRecordingTimer() {
-        listenerTimer?.invalidate()
-        listenerTimer = nil
-    }
-    fileprivate func whileRecordingTimer() {
-        createTimerTimer(0.6)
-    }
-    
-    func createTimerTimer(_ interval:Double) {
-        OperationQueue.main.addOperation({[unowned self] in
-            self.listenerTimer?.invalidate()
-            self.listenerTimer = Timer.scheduledTimer(withTimeInterval: interval, repeats: false) { (_) in
-                self.listenerTimer?.invalidate()
-                //Stop recogniser when both count are same
-                if((self.lastString.count - self.lastStringLength) == 0){
-                    self.microphoneTapped(nil)
-                }else{
-                    self.lastStringLength = self.lastString.count
-                    self.whileRecordingTimer()
-                }
-            }
-        })
-    }
-}
-
-extension ChatViewController: loadMoreActionDelegate {
-    func loadmoreButtonPressed(_ cell: UICollectionViewCell) {
-        print("loadmoreButtonPressed")
-        guard let indexPath = self.messagesCollectionView.indexPath(for: cell) else {
-            return
-        }
-        let message = self.fetchedResultsController.object(at: indexPath)
-        self.hitDB(body: message.body ?? "")
-    }
-    
-    @objc func thingMayAskTapped(_ recognizer: UIGestureRecognizer?) {
-        print("thingMayAskTapped")
-        messageInputBar.topStackView.removeArrangedSubview(floatingQuestionView)
-        NSLayoutConstraint.deactivate(messageInputBar.topStackView.constraints)
-        messageInputBar.topStackView.heightAnchor.constraint(equalToConstant: floatingQuestionViewFlag ? 50.0 : 325.0).isActive = true
-        floatingQuestionView.contentView?.isHidden = floatingQuestionViewFlag
-        messageInputBar.setStackViewItems([floatingQuestionView], forStack: .top, animated: false)
-        let thingsTapGesture = UITapGestureRecognizer(target: self, action: #selector(ChatViewController.thingMayAskTapped(_:)))
-        thingsTapGesture.numberOfTapsRequired = 1
-        floatingQuestionView.headerLabel?.addGestureRecognizer(thingsTapGesture)
-        messageInputBar.layoutStackViews()
-        floatingQuestionViewFlag = !floatingQuestionViewFlag
-    }
-}
 
 
-class FloatingView: UIView, InputItem {
-    
-    var inputBarAccessoryView: InputBarAccessoryView?
-    var parentStackViewPosition: InputStackView.Position?
-    
-    func textViewDidChangeAction(with textView: InputTextView) { }
-    func keyboardSwipeGestureAction(with gesture: UISwipeGestureRecognizer) { }
-    func keyboardEditingEndsAction() { }
-    func keyboardEditingBeginsAction() { }
-    
-    let thingsLabel: UILabel = UILabel()
-
-    let flyingView: UIView = UIView()
-
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        self.addCustomView()
-    }
-
-    required init(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    func addCustomView() {
-        self.backgroundColor = ChatColor.appTheme()
-        thingsLabel.frame = CGRect(x: 0, y: 15, width: self.frame.size.width, height: 21)
-        thingsLabel.backgroundColor=UIColor.green
-        thingsLabel.textAlignment = NSTextAlignment.center
-        thingsLabel.isUserInteractionEnabled = true
-        thingsLabel.text = "Things you may ask"
-        self.addSubview(thingsLabel)
-        
-        flyingView.frame = CGRect(x: 0, y: 50, width: self.frame.size.width, height: 200)
-        flyingView.backgroundColor = ChatColor.appTheme()
-        flyingView.isHidden = true
-        self.addSubview(flyingView)
-        flyingView.clipsToBounds = true
-
-        self.heightConstaint?.constant = 50
-    }
-}
-
-
-extension UIView {
-    var heightConstaint: NSLayoutConstraint? {
-        get {
-            return constraints.first(where: {
-                $0.firstAttribute == .height && $0.relation == .equal
-            })
-        }
-        set { setNeedsLayout() }
-    }
-}
-
-extension ChatViewController: CountrySaveActionDelegate {
-    func saveButtonPressed() {
-        chatViewModel?.saveSelectedLanguage()
-        changeLanguageButton.title = chatViewModel?.selectedLanguage.initial
-    }
-}

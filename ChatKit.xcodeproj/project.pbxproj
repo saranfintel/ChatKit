@@ -130,6 +130,10 @@
 		86B689A9244F5A5D009BEF0A /* ChatFrameworkLauncher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B689A8244F5A5C009BEF0A /* ChatFrameworkLauncher.swift */; };
 		86D2A8C924509912009FC488 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 86D2A8C824509912009FC488 /* Main.storyboard */; };
 		86D2A8EE2450A455009FC488 /* EvaWorkflowManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D2A8ED2450A454009FC488 /* EvaWorkflowManager.swift */; };
+		86D43304245815030016C88F /* TranscationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D43303245815030016C88F /* TranscationsViewController.swift */; };
+		86D43306245815150016C88F /* AccountsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D43305245815150016C88F /* AccountsViewController.swift */; };
+		86D4330824581F1E0016C88F /* ChatViewController+FloatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D4330724581F1E0016C88F /* ChatViewController+FloatingView.swift */; };
+		86D4330A2458205B0016C88F /* ChatViewController+Speech.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D433092458205B0016C88F /* ChatViewController+Speech.swift */; };
 		F04B684E245560140040E89A /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F04B684D245560140040E89A /* QuartzCore.framework */; };
 /* End PBXBuildFile section */
 
@@ -276,6 +280,10 @@
 		86D2A8F72450B082009FC488 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		86D2A8F92450B0A8009FC488 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		86D2A8FD2450B0E7009FC488 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		86D43303245815030016C88F /* TranscationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranscationsViewController.swift; sourceTree = "<group>"; };
+		86D43305245815150016C88F /* AccountsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsViewController.swift; sourceTree = "<group>"; };
+		86D4330724581F1E0016C88F /* ChatViewController+FloatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChatViewController+FloatingView.swift"; sourceTree = "<group>"; };
+		86D433092458205B0016C88F /* ChatViewController+Speech.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChatViewController+Speech.swift"; sourceTree = "<group>"; };
 		F04B684D245560140040E89A /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
 		F36389A33B2A2B571AEAAB0E /* Pods-ChatKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChatKit.debug.xcconfig"; path = "Target Support Files/Pods-ChatKit/Pods-ChatKit.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -522,12 +530,16 @@
 				86B688EB244F2B0E009BEF0A /* ChatCustomMessagesFlowLayout.swift */,
 				86B6893E244F2B0E009BEF0A /* ChatViewController.swift */,
 				86B6893F244F2B0E009BEF0A /* ChatViewController+CollectionViewDataSource.swift */,
-				86B68940244F2B0E009BEF0A /* CountryPopViewController.swift */,
-				86B68941244F2B0E009BEF0A /* CardPopupViewController.swift */,
 				86B68942244F2B0E009BEF0A /* ChatViewController+MessagesDisplayType.swift */,
 				86B68943244F2B0E009BEF0A /* ChatViewController+FetchedResultsController.swift */,
 				86B68944244F2B0E009BEF0A /* ChatViewController+LoadMore.swift */,
+				86D4330724581F1E0016C88F /* ChatViewController+FloatingView.swift */,
 				86B68945244F2B0E009BEF0A /* ChatViewController+MessageCellDelegate.swift */,
+				86D433092458205B0016C88F /* ChatViewController+Speech.swift */,
+				86B68940244F2B0E009BEF0A /* CountryPopViewController.swift */,
+				86B68941244F2B0E009BEF0A /* CardPopupViewController.swift */,
+				86D43303245815030016C88F /* TranscationsViewController.swift */,
+				86D43305245815150016C88F /* AccountsViewController.swift */,
 				86D2A8C724509905009FC488 /* StoryBoard */,
 			);
 			path = ViewControllers;
@@ -915,6 +927,7 @@
 				8612FED92452CB7100B53183 /* VerticalStackViewiCollectionViewCell.swift in Sources */,
 				8612FEE52452F0DD00B53183 /* Account.swift in Sources */,
 				86093FAB2456EB9B004B3952 /* ChatCardRecommendHelper.swift in Sources */,
+				86D4330A2458205B0016C88F /* ChatViewController+Speech.swift in Sources */,
 				86B68990244F2B0F009BEF0A /* CardPopupViewController.swift in Sources */,
 				863671DA2456AF8800CCC7A1 /* ChatTransactionCollectionViewCell.swift in Sources */,
 				86B68984244F2B0F009BEF0A /* Lorem.swift in Sources */,
@@ -962,6 +975,7 @@
 				86B68954244F2B0E009BEF0A /* ChatDBMessage+CoreDataClass.swift in Sources */,
 				86B68955244F2B0E009BEF0A /* ChatDBUnsentMessage+CoreDataProperties.swift in Sources */,
 				86B68959244F2B0E009BEF0A /* ChatMessageService.swift in Sources */,
+				86D43304245815030016C88F /* TranscationsViewController.swift in Sources */,
 				86AF8A8A2456EE2500CB4991 /* ZCCoreTextLayout.m in Sources */,
 				86B6899A244F2B0F009BEF0A /* ChatSectionHeaderReusableView.swift in Sources */,
 				863671CB24559B9200CCC7A1 /* ChatViewModel.swift in Sources */,
@@ -979,6 +993,7 @@
 				86B68976244F2B0E009BEF0A /* ChatCoreDataStack.swift in Sources */,
 				8612FEE02452CB7100B53183 /* ChatGiphyCollectionViewCell.swift in Sources */,
 				86B6899C244F2D95009BEF0A /* ChatConstant.swift in Sources */,
+				86D4330824581F1E0016C88F /* ChatViewController+FloatingView.swift in Sources */,
 				86B6898C244F2B0F009BEF0A /* ChatDBMessageUpdateOperation.swift in Sources */,
 				86B68957244F2B0E009BEF0A /* ChatDBUnsentMessage+CoreDataClass.swift in Sources */,
 				86AF8AAC245728B200CB4991 /* ScrollableGraphView.swift in Sources */,
@@ -992,6 +1007,7 @@
 				86093FA42456E5D8004B3952 /* CardRecommand.swift in Sources */,
 				8622F1AA24521446007B8209 /* TransactionDetails.swift in Sources */,
 				86B68988244F2B0F009BEF0A /* ChatUtils.swift in Sources */,
+				86D43306245815150016C88F /* AccountsViewController.swift in Sources */,
 				86AF8A9824570E3200CB4991 /* VBPieChart.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

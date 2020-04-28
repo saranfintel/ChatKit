@@ -9,6 +9,10 @@
 import UIKit
 import MessageKit
 
+protocol loadMoreTranscationDelegate: class {
+    func loadmoreButtonPressed(_ transactionDetails: [TransactionDetails], displayType: String)
+}
+
 open class ChatTransactionCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var loadMoreHeightConstraint: NSLayoutConstraint!
@@ -22,7 +26,8 @@ open class ChatTransactionCollectionViewCell: UICollectionViewCell {
 
     var transactionResponse: Transactions? = nil
     var displayType: String = ""
-    
+    weak var delegate: loadMoreTranscationDelegate?
+
     override open func awakeFromNib() {
         super.awakeFromNib()
         setUpViews()
@@ -38,7 +43,7 @@ open class ChatTransactionCollectionViewCell: UICollectionViewCell {
         }
         loadMoreButton?.backgroundColor = ChatColor.appTheme()
         self.tableView?.register(UINib(nibName: "ChatTransactionInfoCell", bundle: ChatWorkflowManager.bundle), forCellReuseIdentifier: "ChatTransactionInfoCell")
-        self.tableView?.separatorColor = UIColor.colorFromHex(hexString: "#eaeaea")
+        self.tableView?.separatorColor = ChatColor.sepertorLineTheme()
     }
     
     func configurationCell(message: ChatDBMessage) {
@@ -53,7 +58,7 @@ open class ChatTransactionCollectionViewCell: UICollectionViewCell {
     }
     
     @IBAction func loadMoreButtonClicked(_ sender: Any) {
-        
+        self.delegate?.loadmoreButtonPressed(transactionResponse?.transactionDetails ?? [], displayType: displayType)
     }
     
     deinit {
