@@ -518,7 +518,7 @@ class ChatViewController: MessagesViewController, UIGestureRecognizerDelegate {
         messageInputBar.addSubview(customView ?? UIView())
         customView?.addSubview(typingBubble)
         typingBubble.backgroundColor = .clear
-        typingBubble.center = CGPoint(x: 30, y: 14)
+        typingBubble.center = CGPoint(x: 30, y: -10)
         typingBubble.typingIndicator.dotColor = ChatColor.appTheme()
         typingBubble.typingIndicator.isBounceEnabled = true
         typingBubble.typingIndicator.isFadeEnabled = true
@@ -531,68 +531,73 @@ class ChatViewController: MessagesViewController, UIGestureRecognizerDelegate {
     
     @objc func loadMoreMessages() {
         print("loadMoreMessages")
-        /*FIX: DispatchQueue added for avoiding jerk when get the message from Coredata*/
-//        DispatchQueue.global(qos: .userInitiated).asyncAfter(deadline: .now() + 0.2) {
-            DispatchQueue.main.async {
-                
-                if let fetchedObjects = self.fetchedResultsController.fetchedObjects {
-                    // Increase the fetch limit to load more messsages by kMessageThreshold
-                    self.fetchLimit = fetchedObjects.count + kMessageThreshold
-                    let totalCount = ChatCoreDataManager.getTotalCountOfSentMessages(context: ChatCoreDataStack.sharedInstance.mainManagedObjectContext) ?? 0
-                    if totalCount != 0 {
-                        if totalCount - self.fetchLimit < 20 {
-                            self.fetchedResultsController.fetchRequest.fetchLimit = totalCount
-                            self.fetchedResultsController.fetchRequest.fetchOffset = 0
-                            self.canMakeLoadMoreCall = false
-                        } else {
-                            self.fetchedResultsController.fetchRequest.fetchLimit = self.fetchLimit
-                            self.fetchedResultsController.fetchRequest.fetchOffset = totalCount - self.fetchLimit
-                        }
-                    }
-                    do {
-                        try self.fetchedResultsController.performFetch()
-                    } catch {
-                        print("fetch error: \(error)")
-                    }
-                    if let newlyFetchedObjects = self.fetchedResultsController.fetchedObjects {
-                        // If the new fetch yields less number of messages than required, check if the user/channel has no more messages.
-                        // If yes, show "no eralier messages"
-                        // else fetch from server
-                        if newlyFetchedObjects.count < self.fetchLimit, self.isFetchingEarlierMessages == false {
-                            // fetch from server
-                            var messageID: Int16? = nil
-                            if let earliestMessageID = ChatCoreDataManager.getEarliestMessageIDOnUserDM(context: ChatCoreDataStack.sharedInstance.mainManagedObjectContext) {
-                                messageID = earliestMessageID
-                            }
-                            ChatMessageDataModel.listMessagesHandler(messageID: messageID, completionStatusHandler: { (isSuccess) in
-                                print("isSuccess earliestMessageID")
-                                DispatchQueue.main.async {
-                                    // Do Refreshing and Set messgae Offet
-                                    self.refreshControl.endRefreshing()
-                                    self.messagesCollectionView.reloadDataAndKeepOffset()
-                                    if isSuccess == false {
-                                        self.isFetchingEarlierMessages = true
-                                        self.canMakeLoadMoreCall = false
-                                        return
-                                    }
-                                }
-                            })
-                        } else {
-                            self.messagesCollectionView.reloadDataAndKeepOffset()
-                            self.messagesCollectionView.performBatchUpdates(nil, completion: { (result) in
-                                if totalCount != newlyFetchedObjects.count {
-                                    self.canMakeLoadMoreCall = true
-                                }
-                                DispatchQueue.main.async {
-                                    self.refreshControl.endRefreshing()
-                                }
-                            })
-                        }
-                    }
-                }
+        DispatchQueue.main.async {
+            guard let fetchedObjects = self.fetchedResultsController.fetchedObjects else {
                 // Do Refreshing and Set messgae Offet
                 self.messagesCollectionView.reloadDataAndKeepOffset()
+                return
             }
+            // Increase the fetch limit to load more messsages by kMessageThreshold
+            self.fetchLimit = fetchedObjects.count + kMessageThreshold
+            let totalCount = ChatCoreDataManager.getTotalCountOfSentMessages(context: ChatCoreDataStack.sharedInstance.mainManagedObjectContext) ?? 0
+            if totalCount != 0 {
+                if totalCount - self.fetchLimit < 20 {
+                    self.fetchedResultsController.fetchRequest.fetchLimit = totalCount
+                    self.fetchedResultsController.fetchRequest.fetchOffset = 0
+                    self.canMakeLoadMoreCall = false
+                } else {
+                    self.fetchedResultsController.fetchRequest.fetchLimit = self.fetchLimit
+                    self.fetchedResultsController.fetchRequest.fetchOffset = totalCount - self.fetchLimit
+                }
+            }
+            do {
+                try self.fetchedResultsController.performFetch()
+            } catch {
+                print("fetch error: \(error)")
+            }
+            guard let newlyFetchedObjects = self.fetchedResultsController.fetchedObjects else {
+                // Do Refreshing and Set messgae Offet
+                self.messagesCollectionView.reloadDataAndKeepOffset()
+                return
+            }
+            // If the new fetch yields less number of messages than required, check if the user/channel has no more messages.
+            // If yes, show "no eralier messages"
+            // else fetch from server
+            if newlyFetchedObjects.count < self.fetchLimit, self.isFetchingEarlierMessages == false {
+                // fetch from server
+                var messageID: Int16? = nil
+                if let earliestMessageID = ChatCoreDataManager.getEarliestMessageIDOnUserDM(context: ChatCoreDataStack.sharedInstance.mainManagedObjectContext) {
+                    messageID = earliestMessageID
+                }
+                ChatMessageDataModel.listMessagesHandler(messageID: messageID, completionStatusHandler: { (isSuccess) in
+                    print("isSuccess earliestMessageID")
+                    DispatchQueue.main.async {
+                        sleep(1)
+                        // Do Refreshing and Set messgae Offet
+                        self.refreshControl.endRefreshing()
+                        self.messagesCollectionView.reloadDataAndKeepOffset()
+                        if isSuccess == false {
+                            self.isFetchingEarlierMessages = true
+                            self.canMakeLoadMoreCall = false
+                            return
+                        }
+                    }
+                })
+            } else {
+                self.messagesCollectionView.reloadDataAndKeepOffset()
+                self.messagesCollectionView.performBatchUpdates(nil, completion: { (result) in
+                    if totalCount != newlyFetchedObjects.count {
+                        self.canMakeLoadMoreCall = true
+                    }
+                    DispatchQueue.main.async {
+                        sleep(1)
+                        self.refreshControl.endRefreshing()
+                    }
+                })
+            }
+            // Do Refreshing and Set messgae Offet
+            self.messagesCollectionView.reloadDataAndKeepOffset()
+        }
     }
         
     //MARK:- Hide Activity Indicator View

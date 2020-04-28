@@ -101,11 +101,11 @@ class SiriContentView: UIView, InputItem {
         self.secondInfoLabel?.attributedText = self.formatPoint18Text(text: "What’s my net worth?")
         self.thirdInfoLabel?.attributedText = self.formatPoint18Text(text: "Show me my shopping transactions for last three months")
         self.fourthInfoLabel?.attributedText = self.formatPoint18Text(text: "Show me my spend by category")
-
-        self.firstInfoLabel?.textColor = UIColor.black
-        self.secondInfoLabel?.textColor = UIColor.black
-        self.thirdInfoLabel?.textColor = UIColor.black
-        self.fourthInfoLabel?.textColor = UIColor.black
+        headerLabel?.backgroundColor = ChatColor.appTheme()
+        self.firstInfoLabel?.textColor = ChatColor.appTheme()
+        self.secondInfoLabel?.textColor = ChatColor.appTheme()
+        self.thirdInfoLabel?.textColor = ChatColor.appTheme()
+        self.fourthInfoLabel?.textColor = ChatColor.appTheme()
 
         infoLabelarray1 = [self.firstInfoLabel ?? UILabel(), self.secondInfoLabel ?? UILabel(), self.thirdInfoLabel ?? UILabel(), self.fourthInfoLabel ?? UILabel()];
         infoLabelarray2 = [self.firstInfoLabel ?? UILabel(), self.secondInfoLabel ?? UILabel(), self.thirdInfoLabel ?? UILabel(), self.fourthInfoLabel ?? UILabel()];

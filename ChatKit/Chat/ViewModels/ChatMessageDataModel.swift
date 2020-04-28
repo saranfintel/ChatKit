@@ -16,11 +16,11 @@ class ChatMessageDataModel: NSObject {
                     let unsentMesssageDict = messsageArray[0]
                 ChatMessageDataModel.messagePostSuccessHandler(messageDict: unsentMesssageDict, clientTempID: tempID, completionHandler: { (isSuccess, resultt, error) in
                     //Added DispatchQueue delay for Insertion new messages
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
-                        for (index, object) in messsageArray.enumerated() {
-                            if index != 0 {
-                                ChatMessageDataModel.insertNewMessage(messsageDict: object)
-                            }
+                    for (index, object) in messsageArray.enumerated() {
+                        if index != 0 {
+                            sleep(1)
+
+                            ChatMessageDataModel.insertNewMessage(messsageDict: object)
                         }
                     }
                 })

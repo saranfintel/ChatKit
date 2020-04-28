@@ -129,6 +129,10 @@ class ChatDBMessageUpdateOperation: DBUpdateOperation {
             messageVar.setValue(mediaURL, forKey: "mediaURL")
         }
         messageVar.setValue(MessageStatus.Published.rawValue, forKey: "status")
+        if self.operationType == .DetailsUpdate {
+            // Save Changes
+            self.saveChanges()
+        }
     }
     
     func getHeightValue(message: NSDictionary, canShowSuggestions: Bool, displayTypeName: String) -> Double {
