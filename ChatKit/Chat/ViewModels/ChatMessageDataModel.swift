@@ -18,8 +18,6 @@ class ChatMessageDataModel: NSObject {
                     //Added DispatchQueue delay for Insertion new messages
                     for (index, object) in messsageArray.enumerated() {
                         if index != 0 {
-                            sleep(1)
-
                             ChatMessageDataModel.insertNewMessage(messsageDict: object)
                         }
                     }

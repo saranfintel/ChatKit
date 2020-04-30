@@ -72,7 +72,6 @@ extension ChatViewController {
                         self.canMakeLoadMoreCall = true
                     }
                     DispatchQueue.main.async {
-                        sleep(1)
                         self.refreshControl.endRefreshing()
                     }
                 })
