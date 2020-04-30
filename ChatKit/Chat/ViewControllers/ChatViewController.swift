@@ -109,6 +109,7 @@ class ChatViewController: MessagesViewController, UIGestureRecognizerDelegate {
         messageInputBar.bringSubviewToFront(messageInputBar.topStackView)
         messageInputBar.topStackView.heightAnchor.constraint(equalToConstant: 50.0).isActive = true
         floatingQuestionView.heightAnchor.constraint(equalToConstant: 50.0).isActive = true
+        floatingQuestionView.setLayoutProperties()
         messageInputBar.layoutStackViews()
     }
         

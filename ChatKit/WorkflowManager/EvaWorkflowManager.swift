@@ -23,6 +23,8 @@ open class ChatWorkflowManager: NSObject {
         return Singleton.instance
     }
     
+    var currentQuestionsList: [Questions] = []
+    
     fileprivate var bundleName: String {
         return "com.aws.payment.EvaKit"
     }

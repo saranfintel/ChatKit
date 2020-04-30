@@ -14,6 +14,8 @@ import UIKit
 let KEY_LAUNCH_TYPE                                       =   "launchType"
 let LAUNCH_TYPE_INSIGHTS                                  =   "insights"
 let KEY_SESSIONTOKEN                                      =   "SessionToken"
+let AUTHORIZATION                                         =   "Authorization"
+let BEARER                                                =   "Bearer "
 let timeFormat   =  "h:mm a"
 let messageCount = "messageCount"
 let voiceLanguage = "voiceLanguage"

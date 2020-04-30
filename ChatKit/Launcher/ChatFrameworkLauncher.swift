@@ -15,7 +15,7 @@ public protocol BaseFrameworkLauncher {
 
     func launch(_ presentedViewController: UIViewController?)
     
-    func launchChat(parameters: JSONDictionary, sender: UIImage?, receiver: UIImage?)
+    func launchChat(parameters: JSONDictionary, sender: UIImage?, receiver: UIImage?, currentQuestionsDict: JSONDictionary)
     
     func exitFramework()
 }
@@ -24,7 +24,7 @@ open class ChatFrameworkLauncher: NSObject, BaseFrameworkLauncher {
     
     public var callBackHandler: (([String : Any]) -> Void)?
         
-    public func launchChat(parameters: JSONDictionary, sender: UIImage?, receiver: UIImage?) {
+    public func launchChat(parameters: JSONDictionary, sender: UIImage?, receiver: UIImage?, currentQuestionsDict: JSONDictionary) {
         ChatSession.deleteImages()
         if let senderIcon = sender {
             ChatSession.store(image: senderIcon, forKey: "sender", withStorageType: .fileSystem)
@@ -35,7 +35,9 @@ open class ChatFrameworkLauncher: NSObject, BaseFrameworkLauncher {
         UserDefaults.standard.set(parameters, forKey: "ChatData")
         UserDefaults.standard.synchronize()
    
-    ChatWorkflowManager.sharedManager.performNavigationFor("ChatViewController", navType: NavType.model)
+        ChatWorkflowManager.sharedManager.performNavigationFor("ChatViewController", navType: NavType.model)
+        let questionsList: [Questions] = (currentQuestionsDict <-- "questions") ?? []
+        ChatWorkflowManager.sharedManager.currentQuestionsList = questionsList
     }
     
     public func launch(_ presentedViewController: UIViewController?) {
@@ -55,6 +57,13 @@ open class ChatFrameworkLauncher: NSObject, BaseFrameworkLauncher {
     class func baseURL() -> String {
         if let chatData = UserDefaults.standard.object(forKey: "ChatData") as? JSONDictionary, let baseURL = chatData["baseURL"] as? String {
             return baseURL
+        }
+        return EMPTY_STRING
+    }
+    
+    class func sessionToken() -> String {
+        if let chatData = UserDefaults.standard.object(forKey: "ChatData") as? JSONDictionary, let sessionToken = chatData["sessionToken"] as? String {
+            return sessionToken
         }
         return EMPTY_STRING
     }

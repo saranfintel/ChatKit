@@ -34,8 +34,6 @@ class SiriContentView: UIView, InputItem {
     var items: [String]?
     var itemsViews: [UILabel]?
 
-    var currentQuestionsList = [Questions]()
-
     //Delegate
     weak var delegate: categoryNameDelegate?
 
@@ -120,11 +118,10 @@ class SiriContentView: UIView, InputItem {
     }
     
     func setLayoutProperties() {
-        
         infoBasearray.removeAll()
         self.invalidateAllTimer()
 
-        if self.currentQuestionsList.count == 0 {
+        if ChatWorkflowManager.sharedManager.currentQuestionsList.count == 0 {
             self.setOldProperties()
             return
         }
@@ -193,7 +190,7 @@ class SiriContentView: UIView, InputItem {
     }
 
     func getLoopCount() -> Int{
-        let questionsList = self.currentQuestionsList
+        let questionsList = ChatWorkflowManager.sharedManager.currentQuestionsList
         let group_ids = questionsList.map { $0.group_id}
         let uniquegroup_ids = Set(group_ids)
         let uniquegroupids = Array(uniquegroup_ids)
@@ -202,7 +199,7 @@ class SiriContentView: UIView, InputItem {
     }
     
      func getCategoryNames() -> Array<String>? {
-        let questionsList = self.currentQuestionsList
+        let questionsList = ChatWorkflowManager.sharedManager.currentQuestionsList
         let sortedQuestionsList = questionsList.sorted{ $0.group_id < $1.group_id}
         let categoryNames = sortedQuestionsList.map { $0.category }
         let uniqueCategory_Names = NSOrderedSet(array:categoryNames)
@@ -214,7 +211,7 @@ class SiriContentView: UIView, InputItem {
     
     
     func getCategoryName(index: Int) -> String {
-        let questionsList = self.currentQuestionsList
+        let questionsList = ChatWorkflowManager.sharedManager.currentQuestionsList
         let group_ids = questionsList.map { $0.group_id}
         let uniquegroup_ids = Set(group_ids)
         let uniquegroupids = Array(uniquegroup_ids)
@@ -232,7 +229,7 @@ class SiriContentView: UIView, InputItem {
 
     
     func getQuestion(of originalIndex: Int, index: Int) -> String {
-        let questionsList = self.currentQuestionsList
+        let questionsList = ChatWorkflowManager.sharedManager.currentQuestionsList
         let group_ids = questionsList.map { $0.group_id}
         let uniquegroup_ids = Set(group_ids)
         let uniquegroupids = Array(uniquegroup_ids)
@@ -262,7 +259,7 @@ class SiriContentView: UIView, InputItem {
         var count = 0
         for label in array {
             label.isHidden = false
-            if self.currentQuestionsList.count > 0 {
+            if ChatWorkflowManager.sharedManager.currentQuestionsList.count > 0 {
                 let originalIndex = count
                 let question = self.getQuestion(of: originalIndex, index: baseCounter)
                 if question == "" {
@@ -573,7 +570,7 @@ extension SiriContentView: SwiftCarouselDelegate {
     }
 }
 
-struct Questions {
+public struct Questions {
     var group_id: Int = EMPTY_INT
     var category: String = ""
     var question_text: String = ""
@@ -585,7 +582,7 @@ extension Questions: Mappable {
         return Questions(group_id: EMPTY_INT, category: EMPTY_STRING, question_text: EMPTY_STRING)
     }
     
-    static func Map(_ json: JSONObject) -> Questions? {
+    public static func Map(_ json: JSONObject) -> Questions? {
         guard let d: JSONDictionary = Parse(json) else {
             return nil
         }
