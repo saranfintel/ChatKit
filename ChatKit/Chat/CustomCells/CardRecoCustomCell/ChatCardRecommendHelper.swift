@@ -47,24 +47,24 @@ class ChatCardRecommendHelper: NSObject {
         
         if let arrCarouselItems = vc?._arrCarouselItems {
             var index: Int = 0
-            for evaCarouselItem in arrCarouselItems {
+            for EvaCarouselItem in arrCarouselItems {
                 let card = vc?.cards[index]
                 let x =     CGFloat(CARDWIDTHSIZE * Double(index));
                 let widthside =  CGFloat((index == 0) ? CARDWIDTHSIZE : (CARDWIDTHSIZE * 0.80))
                 let heightside =  CGFloat((index == 0) ? CARDHEIGHTSIZE : (CARDHEIGHTSIZE * 0.85))
-                evaCarouselItem.frame =    CGRect.init(x: 0, y: 0, width: widthside, height: heightside);
-                evaCarouselItem.center =   CGPoint.init(x: (x + CGFloat(CARDWIDTHSIZE/2)), y: CGFloat(CARDHEIGHTSIZE/2));
-                evaCarouselItem.backgroundColor = UIColor.init(hex: (card?.color_scheme ?? "" == "") ? DEFAULT_COLOR_SCHEME : card?.color_scheme ?? DEFAULT_COLOR_SCHEME)
-                evaCarouselItem.layer.borderWidth = 0.0;
+                EvaCarouselItem.frame =    CGRect.init(x: 0, y: 0, width: widthside, height: heightside);
+                EvaCarouselItem.center =   CGPoint.init(x: (x + CGFloat(CARDWIDTHSIZE/2)), y: CGFloat(CARDHEIGHTSIZE/2));
+                EvaCarouselItem.backgroundColor = UIColor.init(hex: (card?.color_scheme ?? "" == "") ? DEFAULT_COLOR_SCHEME : card?.color_scheme ?? DEFAULT_COLOR_SCHEME)
+                EvaCarouselItem.layer.borderWidth = 0.0;
                 
-                vc?.scrollView?.addSubview(evaCarouselItem)
-                ChatCardRecommendHelper.addRecommandationLabel(scrollView: vc?.scrollView ?? UIScrollView(), evaCarouselItem: evaCarouselItem, index: index)
-                vc?.array = ChatCardRecommendHelper.addThumpsUpImage(scrollView: vc?.scrollView ?? UIScrollView(), evaCarouselItem: evaCarouselItem, index: index)
-                ChatCardRecommendHelper.addCardName(vc?.scrollView ?? UIScrollView(), evaCarouselItem, index, card: card)
-                ChatCardRecommendHelper.addCardType(vc?.scrollView ?? UIScrollView(), evaCarouselItem, index, card: card)
-                ChatCardRecommendHelper.addCardEndingNumber(vc?.scrollView ?? UIScrollView(), evaCarouselItem, index, card: card)
+                vc?.scrollView?.addSubview(EvaCarouselItem)
+                ChatCardRecommendHelper.addRecommandationLabel(scrollView: vc?.scrollView ?? UIScrollView(), EvaCarouselItem: EvaCarouselItem, index: index)
+                vc?.array = ChatCardRecommendHelper.addThumpsUpImage(scrollView: vc?.scrollView ?? UIScrollView(), EvaCarouselItem: EvaCarouselItem, index: index)
+                ChatCardRecommendHelper.addCardName(vc?.scrollView ?? UIScrollView(), EvaCarouselItem, index, card: card)
+                ChatCardRecommendHelper.addCardType(vc?.scrollView ?? UIScrollView(), EvaCarouselItem, index, card: card)
+                ChatCardRecommendHelper.addCardEndingNumber(vc?.scrollView ?? UIScrollView(), EvaCarouselItem, index, card: card)
                 
-                ChatCardRecommendHelper.addLogoImage(vc?.scrollView ?? UIScrollView(), evaCarouselItem, index, card: card)
+                ChatCardRecommendHelper.addLogoImage(vc?.scrollView ?? UIScrollView(), EvaCarouselItem, index, card: card)
                 index += 1
             }
             vc?.setScrollViewProperties()
@@ -146,9 +146,9 @@ extension ChatCardRecommendHelper {
     /*
      add Card item in array
      */
-    public static func carouselItemsForCardRec(cardRecommands: [CardRecommand]?) -> Array<EvaCarouselItem> {
+    public static func carouselItemsForCardRec(cardRecommands: [CardRecommand]?) -> Array<ChatCarouselItem> {
         
-        var array = Array<EvaCarouselItem>()
+        var array = Array<ChatCarouselItem>()
         let count = cardRecommands?.count ?? 0
         for _ in 0..<count {
             let item = self.createCarouselItem()
@@ -157,17 +157,17 @@ extension ChatCardRecommendHelper {
         return array
     }
     
-    public static func createCarouselItem() -> EvaCarouselItem {
-        let item1:EvaCarouselItem = EvaCarouselItem(title: "Basketball", image: UIImage(named: "btn-basketball.png"), target:nil, action:nil)
+    public static func createCarouselItem() -> ChatCarouselItem {
+        let item1:ChatCarouselItem = ChatCarouselItem(title: "Basketball", image: UIImage(named: "btn-basketball.png"), target:nil, action:nil)
         return item1
     }
 
     /*
      Add Recommend label in scrollview
      */
-    public static func addRecommandationLabel(scrollView: UIScrollView, evaCarouselItem: EvaCarouselItem, index: Int) {
+    public static func addRecommandationLabel(scrollView: UIScrollView, EvaCarouselItem: ChatCarouselItem, index: Int) {
         let label = EvaLeftInsetLabel()
-        label.frame = CGRect.init(x: evaCarouselItem.frame.origin.x, y: CGFloat(148.0), width: evaCarouselItem.frame.size.width, height: CGFloat(RECOMMEND_LABEL_HEIGHT))
+        label.frame = CGRect.init(x: EvaCarouselItem.frame.origin.x, y: CGFloat(148.0), width: EvaCarouselItem.frame.size.width, height: CGFloat(RECOMMEND_LABEL_HEIGHT))
         label.textAlignment = .left
         label.font = ChatUtils.getFont(of: "Helvetica Neue", of: 12.0)
         label.text = "Recommended"
@@ -179,7 +179,7 @@ extension ChatCardRecommendHelper {
     /*
      Add Ratings view in scrollview
      */
-    public static func addThumpsUpImage(scrollView: UIScrollView, evaCarouselItem: EvaCarouselItem, index: Int) -> Array<WCLShineButton> {
+    public static func addThumpsUpImage(scrollView: UIScrollView, EvaCarouselItem: ChatCarouselItem, index: Int) -> Array<WCLShineButton> {
         
         let size = 15
         let rightPadding = 16
@@ -188,7 +188,7 @@ extension ChatCardRecommendHelper {
         let starCount = 5
         let width = (size * starCount) + (space * (starCount - 1)) //5 stars, 4 in between space = 120 width
         var y = Int(148.0)
-        var x = Int(evaCarouselItem.frame.size.width - CGFloat(rightPadding))
+        var x = Int(EvaCarouselItem.frame.size.width - CGFloat(rightPadding))
         
         let ratingView = UIView(frame: CGRect.init(x: x, y: y, width: width, height: size))
         ratingView.tag = 1900 + index
@@ -235,9 +235,9 @@ extension ChatCardRecommendHelper {
     /*
      Add Card Name in scrollview
      */
-    public static func addCardName(_ scrollView: UIScrollView, _ evaCarouselItem: EvaCarouselItem, _ index: Int, _ account: Account? = nil, card: CardRecommand? = nil) {
+    public static func addCardName(_ scrollView: UIScrollView, _ EvaCarouselItem: ChatCarouselItem, _ index: Int, _ account: Account? = nil, card: CardRecommand? = nil) {
         let label = EvaLeftInsetLabel()
-        label.frame = CGRect.init(x: evaCarouselItem.frame.origin.x, y: CGFloat(51.0), width: CGFloat(CONNECTED_ACCOUNTS_CARD_NAME_LABEL_WIDTH), height: CGFloat(ACCOUNTS_CARD_NAME_HEIGHT))
+        label.frame = CGRect.init(x: EvaCarouselItem.frame.origin.x, y: CGFloat(51.0), width: CGFloat(CONNECTED_ACCOUNTS_CARD_NAME_LABEL_WIDTH), height: CGFloat(ACCOUNTS_CARD_NAME_HEIGHT))
         label.textAlignment = .left
         label.font = ChatUtils.getFont(of: "Helvetica Neue", of: 15.0)
         if (account == nil) {
@@ -253,10 +253,10 @@ extension ChatCardRecommendHelper {
     /*
      Add Card Type in scrollview
      */
-    public static func addCardType(_ scrollView: UIScrollView, _ evaCarouselItem: EvaCarouselItem, _ index: Int, _ account: Account? = nil, card: CardRecommand? = nil) {
+    public static func addCardType(_ scrollView: UIScrollView, _ EvaCarouselItem: ChatCarouselItem, _ index: Int, _ account: Account? = nil, card: CardRecommand? = nil) {
         let label = EvaLeftInsetLabel()
         let width = CGFloat(150.0)
-        label.frame = CGRect.init(x: evaCarouselItem.frame.origin.x, y: CGFloat(77.0), width: width, height: CGFloat(17.0))
+        label.frame = CGRect.init(x: EvaCarouselItem.frame.origin.x, y: CGFloat(77.0), width: width, height: CGFloat(17.0))
         label.textAlignment = .left
         label.font = ChatUtils.getFont(of: "Helvetica Neue", of: 13.0)
         if (account == nil) {
@@ -272,11 +272,11 @@ extension ChatCardRecommendHelper {
     /*
      Add Card Ending No in scrollview
      */
-    public static func addCardEndingNumber(_ scrollView: UIScrollView, _ evaCarouselItem: EvaCarouselItem, _ index: Int, _ account: Account? = nil, card: CardRecommand? = nil) {
+    public static func addCardEndingNumber(_ scrollView: UIScrollView, _ EvaCarouselItem: ChatCarouselItem, _ index: Int, _ account: Account? = nil, card: CardRecommand? = nil) {
         
         let width = CGFloat(120.0)
         let y = CGFloat(54.0)
-        let x = CGFloat(evaCarouselItem.frame.size.width - CGFloat(width))
+        let x = CGFloat(EvaCarouselItem.frame.size.width - CGFloat(width))
         
         let label = EvaRightInsetLabel()
         label.frame = CGRect.init(x: x, y: y, width: width, height: CGFloat(ACCOUNTS_CARD_TYPE_HEIGHT))
@@ -295,7 +295,7 @@ extension ChatCardRecommendHelper {
         scrollView.addSubview(label)
     }
     
-    public static func addLogoImage(_ scrollView: UIScrollView, _ evaCarouselItem: EvaCarouselItem, _ index: Int, _ account: Account? = nil, card: CardRecommand? = nil) {
+    public static func addLogoImage(_ scrollView: UIScrollView, _ EvaCarouselItem: ChatCarouselItem, _ index: Int, _ account: Account? = nil, card: CardRecommand? = nil) {
         let imageView = UIImageView()
         imageView.frame = CGRect.init(x: 16, y: CGFloat(25.0), width: ChatCardRecommendHelper.CONNECTED_ACCOUNTS_LOGO_VALUE_WIDTH, height: ChatCardRecommendHelper.ACCOUNTS_CARD_IMAGE_HEIGHT)
         let imageName : String? = ((account == nil) ? card?.institution_id : account?.institution_id)
@@ -325,12 +325,12 @@ extension ChatCardRecommendHelper {
         }
         
         if account == nil {
-            self.addLineImage(scrollView, evaCarouselItem, index, card: card)
+            self.addLineImage(scrollView, EvaCarouselItem, index, card: card)
         }
     }
     
     
-    public static func addLineImage(_ scrollView: UIScrollView, _ evaCarouselItem: EvaCarouselItem, _ index: Int, _ account: Account? = nil, card: CardRecommand? = nil) {
+    public static func addLineImage(_ scrollView: UIScrollView, _ EvaCarouselItem: ChatCarouselItem, _ index: Int, _ account: Account? = nil, card: CardRecommand? = nil) {
         let imageView = UIImageView(frame:CGRect.init(x: 16, y: 130, width: 270, height: 0.5));
         imageView.tag = index + 2000
         imageView.backgroundColor = UIColor.colorFromHex(hexString: "#F5F7FA")

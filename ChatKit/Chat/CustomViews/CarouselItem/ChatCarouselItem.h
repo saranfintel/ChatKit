@@ -1,5 +1,5 @@
 //
-//  EvaCarouselItem.h
+//  ChatCarouselItem.h
 //  Eva
 //
 //  Created by Poomalai on 3/26/17.
@@ -19,14 +19,14 @@
 
 #define DEFAULT_COLOR_SCHEME "1A1A2D"
 
-@interface EvaCarouselItem : UIButton
+@interface ChatCarouselItem : UIButton
 {
     NSString *_strItemTitle;
 }
 
 @property (nonatomic, retain) NSString *itemTitle;
 
-+ (EvaCarouselItem*)itemWithTitle:(NSString *)title
++ (ChatCarouselItem*)itemWithTitle:(NSString *)title
                            image:(UIImage*)image
                           target:(id)target
                           action:(SEL)action;

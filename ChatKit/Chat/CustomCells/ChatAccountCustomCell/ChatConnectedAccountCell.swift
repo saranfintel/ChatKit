@@ -146,7 +146,8 @@ class ChatConnectedAccountCell: UITableViewCell {
     func setAvailableAmountValue(account: Account?) {
         // Display N/A, if amount is not available
         if account?.available_balance != "" && account?.available_balance != "%" {
-            let amount = ChatUtils.formatAmount(amount: account?.available_balance ?? "")
+            let amountObj = ChatSession.currencySymbol() + (account?.available_balance ?? EMPTY_STRING)
+            let amount = ChatUtils.formatAmount(amount: amountObj)
             amountBtn?.setAttributedTitle(amount, for: .normal)
         } else {
             if account?.subtype.lowercased() == "credit card" || account?.subtype.lowercased() == "loan" || account?.subtype.lowercased() == "line of credit" {
@@ -173,7 +174,8 @@ class ChatConnectedAccountCell: UITableViewCell {
     func setCurrentAmountValue(account: Account?) {
         // Display N/A, if amount is not available
         if account?.current_balance != "" && account?.current_balance != "%" {
-            let amount = ChatUtils.formatAmount(amount: account?.current_balance ?? "")
+            let amountObj = ChatSession.currencySymbol() + (account?.current_balance ?? EMPTY_STRING)
+            let amount = ChatUtils.formatAmount(amount: amountObj)
             amountBtn?.setAttributedTitle(amount, for: .normal)
         } else {
             if account?.subtype.lowercased() == "credit card" || account?.subtype.lowercased() == "loan" || account?.subtype.lowercased() == "line of credit" {

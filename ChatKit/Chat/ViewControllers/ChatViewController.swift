@@ -578,6 +578,7 @@ class ChatViewController: MessagesViewController, UIGestureRecognizerDelegate {
     
     @IBAction func closeButtonClicked(_ sender: Any) {
         ChatSession.deleteImages()
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "ShowChatView"), object: nil)
         self.dismiss(animated: true, completion: nil)
     }
 

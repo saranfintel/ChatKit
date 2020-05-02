@@ -20,7 +20,7 @@ class ChatCardRecoCollectionViewCell: UICollectionViewCell, UIScrollViewDelegate
     @IBOutlet weak var avatarIcon: UIImageView!
     @IBOutlet weak var avatarlabel: ChatLabel!
 
-    var _arrCarouselItems: Array<EvaCarouselItem>?
+    var _arrCarouselItems: Array<ChatCarouselItem>?
     var array = [WCLShineButton]()
     var counter = 0
     var rankCounter = 0

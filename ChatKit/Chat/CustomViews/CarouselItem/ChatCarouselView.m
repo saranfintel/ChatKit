@@ -1,14 +1,14 @@
 //
-//  EvaCarouselView.m
+//  ChatCarouselView.m
 //  Eva
 //
 //  Created by Poomalai on 3/26/17.
 //  Copyright © 2017 Eva. All rights reserved.
 //
 
-#import "EvaCarouselView.h"
+#import "ChatCarouselView.h"
 
-@implementation EvaCarouselView
+@implementation ChatCarouselView
 
 @synthesize scrollView = scrollView;
 

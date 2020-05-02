@@ -9,6 +9,34 @@
 import Foundation
 import UIKit
 
+open class Manager: NSObject {
+
+    public override init() {
+
+    }
+
+    public func viewController(parameters: JSONDictionary, sender: UIImage?, receiver: UIImage?, currentQuestionsDict: JSONDictionary) {
+         ChatSession.deleteImages()
+         if let senderIcon = sender {
+             ChatSession.store(image: senderIcon, forKey: "sender", withStorageType: .fileSystem)
+         }
+         if let receiverIcon = receiver {
+             ChatSession.store(image: receiverIcon, forKey: "receiver", withStorageType: .fileSystem)
+         }
+         UserDefaults.standard.set(parameters, forKey: "ChatData")
+         UserDefaults.standard.synchronize()
+
+         ChatWorkflowManager.sharedManager.performNavigationFor("ChatViewController", navType: NavType.model)
+         let questionsList: [Questions] = (currentQuestionsDict <-- "questions") ?? []
+         ChatWorkflowManager.sharedManager.currentQuestionsList = questionsList
+    }
+
+    public func exitFramework() {
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "ShowChatView"), object: nil)
+    }
+
+}
+
 public protocol BaseFrameworkLauncher {
     
     var callBackHandler : (([String: Any])->Void)? { get set }
@@ -111,6 +139,13 @@ open class ChatFrameworkLauncher: NSObject, BaseFrameworkLauncher {
         return EMPTY_STRING
     }
     
+    class func currencySymbol() -> String {
+        if let chatData = UserDefaults.standard.object(forKey: "ChatData") as? JSONDictionary, let currencySymbol = chatData["currencySymbol"] as? String {
+            return currencySymbol
+        }
+        return EMPTY_STRING
+    }
+
     class func senderIcon() -> UIImage? {
         if let image = self.retrieveImage(forKey: "sender", inStorageType: .fileSystem) {
             return image

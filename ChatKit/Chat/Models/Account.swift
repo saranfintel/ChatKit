@@ -67,8 +67,8 @@ extension Account: Mappable {
             available_balance = available
             current_balance = current
         } else if let available = _available as? Double, let current = _current as? Double {
-            available_balance = ChatUtils.getNumberFormatter(value: available)
-            current_balance = ChatUtils.getNumberFormatter(value: current)
+            available_balance = available.formattedWithSeparator
+            current_balance = current.formattedWithSeparator
         }
 
         // This is to convert utilization value to utilization string

@@ -1515,7 +1515,7 @@ private class DataPointDrawingLayer: ScrollableGraphViewDrawingLayer {
                 //changes
                 let label = CATextLayer()
                 label.frame = CGRect(x: pointLocation.x + 5.0, y: pointLocation.y + 5.0, width: 50, height: 20)
-                label.string = "$ \(data[i])"
+                label.string = "\(ChatSession.currencySymbol()) \(data[i])"
                 label.foregroundColor = UIColor.white.cgColor
                 label.fontSize = 10.0
                 //label.truncationMode = "start"
@@ -1856,7 +1856,7 @@ private class ReferenceLineDrawingView : UIView {
     
     private func addLine(withTag tag: String, from: CGPoint, to: CGPoint, in path: UIBezierPath) {
         
-        let tag = "$ " + tag
+        let tag = "\(ChatSession.currencySymbol()) " + tag
         let boundingSize = self.boundingSize(forText: tag)
         let leftLabel = createLabel(withText: tag)
         let rightLabel = createLabel(withText: tag)

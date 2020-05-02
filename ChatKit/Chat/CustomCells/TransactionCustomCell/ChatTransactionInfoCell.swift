@@ -67,11 +67,11 @@ open class ChatTransactionInfoCell: UITableViewCell {
     fileprivate func setAmount(transactions: TransactionDetails) {
         if (transactions.display_amount.contains("-")) {
             let amtSignRemoved = transactions.display_amount.replacingOccurrences(of: "-", with: "")
-            amtLabel?.attributedText = (amtSignRemoved == "") ? ChatUtils.formatAmountWithFont(amount: "N/A") : ChatUtils.formatAmountWithBoldFont(amount: amtSignRemoved)
+            amtLabel?.attributedText = (amtSignRemoved == "") ? ChatUtils.formatAmountWithFont(amount: "N/A") : ChatUtils.formatAmountWithBoldFont(amount: ChatSession.currencySymbol() + amtSignRemoved)
             amtLabel?.textColor = ChatColor.blackTheme()
         } else {
             amtLabel?.attributedText = (transactions.display_amount == "") ? ChatUtils.formatAmountWithFont(amount: "N/A") :
-                ChatUtils.formatAmountWithFont(amount: transactions.display_amount)
+                ChatUtils.formatAmountWithFont(amount: ChatSession.currencySymbol() + transactions.display_amount)
             amtLabel?.textColor = ChatColor.blackTheme()
         }
     }

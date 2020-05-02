@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0D2CDF0F5B031D30D7F5ED59 /* Pods_ChatKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35F018242614956FA2B61BE2 /* Pods_ChatKit.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		86093F3C2456C807004B3952 /* Emoji.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86093F392456C807004B3952 /* Emoji.swift */; };
 		86093F3D2456C807004B3952 /* Emoji.h in Headers */ = {isa = PBXBuildFile; fileRef = 86093F3A2456C807004B3952 /* Emoji.h */; };
 		86093F3E2456C807004B3952 /* String+Emoji.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86093F3B2456C807004B3952 /* String+Emoji.swift */; };
@@ -16,8 +15,8 @@
 		86093F992456E186004B3952 /* WCLShineParams.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86093F932456E186004B3952 /* WCLShineParams.swift */; };
 		86093F9A2456E186004B3952 /* WCLShineButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86093F942456E186004B3952 /* WCLShineButton.swift */; };
 		86093F9C2456E186004B3952 /* WCLShineAngleLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86093F962456E186004B3952 /* WCLShineAngleLayer.swift */; };
-		86093F9D2456E345004B3952 /* EvaCarouselItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 86093F742456E073004B3952 /* EvaCarouselItem.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		86093F9F2456E354004B3952 /* EvaCarouselView.h in Headers */ = {isa = PBXBuildFile; fileRef = 86093F752456E073004B3952 /* EvaCarouselView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		86093F9D2456E345004B3952 /* ChatCarouselItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 86093F742456E073004B3952 /* ChatCarouselItem.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		86093F9F2456E354004B3952 /* ChatCarouselView.h in Headers */ = {isa = PBXBuildFile; fileRef = 86093F752456E073004B3952 /* ChatCarouselView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		86093FA02456E3C9004B3952 /* ZCAnimatedLabel.h in Headers */ = {isa = PBXBuildFile; fileRef = 86093F792456E073004B3952 /* ZCAnimatedLabel.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		86093FA12456E3CE004B3952 /* ZCCoreTextLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = 86093F7B2456E073004B3952 /* ZCCoreTextLayout.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		86093FA22456E3D4004B3952 /* ZCEasingUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = 86093F7E2456E073004B3952 /* ZCEasingUtil.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -44,7 +43,7 @@
 		8612FEE92452F3B700B53183 /* WelcomeStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8612FEE72452F3B700B53183 /* WelcomeStackView.swift */; };
 		8612FEEA2452F3B700B53183 /* WelcomeStackView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8612FEE82452F3B700B53183 /* WelcomeStackView.xib */; };
 		8612FEEC2452FCF500B53183 /* ChatBubbleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8612FEEB2452FCF500B53183 /* ChatBubbleView.swift */; };
-		8622F18B24514252007B8209 /* Pods_ChatKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 35F018242614956FA2B61BE2 /* Pods_ChatKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		8622F18B24514252007B8209 /* (null) in CopyFiles */ = {isa = PBXBuildFile; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8622F1A424516396007B8209 /* ChatKit.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8622F1A224516396007B8209 /* ChatKit.xcdatamodeld */; };
 		8622F1A82451A48F007B8209 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8622F1A72451A48F007B8209 /* Assets.xcassets */; };
 		8622F1AA24521446007B8209 /* TransactionDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8622F1A924521446007B8209 /* TransactionDetails.swift */; };
@@ -58,8 +57,8 @@
 		86AF8A882456EE1800CB4991 /* ZCAnimatedLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 86093F7C2456E073004B3952 /* ZCAnimatedLabel.m */; };
 		86AF8A892456EE1F00CB4991 /* ZCEasingUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 86093F7A2456E073004B3952 /* ZCEasingUtil.m */; };
 		86AF8A8A2456EE2500CB4991 /* ZCCoreTextLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 86093F7D2456E073004B3952 /* ZCCoreTextLayout.m */; };
-		86AF8A8B2456EE2B00CB4991 /* EvaCarouselItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 86093F762456E073004B3952 /* EvaCarouselItem.m */; };
-		86AF8A8C2456EE2E00CB4991 /* EvaCarouselView.m in Sources */ = {isa = PBXBuildFile; fileRef = 86093F772456E073004B3952 /* EvaCarouselView.m */; };
+		86AF8A8B2456EE2B00CB4991 /* ChatCarouselItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 86093F762456E073004B3952 /* ChatCarouselItem.m */; };
+		86AF8A8C2456EE2E00CB4991 /* ChatCarouselView.m in Sources */ = {isa = PBXBuildFile; fileRef = 86093F772456E073004B3952 /* ChatCarouselView.m */; };
 		86AF8A8D2456EEEE00CB4991 /* SwiftCarousel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86093F872456E073004B3952 /* SwiftCarousel.swift */; };
 		86AF8A8E2456EEF100CB4991 /* SiriContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86093F892456E073004B3952 /* SiriContentView.swift */; };
 		86AF8A8F2456EEF900CB4991 /* SiriContentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86093F882456E073004B3952 /* SiriContentView.xib */; };
@@ -135,6 +134,7 @@
 		86D4330824581F1E0016C88F /* ChatViewController+FloatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D4330724581F1E0016C88F /* ChatViewController+FloatingView.swift */; };
 		86D4330A2458205B0016C88F /* ChatViewController+Speech.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D433092458205B0016C88F /* ChatViewController+Speech.swift */; };
 		F04B684E245560140040E89A /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F04B684D245560140040E89A /* QuartzCore.framework */; };
+		FC7E8F53E16B2E5B2DB0B737 /* Pods_ChatKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD733886ECAE3F00DDC78EB1 /* Pods_ChatKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -144,22 +144,21 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				8622F18B24514252007B8209 /* Pods_ChatKit.framework in CopyFiles */,
+				8622F18B24514252007B8209 /* (null) in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		35F018242614956FA2B61BE2 /* Pods_ChatKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ChatKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		41F071D312678F3FEC106838 /* Pods-ChatKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChatKit.release.xcconfig"; path = "Target Support Files/Pods-ChatKit/Pods-ChatKit.release.xcconfig"; sourceTree = "<group>"; };
+		7A65964B6D10BF5BD7016ECE /* Pods-ChatKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChatKit.release.xcconfig"; path = "Target Support Files/Pods-ChatKit/Pods-ChatKit.release.xcconfig"; sourceTree = "<group>"; };
 		86093F392456C807004B3952 /* Emoji.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Emoji.swift; sourceTree = "<group>"; };
 		86093F3A2456C807004B3952 /* Emoji.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Emoji.h; sourceTree = "<group>"; };
 		86093F3B2456C807004B3952 /* String+Emoji.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Emoji.swift"; sourceTree = "<group>"; };
-		86093F742456E073004B3952 /* EvaCarouselItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EvaCarouselItem.h; sourceTree = "<group>"; };
-		86093F752456E073004B3952 /* EvaCarouselView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EvaCarouselView.h; sourceTree = "<group>"; };
-		86093F762456E073004B3952 /* EvaCarouselItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EvaCarouselItem.m; sourceTree = "<group>"; };
-		86093F772456E073004B3952 /* EvaCarouselView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EvaCarouselView.m; sourceTree = "<group>"; };
+		86093F742456E073004B3952 /* ChatCarouselItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChatCarouselItem.h; sourceTree = "<group>"; };
+		86093F752456E073004B3952 /* ChatCarouselView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChatCarouselView.h; sourceTree = "<group>"; };
+		86093F762456E073004B3952 /* ChatCarouselItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChatCarouselItem.m; sourceTree = "<group>"; };
+		86093F772456E073004B3952 /* ChatCarouselView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChatCarouselView.m; sourceTree = "<group>"; };
 		86093F792456E073004B3952 /* ZCAnimatedLabel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZCAnimatedLabel.h; sourceTree = "<group>"; };
 		86093F7A2456E073004B3952 /* ZCEasingUtil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZCEasingUtil.m; sourceTree = "<group>"; };
 		86093F7B2456E073004B3952 /* ZCCoreTextLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZCCoreTextLayout.h; sourceTree = "<group>"; };
@@ -284,8 +283,9 @@
 		86D43305245815150016C88F /* AccountsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsViewController.swift; sourceTree = "<group>"; };
 		86D4330724581F1E0016C88F /* ChatViewController+FloatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChatViewController+FloatingView.swift"; sourceTree = "<group>"; };
 		86D433092458205B0016C88F /* ChatViewController+Speech.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChatViewController+Speech.swift"; sourceTree = "<group>"; };
+		8CB3252A78729D208D9BBBA2 /* Pods-ChatKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChatKit.debug.xcconfig"; path = "Target Support Files/Pods-ChatKit/Pods-ChatKit.debug.xcconfig"; sourceTree = "<group>"; };
+		DD733886ECAE3F00DDC78EB1 /* Pods_ChatKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ChatKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F04B684D245560140040E89A /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
-		F36389A33B2A2B571AEAAB0E /* Pods-ChatKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChatKit.debug.xcconfig"; path = "Target Support Files/Pods-ChatKit/Pods-ChatKit.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -294,7 +294,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F04B684E245560140040E89A /* QuartzCore.framework in Frameworks */,
-				0D2CDF0F5B031D30D7F5ED59 /* Pods_ChatKit.framework in Frameworks */,
+				FC7E8F53E16B2E5B2DB0B737 /* Pods_ChatKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -308,7 +308,7 @@
 				86D2A8FD2450B0E7009FC488 /* Alamofire.framework */,
 				86D2A8F92450B0A8009FC488 /* Alamofire.framework */,
 				86D2A8F72450B082009FC488 /* Alamofire.framework */,
-				35F018242614956FA2B61BE2 /* Pods_ChatKit.framework */,
+				DD733886ECAE3F00DDC78EB1 /* Pods_ChatKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -340,10 +340,10 @@
 		86093F732456E073004B3952 /* CarouselItem */ = {
 			isa = PBXGroup;
 			children = (
-				86093F742456E073004B3952 /* EvaCarouselItem.h */,
-				86093F752456E073004B3952 /* EvaCarouselView.h */,
-				86093F762456E073004B3952 /* EvaCarouselItem.m */,
-				86093F772456E073004B3952 /* EvaCarouselView.m */,
+				86093F742456E073004B3952 /* ChatCarouselItem.h */,
+				86093F752456E073004B3952 /* ChatCarouselView.h */,
+				86093F762456E073004B3952 /* ChatCarouselItem.m */,
+				86093F772456E073004B3952 /* ChatCarouselView.m */,
 			);
 			path = CarouselItem;
 			sourceTree = "<group>";
@@ -773,8 +773,8 @@
 		DA68D846DAEFE97EF4F2E4F9 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				F36389A33B2A2B571AEAAB0E /* Pods-ChatKit.debug.xcconfig */,
-				41F071D312678F3FEC106838 /* Pods-ChatKit.release.xcconfig */,
+				8CB3252A78729D208D9BBBA2 /* Pods-ChatKit.debug.xcconfig */,
+				7A65964B6D10BF5BD7016ECE /* Pods-ChatKit.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -789,11 +789,11 @@
 				86AF8A9A24570E3200CB4991 /* VBPiePiece_private.h in Headers */,
 				86AF8A9C24570E3200CB4991 /* VBPiePiece.h in Headers */,
 				86093FA22456E3D4004B3952 /* ZCEasingUtil.h in Headers */,
-				86093F9F2456E354004B3952 /* EvaCarouselView.h in Headers */,
+				86093F9F2456E354004B3952 /* ChatCarouselView.h in Headers */,
 				86AF8A9D24570E3200CB4991 /* VBPieChart.h in Headers */,
 				86093FA02456E3C9004B3952 /* ZCAnimatedLabel.h in Headers */,
 				86B688DF244DBE68009BEF0A /* ChatKit.h in Headers */,
-				86093F9D2456E345004B3952 /* EvaCarouselItem.h in Headers */,
+				86093F9D2456E345004B3952 /* ChatCarouselItem.h in Headers */,
 				86AF8A9E24570E3200CB4991 /* UIColor+HexColor.h in Headers */,
 				86093F3D2456C807004B3952 /* Emoji.h in Headers */,
 				86093FA12456E3CE004B3952 /* ZCCoreTextLayout.h in Headers */,
@@ -807,7 +807,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 86B688E2244DBE68009BEF0A /* Build configuration list for PBXNativeTarget "ChatKit" */;
 			buildPhases = (
-				B1EB6308CD1092D3204151B8 /* [CP] Check Pods Manifest.lock */,
+				024E94D60F974DFB4FC77304 /* [CP] Check Pods Manifest.lock */,
 				86B688D5244DBE68009BEF0A /* Headers */,
 				86B688D6244DBE68009BEF0A /* Sources */,
 				86B688D7244DBE68009BEF0A /* Frameworks */,
@@ -894,7 +894,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		B1EB6308CD1092D3204151B8 /* [CP] Check Pods Manifest.lock */ = {
+		024E94D60F974DFB4FC77304 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -941,7 +941,7 @@
 				86B6898D244F2B0F009BEF0A /* ChatViewController.swift in Sources */,
 				8612FEDC2452CB7100B53183 /* ChatConnectedAccountCell.swift in Sources */,
 				86B68958244F2B0E009BEF0A /* ChatBWService.swift in Sources */,
-				86AF8A8C2456EE2E00CB4991 /* EvaCarouselView.m in Sources */,
+				86AF8A8C2456EE2E00CB4991 /* ChatCarouselView.m in Sources */,
 				86093F9A2456E186004B3952 /* WCLShineButton.swift in Sources */,
 				86AF8A882456EE1800CB4991 /* ZCAnimatedLabel.m in Sources */,
 				8622F1A424516396007B8209 /* ChatKit.xcdatamodeld in Sources */,
@@ -961,7 +961,7 @@
 				8612FEE92452F3B700B53183 /* WelcomeStackView.swift in Sources */,
 				8612FEDD2452CB7100B53183 /* ChatAccountCollectionViewCell.swift in Sources */,
 				86B68994244F2B0F009BEF0A /* ChatViewController+MessageCellDelegate.swift in Sources */,
-				86AF8A8B2456EE2B00CB4991 /* EvaCarouselItem.m in Sources */,
+				86AF8A8B2456EE2B00CB4991 /* ChatCarouselItem.m in Sources */,
 				86093F992456E186004B3952 /* WCLShineParams.swift in Sources */,
 				86AF8AA524570F4E00CB4991 /* GraphData.swift in Sources */,
 				86093F972456E186004B3952 /* WCLShineLayer.swift in Sources */,
@@ -1137,7 +1137,7 @@
 		};
 		86B688E3244DBE68009BEF0A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F36389A33B2A2B571AEAAB0E /* Pods-ChatKit.debug.xcconfig */;
+			baseConfigurationReference = 8CB3252A78729D208D9BBBA2 /* Pods-ChatKit.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
@@ -1146,6 +1146,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = ChatKit/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -1157,6 +1158,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.aws.payment.EvaKit;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1164,7 +1166,7 @@
 		};
 		86B688E4244DBE68009BEF0A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 41F071D312678F3FEC106838 /* Pods-ChatKit.release.xcconfig */;
+			baseConfigurationReference = 7A65964B6D10BF5BD7016ECE /* Pods-ChatKit.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
@@ -1173,6 +1175,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = ChatKit/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -1184,6 +1187,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.aws.payment.EvaKit;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "EvaCarouselItem.h"
-#import "EvaCarouselView.h"
+#import "ChatCarouselItem.h"
+#import "ChatCarouselView.h"
 #import "ZCAnimatedLabel.h"
 #import "VBPieChart.h"
 #import "UIColor+HexColor.h"

@@ -108,8 +108,8 @@ extension TransactionDetails: Mappable {
         transaction_date_as_display =  displayDate1 + displayDate2
         
         if let amt = d["amount_billing_currency"] as? Double {
-            amount = ChatUtils.getNumberFormatter(value: amt)
-            display_amount = ChatUtils.getNumberFormatter(value: amt)
+            amount = amt.formattedWithSeparator
+            display_amount = amt.formattedWithSeparator
         } else if let amt = d["amount_billing_currency"] as? String {
             amount = amt
             display_amount = amt

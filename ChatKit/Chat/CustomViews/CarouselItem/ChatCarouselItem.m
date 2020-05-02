@@ -1,23 +1,23 @@
 //
-//  EvaCarouselItem.m
+//  ChatCarouselItem.m
 //  Eva
 //
 //  Created by Poomalai on 3/26/17.
 //  Copyright © 2017 Eva. All rights reserved.
 //
 
-#import "EvaCarouselItem.h"
+#import "ChatCarouselItem.h"
 
-@implementation EvaCarouselItem
+@implementation ChatCarouselItem
 
 @synthesize itemTitle = _strItemTitle;
 
-+ (EvaCarouselItem*)itemWithTitle:(NSString *)title
++ (ChatCarouselItem*)itemWithTitle:(NSString *)title
                            image:(UIImage*)image
                           target:(id)target
                           action:(SEL)action
 {
-    EvaCarouselItem *item = [EvaCarouselItem buttonWithType:UIButtonTypeCustom];
+    ChatCarouselItem *item = [ChatCarouselItem buttonWithType:UIButtonTypeCustom];
     
     item.itemTitle =    title;
     item.frame =        CGRectMake((SIZE * 0), 0, SIZE, SIZE);

@@ -1,5 +1,5 @@
 //
-//  EvaCarouselView.h
+//  ChatCarouselView.h
 //  Eva
 //
 //  Created by Poomalai on 3/26/17.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface EvaCarouselView : UIView
+@interface ChatCarouselView : UIView
 {
     UIScrollView *scrollView;
 }
