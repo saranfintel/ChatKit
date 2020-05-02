@@ -27,10 +27,10 @@ extension ChatViewController {
         NSLayoutConstraint.deactivate(messageInputBar.topStackView.constraints)
         messageInputBar.topStackView.heightAnchor.constraint(equalToConstant: floatingQuestionViewFlag ? 50.0 : 325.0).isActive = true
         floatingQuestionView.contentView?.isHidden = floatingQuestionViewFlag
-        messageInputBar.setStackViewItems([floatingQuestionView], forStack: .top, animated: false)
-        let thingsTapGesture = UITapGestureRecognizer(target: self, action: #selector(ChatViewController.thingMayAskTapped(_:)))
-        thingsTapGesture.numberOfTapsRequired = 1
-        floatingQuestionView.headerLabel?.addGestureRecognizer(thingsTapGesture)
+//        messageInputBar.setStackViewItems([floatingQuestionView], forStack: .top, animated: false)
+//        let thingsTapGesture = UITapGestureRecognizer(target: self, action: #selector(ChatViewController.thingMayAskTapped(_:)))
+//        thingsTapGesture.numberOfTapsRequired = 1
+//        floatingQuestionView.headerLabel?.addGestureRecognizer(thingsTapGesture)
         messageInputBar.layoutStackViews()
         floatingQuestionViewFlag = !floatingQuestionViewFlag
     }

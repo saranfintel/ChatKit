@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="d37-Ag-1KH">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="Aj9-Al-eos">
+            <objects>
+                <viewController id="uLR-L6-741" customClass="ViewController" customModule="ChatSample" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="7cZ-Ja-HJ8">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YN1-9l-ffi">
+                                <rect key="frame" x="107" y="712" width="200" height="50"/>
+                                <color key="backgroundColor" red="0.08235294118" green="0.39607843139999999" blue="0.75294117650000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="Q92-Zw-g74"/>
+                                    <constraint firstAttribute="height" constant="50" id="nU1-Ml-YQN"/>
+                                </constraints>
+                                <state key="normal" title="Chat">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="launchButtonClicked:" destination="uLR-L6-741" eventType="touchUpInside" id="A14-ZQ-7Ec"/>
+                                </connections>
+                            </button>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CSc-kg-Ohd">
+                                <rect key="frame" x="0.0" y="128" width="414" height="216"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="216" id="uDT-OR-IYb"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="dataSource" destination="uLR-L6-741" id="g2B-S1-3ph"/>
+                                    <outlet property="delegate" destination="uLR-L6-741" id="Gm1-di-WaD"/>
+                                </connections>
+                            </pickerView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6lZ-Db-7TN">
+                                <rect key="frame" x="0.0" y="354" width="414" height="40"/>
+                                <color key="backgroundColor" red="0.08235294118" green="0.39607843139999999" blue="0.75294117650000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="ZFA-4Y-pgq"/>
+                                </constraints>
+                                <state key="normal" title="Save">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="saveButtonClicked:" destination="uLR-L6-741" eventType="touchUpInside" id="8fU-9M-pwt"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="CSc-kg-Ohd" firstAttribute="trailing" secondItem="Gkg-VK-ddG" secondAttribute="trailing" id="5wC-zZ-AH8"/>
+                            <constraint firstItem="YN1-9l-ffi" firstAttribute="centerX" secondItem="7cZ-Ja-HJ8" secondAttribute="centerX" id="Ea2-sx-gQX"/>
+                            <constraint firstItem="Gkg-VK-ddG" firstAttribute="bottom" secondItem="YN1-9l-ffi" secondAttribute="bottom" constant="100" id="PI7-aY-RHt"/>
+                            <constraint firstItem="CSc-kg-Ohd" firstAttribute="leading" secondItem="Gkg-VK-ddG" secondAttribute="leading" id="Rms-Ub-8iJ"/>
+                            <constraint firstItem="6lZ-Db-7TN" firstAttribute="leading" secondItem="Gkg-VK-ddG" secondAttribute="leading" id="TP1-x1-moK"/>
+                            <constraint firstItem="Gkg-VK-ddG" firstAttribute="trailing" secondItem="6lZ-Db-7TN" secondAttribute="trailing" id="VDU-tf-rLx"/>
+                            <constraint firstItem="6lZ-Db-7TN" firstAttribute="top" secondItem="CSc-kg-Ohd" secondAttribute="bottom" constant="10" id="cwC-Ag-MkH"/>
+                            <constraint firstItem="CSc-kg-Ohd" firstAttribute="top" secondItem="Gkg-VK-ddG" secondAttribute="top" constant="40" id="xKs-ol-6Jg"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Gkg-VK-ddG"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="CHT-Pn-a8y"/>
+                    <connections>
+                        <outlet property="pickerView" destination="CSc-kg-Ohd" id="LQT-oE-rKl"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gaE-Ig-mbx" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1297" y="33"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="rOC-4D-Oib">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="d37-Ag-1KH" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="gRf-sq-Hac">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="uLR-L6-741" kind="relationship" relationship="rootViewController" id="7dU-Nj-0Cm"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CX4-sg-Joa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="501" y="33"/>
+        </scene>
+    </scenes>
+</document>
