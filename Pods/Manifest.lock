@@ -11,16 +11,25 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire (~> 4.7)
-  - InputBarAccessoryView
+  - InputBarAccessoryView (from `https://github.com/saranfintel/InputBarAccessoryView.git`, commit `694ef8bef9751803c1fffca116b4df93cf03b39c`)
   - Kingfisher (~> 5.0)
   - MessageKit
 
 SPEC REPOS:
   trunk:
     - Alamofire
-    - InputBarAccessoryView
     - Kingfisher
     - MessageKit
+
+EXTERNAL SOURCES:
+  InputBarAccessoryView:
+    :commit: 694ef8bef9751803c1fffca116b4df93cf03b39c
+    :git: https://github.com/saranfintel/InputBarAccessoryView.git
+
+CHECKOUT OPTIONS:
+  InputBarAccessoryView:
+    :commit: 694ef8bef9751803c1fffca116b4df93cf03b39c
+    :git: https://github.com/saranfintel/InputBarAccessoryView.git
 
 SPEC CHECKSUMS:
   Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
@@ -28,6 +37,6 @@ SPEC CHECKSUMS:
   Kingfisher: d2b3d6a7200c93b34de9afcdf25c8dd9282ec277
   MessageKit: 3beb578737a5aa2bba25cc27c7b6d6faa09af5a7
 
-PODFILE CHECKSUM: 9db256cfde6482a84a4dbaf92fa410be91468aa1
+PODFILE CHECKSUM: b04c843a1583f52cf2974a6c7e67e88356eb81f2
 
 COCOAPODS: 1.9.1

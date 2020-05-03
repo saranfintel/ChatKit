@@ -141,7 +141,7 @@ fileprivate func > <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
 }
 
 
-open class SwiftCarousel: UIView {
+open class ChatSwiftCarousel: UIView {
     //MARK: - Properties
     
     open var itemAutoSelected = false
@@ -650,7 +650,7 @@ open class SwiftCarousel: UIView {
     }
 }
 
-extension SwiftCarousel: UIGestureRecognizerDelegate {
+extension ChatSwiftCarousel: UIGestureRecognizerDelegate {
     
     public func gestureRecognizer(_: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith shouldRecognizeSimultaneouslyWithGestureRecognizer: UIGestureRecognizer) -> Bool {
         return true
@@ -658,7 +658,7 @@ extension SwiftCarousel: UIGestureRecognizerDelegate {
 }
 
 
-extension SwiftCarousel: UIScrollViewDelegate {
+extension ChatSwiftCarousel: UIScrollViewDelegate {
     public func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         didSelectItem()
     }

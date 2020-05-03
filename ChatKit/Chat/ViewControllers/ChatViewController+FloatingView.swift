@@ -12,6 +12,19 @@ import MessageKit
 import InputBarAccessoryView
 
 extension ChatViewController {
+    
+    func addTapGestureRecognizer(_ label: UILabel) {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(ChatViewController.flyingLabelTapped(_:)))
+        tapGesture.delegate = self
+        label.addGestureRecognizer(tapGesture)
+    }
+
+    @objc func flyingLabelTapped(_ recognizer : UIGestureRecognizer) {
+        if let tappedlabel = recognizer.view as? UILabel, let text = tappedlabel.text, text != "" {
+            self.sendMessage(message: text)
+        }
+    }
+
     func loadmoreButtonPressed(_ cell: UICollectionViewCell) {
         print("loadmoreButtonPressed")
         guard let indexPath = self.messagesCollectionView.indexPath(for: cell) else {
@@ -26,13 +39,12 @@ extension ChatViewController {
         messageInputBar.topStackView.removeArrangedSubview(floatingQuestionView)
         NSLayoutConstraint.deactivate(messageInputBar.topStackView.constraints)
         messageInputBar.topStackView.heightAnchor.constraint(equalToConstant: floatingQuestionViewFlag ? 50.0 : 325.0).isActive = true
-        floatingQuestionView.contentView?.isHidden = floatingQuestionViewFlag
-//        messageInputBar.setStackViewItems([floatingQuestionView], forStack: .top, animated: false)
-//        let thingsTapGesture = UITapGestureRecognizer(target: self, action: #selector(ChatViewController.thingMayAskTapped(_:)))
-//        thingsTapGesture.numberOfTapsRequired = 1
-//        floatingQuestionView.headerLabel?.addGestureRecognizer(thingsTapGesture)
-        messageInputBar.layoutStackViews()
-        floatingQuestionViewFlag = !floatingQuestionViewFlag
+        self.floatingQuestionView.contentView?.isHidden = true
+        messageInputBar.setStackViewItems([floatingQuestionView], forStack: .top, animated: true)
+        UIView.animate(withDuration: 0.5) {
+            self.floatingQuestionView.contentView?.isHidden = self.floatingQuestionViewFlag
+            self.floatingQuestionViewFlag = !self.floatingQuestionViewFlag
+        }
     }
 }
 

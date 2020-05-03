@@ -199,7 +199,7 @@ class ChatViewController: MessagesViewController, UIGestureRecognizerDelegate {
         audioButton.setBackgroundImage(imageMic, for: .normal)
         audioButton.tintColor = ChatColor.appTheme()
         audioButton.title = nil
-        messageInputBar.inputTextView.placeholder = ""
+        messageInputBar.inputTextView.placeholder = "Tap here to ask a question..."
         messageInputBar.sendButton.contentEdgeInsets = UIEdgeInsets(top: 2, left: 2, bottom: 2, right: 2)
         messageInputBar.sendButton.setSize(CGSize(width: 36, height: 36), animated: false)
         let imageSend = UIImage.init(named: "Send", in: ChatWorkflowManager.bundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
@@ -211,21 +211,8 @@ class ChatViewController: MessagesViewController, UIGestureRecognizerDelegate {
         configureMessageCollectionView()
         self.initSFSpeechRecognizer()
     }
-    
-    func addTapGestureRecognizer(_ label: UILabel) {
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(ChatViewController.flyingLabelTapped(_:)))
-        tapGesture.delegate = self
-        label.addGestureRecognizer(tapGesture)
-    }
-
-    @objc func flyingLabelTapped(_ recognizer : UIGestureRecognizer) {
-        if let tappedlabel = recognizer.view as? UILabel, let text = tappedlabel.text, text != "" {
-            self.sendMessage(message: text)
-        }
-    }
 
     // MARK:- Configure CollectionView Delegates
-
     private func configureMessageCollectionView() {
         messagesCollectionView.messagesDataSource = self
         messagesCollectionView.messageCellDelegate = self

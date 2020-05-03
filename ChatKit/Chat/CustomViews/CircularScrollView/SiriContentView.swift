@@ -18,6 +18,7 @@ protocol categoryNameDelegate {
 class SiriContentView: UIView, InputItem {
     
     @IBOutlet weak var headerLabel: UILabel?
+    @IBOutlet weak var carouselLineView: UIView!
     @IBOutlet weak var contentView: UIView?
 
     @IBOutlet weak var firstInfoLabel: UILabel?
@@ -30,7 +31,7 @@ class SiriContentView: UIView, InputItem {
     @IBOutlet weak var thirdLblTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var fourthLblTopConstraint: NSLayoutConstraint!
 
-    @IBOutlet weak var categoryNameCarousel: SwiftCarousel!
+    @IBOutlet weak var categoryNameCarousel: ChatSwiftCarousel!
     var items: [String]?
     var itemsViews: [UILabel]?
 
@@ -78,7 +79,7 @@ class SiriContentView: UIView, InputItem {
     }
     
     func setOldProperties() {
-        
+//        self.roundCorners([.topLeft, .topRight], radius: 15.0)
         self.setupScroll()
 
         isResetExecuted = false
@@ -104,7 +105,7 @@ class SiriContentView: UIView, InputItem {
         self.secondInfoLabel?.textColor = ChatColor.appTheme()
         self.thirdInfoLabel?.textColor = ChatColor.appTheme()
         self.fourthInfoLabel?.textColor = ChatColor.appTheme()
-
+        self.carouselLineView.backgroundColor = ChatColor.appTheme()
         infoLabelarray1 = [self.firstInfoLabel ?? UILabel(), self.secondInfoLabel ?? UILabel(), self.thirdInfoLabel ?? UILabel(), self.fourthInfoLabel ?? UILabel()];
         infoLabelarray2 = [self.firstInfoLabel ?? UILabel(), self.secondInfoLabel ?? UILabel(), self.thirdInfoLabel ?? UILabel(), self.fourthInfoLabel ?? UILabel()];
         infoLabelarray3 = [self.firstInfoLabel ?? UILabel(), self.secondInfoLabel ?? UILabel(), self.thirdInfoLabel ?? UILabel(), self.fourthInfoLabel ?? UILabel()];
@@ -568,30 +569,4 @@ extension SiriContentView: SwiftCarouselDelegate {
             }
         }
     }
-}
-
-public struct Questions {
-    var group_id: Int = EMPTY_INT
-    var category: String = ""
-    var question_text: String = ""
-}
-
-extension Questions: Mappable {
-    
-    static func empty() -> Questions {
-        return Questions(group_id: EMPTY_INT, category: EMPTY_STRING, question_text: EMPTY_STRING)
-    }
-    
-    public static func Map(_ json: JSONObject) -> Questions? {
-        guard let d: JSONDictionary = Parse(json) else {
-            return nil
-        }
-        
-        let group_id = (d <-  "group_id") ?? EMPTY_INT
-        let category = (d <-  "category") ?? EMPTY_STRING
-        var question_text = (d <-  "question_text") ?? EMPTY_STRING
-        question_text = (d <-  "text") ?? EMPTY_STRING
-        return Questions(group_id: group_id, category: category, question_text: question_text)
-    }
-    
 }

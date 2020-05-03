@@ -6,7 +6,7 @@ target 'ChatKit' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
 
   pod 'MessageKit'
-  pod 'InputBarAccessoryView'
+  pod 'InputBarAccessoryView', :git => 'https://github.com/saranfintel/InputBarAccessoryView.git', :commit => '694ef8bef9751803c1fffca116b4df93cf03b39c'
   pod 'Alamofire', '~> 4.7'
   pod 'Kingfisher', '~> 5.0'
 

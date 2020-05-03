@@ -24,7 +24,15 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r9j-JT-COf">
                     <rect key="frame" x="0.0" y="40" width="414" height="266.66666666666669"/>
                     <subviews>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Axt-Of-MwP" customClass="SwiftCarousel" customModule="ChatKit">
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AhR-kp-hVs">
+                            <rect key="frame" x="157" y="47" width="100" height="1"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="1" id="LiL-eR-39L"/>
+                                <constraint firstAttribute="width" constant="100" id="kbu-aD-eNr"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Axt-Of-MwP" customClass="ChatSwiftCarousel" customModule="ChatKit" customModuleProvider="target">
                             <rect key="frame" x="16" y="15" width="382" height="30"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
@@ -32,7 +40,7 @@
                             </constraints>
                         </view>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How much did I spend on travel last month?" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PBL-gE-dlG">
-                            <rect key="frame" x="30" y="48" width="355" height="20.333333333333329"/>
+                            <rect key="frame" x="30" y="58.000000000000007" width="355" height="20.333333333333336"/>
                             <constraints>
                                 <constraint firstAttribute="height" relation="lessThanOrEqual" constant="43" id="wqW-JO-3S9"/>
                             </constraints>
@@ -41,7 +49,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What’s my net worth?" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1B5-NQ-xKk">
-                            <rect key="frame" x="30" y="93.333333333333343" width="355" height="21"/>
+                            <rect key="frame" x="30" y="103.33333333333334" width="355" height="21"/>
                             <constraints>
                                 <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21" id="dNR-Kk-Y5U"/>
                             </constraints>
@@ -50,7 +58,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Show me my shopping transactions for last three months " textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z3A-0O-pHq">
-                            <rect key="frame" x="30" y="139.33333333333334" width="355" height="40.666666666666657"/>
+                            <rect key="frame" x="30" y="149.33333333333334" width="355" height="40.666666666666657"/>
                             <constraints>
                                 <constraint firstAttribute="height" relation="lessThanOrEqual" constant="42" id="ajY-6C-LZi"/>
                             </constraints>
@@ -59,7 +67,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Show my spend by category" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h8F-pA-8v6">
-                            <rect key="frame" x="30" y="205" width="355" height="21"/>
+                            <rect key="frame" x="30" y="215" width="355" height="21"/>
                             <constraints>
                                 <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21" id="N9J-Qs-Zgm"/>
                             </constraints>
@@ -74,14 +82,16 @@
                         <constraint firstAttribute="trailing" secondItem="z3A-0O-pHq" secondAttribute="trailing" constant="29" id="3eN-Au-AzN"/>
                         <constraint firstItem="h8F-pA-8v6" firstAttribute="leading" secondItem="r9j-JT-COf" secondAttribute="leading" constant="30" id="4BB-bX-ifC"/>
                         <constraint firstItem="Axt-Of-MwP" firstAttribute="centerX" secondItem="r9j-JT-COf" secondAttribute="centerX" id="4Ig-o0-oIX"/>
+                        <constraint firstItem="PBL-gE-dlG" firstAttribute="top" secondItem="AhR-kp-hVs" secondAttribute="bottom" constant="10" id="5Ah-PX-bgQ"/>
                         <constraint firstItem="Axt-Of-MwP" firstAttribute="leading" secondItem="r9j-JT-COf" secondAttribute="leading" constant="16" id="6de-RM-Qlv"/>
                         <constraint firstItem="1B5-NQ-xKk" firstAttribute="top" secondItem="PBL-gE-dlG" secondAttribute="bottom" constant="25" id="CqY-2g-ZUk"/>
                         <constraint firstItem="PBL-gE-dlG" firstAttribute="leading" secondItem="r9j-JT-COf" secondAttribute="leading" constant="30" id="GO3-w2-axX"/>
                         <constraint firstItem="z3A-0O-pHq" firstAttribute="leading" secondItem="r9j-JT-COf" secondAttribute="leading" constant="30" id="Hxw-Js-wWJ"/>
                         <constraint firstAttribute="trailing" secondItem="PBL-gE-dlG" secondAttribute="trailing" constant="29" id="Lms-fh-yeC"/>
-                        <constraint firstItem="PBL-gE-dlG" firstAttribute="top" secondItem="r9j-JT-COf" secondAttribute="top" constant="48" id="SpU-wX-um9"/>
+                        <constraint firstItem="AhR-kp-hVs" firstAttribute="top" secondItem="Axt-Of-MwP" secondAttribute="bottom" constant="2" id="TCo-iJ-f5J"/>
                         <constraint firstItem="h8F-pA-8v6" firstAttribute="top" secondItem="z3A-0O-pHq" secondAttribute="bottom" constant="25" id="WFB-xs-4p0"/>
                         <constraint firstItem="1B5-NQ-xKk" firstAttribute="leading" secondItem="r9j-JT-COf" secondAttribute="leading" constant="30" id="czp-ad-TeC"/>
+                        <constraint firstItem="AhR-kp-hVs" firstAttribute="centerX" secondItem="r9j-JT-COf" secondAttribute="centerX" id="fMH-v5-Pf9"/>
                         <constraint firstAttribute="trailing" secondItem="Axt-Of-MwP" secondAttribute="trailing" constant="16" id="fPS-bO-bc1"/>
                         <constraint firstAttribute="height" constant="266.5" id="gp2-97-fYF"/>
                         <constraint firstAttribute="trailing" secondItem="1B5-NQ-xKk" secondAttribute="trailing" constant="29" id="mvF-sx-IZS"/>
@@ -114,6 +124,7 @@
             </constraints>
             <viewLayoutGuide key="safeArea" id="TUi-07-Ks6"/>
             <connections>
+                <outlet property="carouselLineView" destination="AhR-kp-hVs" id="23I-BQ-Gkh"/>
                 <outlet property="categoryNameCarousel" destination="Axt-Of-MwP" id="pbg-gK-i5m"/>
                 <outlet property="contentView" destination="r9j-JT-COf" id="3ZO-Iy-Rmn"/>
                 <outlet property="firstInfoLabel" destination="PBL-gE-dlG" id="bpY-Kg-rIA"/>
