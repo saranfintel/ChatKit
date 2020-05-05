@@ -19,12 +19,15 @@
                         <viewLayoutGuide key="safeArea" id="z2S-zd-HlW"/>
                     </view>
                     <navigationItem key="navigationItem" id="iBb-NS-GJA">
-                        <barButtonItem key="leftBarButtonItem" image="close" id="MV8-vI-ekK">
+                        <barButtonItem key="leftBarButtonItem" title="Item" id="MV8-vI-ekK">
                             <connections>
                                 <action selector="closeButtonClicked:" destination="838-XL-F6k" id="SCC-To-P77"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="closeButton" destination="MV8-vI-ekK" id="C7V-EH-KCk"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i5b-QQ-lTr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -196,7 +199,4 @@
             <point key="canvasLocation" x="938" y="-405"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="close" width="32" height="32"/>
-    </resources>
 </document>

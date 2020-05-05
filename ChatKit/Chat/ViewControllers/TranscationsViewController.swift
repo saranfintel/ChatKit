@@ -21,6 +21,7 @@ class TranscationsViewController: UIViewController {
     }
     
     private func setupView() {
+        self.navigationController?.navigationBar.tintColor = ChatColor.appTheme()
         self.tableView.register(UINib(nibName: "ChatTransactionInfoCell", bundle: ChatWorkflowManager.bundle), forCellReuseIdentifier: "ChatTransactionInfoCell")
         self.tableView.separatorColor = ChatColor.sepertorLineTheme()
     }

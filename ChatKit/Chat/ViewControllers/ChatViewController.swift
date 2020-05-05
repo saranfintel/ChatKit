@@ -16,6 +16,8 @@ import Speech
 
 class ChatViewController: MessagesViewController, UIGestureRecognizerDelegate {
     
+    @IBOutlet weak var closeButton: UIBarButtonItem!
+    
     // Int Declaration
     var fetchLimit: Int = kMessageThreshold
     // This flag is to determine whether to reload the only cell in the "load earlier section". If there are no messages (inclusive of both ChatDBMessage and ChatDBUnsentMessage objects), then we need to show EmptyStateCell. Else, show LoadEarlierCell/NoMoreEarlierMessages
@@ -158,6 +160,9 @@ class ChatViewController: MessagesViewController, UIGestureRecognizerDelegate {
 
     private func setupView() {
         title = ChatSession.title()
+        let image = UIImage.init(named: "close", in: ChatWorkflowManager.bundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
+        closeButton.image = image
+        closeButton.tintColor = ChatColor.appTheme()
         chatViewModel?.loadLanguageList(completionStatusHandler: { (isSuccess) in
             DispatchQueue.main.async {
                 self.changeLanguageButton.title = self.chatViewModel?.selectedLanguage.initial

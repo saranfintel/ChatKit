@@ -20,6 +20,7 @@ class AccountsViewController: UIViewController {
     }
     
     private func setupView() {
+         self.navigationController?.navigationBar.tintColor = ChatColor.appTheme()
         self.tableView.register(UINib(nibName: "ChatConnectedAccountCell", bundle: ChatWorkflowManager.bundle), forCellReuseIdentifier: "ChatConnectedAccountCell")
         self.tableView.separatorColor = ChatColor.sepertorLineTheme()
     }
