@@ -149,7 +149,7 @@ extension ChatViewController {
         speechRecognizer = SFSpeechRecognizer(locale: locale)!
         if recognitionTask != nil {  //1
             recognitionTask?.cancel()
-            recognitionTask = nil
+            recognitionTask?.finish()
         }
         recognitionRequest = SFSpeechAudioBufferRecognitionRequest()  //3
         let inputNode = audioEngine.inputNode
