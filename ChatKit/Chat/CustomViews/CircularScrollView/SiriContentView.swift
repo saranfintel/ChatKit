@@ -467,9 +467,11 @@ extension CALayer {
 }
 
 
-extension SiriContentView {
+extension SiriContentView: categoryNameDelegate {
     
     func setupScroll() {
+        // CategoyName animate Delegate set
+         delegate = self
         if let _items = self.getCategoryNames(), _items.count > 0 {
             items = _items
             itemsViews = _items.map { labelForString($0) }

@@ -101,6 +101,7 @@ class ChatViewController: MessagesViewController, UIGestureRecognizerDelegate {
         super.viewDidLoad()
         self.setupView()
         self.setupFetchResultsView()
+        self.setupFloatingLayouts()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -108,12 +109,16 @@ class ChatViewController: MessagesViewController, UIGestureRecognizerDelegate {
         if let sections = self.fetchedResultsController.sections, sections.count == 0 {
             self.loadMoreMessages()
         }
+    }
+    
+    func setupFloatingLayouts() {
         messageInputBar.bringSubviewToFront(messageInputBar.topStackView)
-        messageInputBar.topStackView.heightAnchor.constraint(equalToConstant: 50.0).isActive = true
+    messageInputBar.topStackView.heightAnchor.constraint(equalToConstant: 50.0).isActive = true
         floatingQuestionView.heightAnchor.constraint(equalToConstant: 50.0).isActive = true
         floatingQuestionView.setLayoutProperties()
         messageInputBar.layoutStackViews()
     }
+
         
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
