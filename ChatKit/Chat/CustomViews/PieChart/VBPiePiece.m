@@ -156,7 +156,7 @@
     [self setLabelColor:data.labelColor];
     //NSLog(@"data.showAmount %d", data.showAmount);
     if (data.showAmount == true) {
-        [self setPieceName:[[data.name stringByAppendingString:@" - $"] stringByAppendingString:data.value.stringValue]];
+        [self setPieceName:[[data.name stringByAppendingString:@" "] stringByAppendingString:data.value.stringValue]];
     } else {
         [self setPieceName:data.name];
     }

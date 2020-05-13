@@ -280,7 +280,7 @@ static __inline__ CGFloat CGPointDistanceBetweenTwoPoints(CGPoint point1, CGPoin
         [piece setLabelBlock:_labelBlock];
         piece->_innerRadius = _radius;
         piece->_outerRadius = _holeRadius;
-        [piece setPieceName:[[data.name stringByAppendingString:@" - $"] stringByAppendingString:data.value.stringValue]];
+        [piece setPieceName:[[data.name stringByAppendingString:@" "] stringByAppendingString:data.value.stringValue]];
 
         [piece setData:data];
         
