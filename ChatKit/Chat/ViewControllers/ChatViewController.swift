@@ -45,7 +45,7 @@ class ChatViewController: MessagesViewController, UIGestureRecognizerDelegate {
     let audioEngine = AVAudioEngine()
     var timer:Timer?
     var count: Int = 0
-    
+    var isVoiceRecordingIsOn = false
     var chatViewModel: ChatViewModel? = ChatViewModel()
 
     // Date formatter
@@ -590,14 +590,17 @@ class ChatViewController: MessagesViewController, UIGestureRecognizerDelegate {
 extension ChatViewController: InputBarAccessoryViewDelegate {
     
     func inputBar(_ inputBar: InputBarAccessoryView, didPressSendButtonWith text: String) {
+        if isVoiceRecordingIsOn == true {
+            return
+        }
         for component in inputBar.inputTextView.components {
             if let str = component as? String {
-                inputBar.inputTextView.text = ""
+                inputBar.inputTextView.text = EMPTY_STRING
                 self.sendMessage(message: str)
             } else if let _ = component as? UIImage {
             }
         }
-        inputBar.inputTextView.text = String()
+        inputBar.inputTextView.text = EMPTY_STRING
         messagesCollectionView.scrollToBottom(animated: true)
     }
 

@@ -21,6 +21,7 @@ class ChatMessageService: NSObject {
                 let parameters = unsentMessage.payload(clientTempId: clientTempId)
                 let url = ChatSession.baseURL() + ChatSession.messageURL()
                 ChatBWService.request(url, method: .post, parameters: parameters) { (isSuccess, result, error) in
+                    print("url: \(url) || parameters: \(parameters) || isSuccess: \(isSuccess) || result: \(result) || error: \(error)")
                     completionHandler(isSuccess, result, error)
                 }
             }

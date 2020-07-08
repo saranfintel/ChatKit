@@ -27,7 +27,7 @@ extension ChatViewController {
     //MARK:- Glow Animation On MIC button
     // Creates a glow effect in the button by setting its layer shadow properties
     func startGlowWithCGColor (growColor:CGColor) {
-        
+        isVoiceRecordingIsOn = true
         audioButton.layer.shadowColor = growColor
         audioButton.layer.shadowRadius = 5.0
         audioButton.layer.shadowOpacity = 1.0
@@ -49,6 +49,9 @@ extension ChatViewController {
 
     // Removes the animation
     func stopGlow () {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {
+            self.isVoiceRecordingIsOn = false
+        }
         audioButton.layer.shadowRadius = 0.0
         audioButton.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
         audioButton.layer.removeAllAnimations()

@@ -111,7 +111,7 @@ open class ChatFrameworkLauncher: NSObject, BaseFrameworkLauncher {
     }
     
     class func messageURL() -> String {
-        return "user-query-v1/"
+        return "intention-analysis/"
     }
     
     class func historyURL() -> String {
