@@ -92,7 +92,7 @@ extension ChatViewController: MessagesDataSource {
                         return MockMessage(emoji: emojis[imageNameArray[0]] ?? "😃😃😃", user: anotherSender() as? MockUser ?? anotherUser(), messageId: UUID().uuidString, date: postedAt)
                     }
                 default:
-                    return MockMessage(text: body, user: (sentMessage.userID == 1) ? currentSender() as? MockUser ?? currentUser() : anotherSender() as? MockUser ?? anotherUser(), messageId: UUID().uuidString, date: postedAt)
+                    return MockMessage(text: body.emojiUnescapedString, user: (sentMessage.userID == 1) ? currentSender() as? MockUser ?? currentUser() : anotherSender() as? MockUser ?? anotherUser(), messageId: UUID().uuidString, date: postedAt)
                 }
             }
         } else if indexPath.section < (readMessageCount + unreadMessageCount) {
@@ -101,7 +101,7 @@ extension ChatViewController: MessagesDataSource {
                 let unsentMessage = self.unsentMessageFetchedResultsController.object(at: modifiedIndexPath)
                 let messageVar: [String: AnyObject] = unsentMessage.payload()
                 if let body = messageVar["query_txt"] as? String {
-                    let message = MockMessage(text: body, user: currentSender() as? MockUser ?? currentUser(), messageId: UUID().uuidString, date: Date())
+                    let message = MockMessage(text: body.emojiUnescapedString, user: currentSender() as? MockUser ?? currentUser(), messageId: UUID().uuidString, date: Date())
                     return message
                 }
             }
