@@ -24,6 +24,7 @@ open class ChatWorkflowManager: NSObject {
     }
     
     var currentQuestionsList: [Questions] = []
+    var languagesList: [Language] = []
     
     fileprivate var bundleName: String {
         return "com.aws.payment.EvaKit"

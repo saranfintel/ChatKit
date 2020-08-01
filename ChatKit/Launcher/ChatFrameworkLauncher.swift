@@ -15,7 +15,7 @@ open class Manager: NSObject {
 
     }
 
-    public func viewController(parameters: JSONDictionary, sender: UIImage?, receiver: UIImage?, currentQuestionsDict: JSONDictionary) {
+    public func viewController(parameters: JSONDictionary, sender: UIImage?, receiver: UIImage?, currentQuestionsDict: JSONDictionary, languagesDict: JSONDictionary) {
          ChatSession.deleteImages()
          if let senderIcon = sender {
              ChatSession.store(image: senderIcon, forKey: "sender", withStorageType: .fileSystem)
@@ -28,7 +28,10 @@ open class Manager: NSObject {
 
          ChatWorkflowManager.sharedManager.performNavigationFor("ChatViewController", navType: NavType.model)
          let questionsList: [Questions] = (currentQuestionsDict <-- "questions") ?? []
+        let languagesList: [Language] = (languagesDict <-- "payload") ?? []
+
          ChatWorkflowManager.sharedManager.currentQuestionsList = questionsList
+        ChatWorkflowManager.sharedManager.languagesList = languagesList
     }
 
     public func exitFramework() {

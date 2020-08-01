@@ -15,18 +15,15 @@ class ChatViewModel: NSObject {
     var selectedLanguage: Language = Language.empty()
     
     func loadLanguageList(completionStatusHandler: @escaping CompletionStatusHandler) {
-        if let jsonDict = ChatUtils.loadJSONFromBundle(name: "Languages", bundle: ChatWorkflowManager.bundle) {
-            languageList = (jsonDict <-- "payload") ?? []
-            guard let locale = UserDefaults.standard.object(forKey: voiceLanguage) as? String, let index = languageList?.firstIndex(where: { $0.locale == locale }) else {
-                selectedLanguage = languageList?[selectedIndex] ?? Language.empty()
-                    completionStatusHandler(true)
-                return
-                }
-            selectedLanguage = languageList?[index] ?? Language.empty()
-            selectedIndex = index
-            completionStatusHandler(true)
-
-        }
+        languageList = ChatWorkflowManager.sharedManager.languagesList
+        guard let locale = UserDefaults.standard.object(forKey: voiceLanguage) as? String, let index = ChatWorkflowManager.sharedManager.languagesList.firstIndex(where: { $0.locale == locale }) else {
+            selectedLanguage = languageList?[selectedIndex] ?? Language.empty()
+                completionStatusHandler(true)
+            return
+            }
+        selectedLanguage = languageList?[index] ?? Language.empty()
+        selectedIndex = index
+        completionStatusHandler(true)
     }
     
     func totalCount() -> Int {
