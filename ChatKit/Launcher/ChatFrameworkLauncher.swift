@@ -58,7 +58,7 @@ open class ChatFrameworkLauncher: NSObject, BaseFrameworkLauncher {
     public func launchChat(parameters: JSONDictionary, sender: UIImage?, receiver: UIImage?, currentQuestionsDict: JSONDictionary) {
         ChatSession.deleteImages()
         if let senderIcon = sender {
-            ChatSession.store(image: senderIcon, forKey: "sender", withStorageType: .fileSystem)
+            ChatSession.store(image: sendcderIcon, forKey: "sender", withStorageType: .fileSystem)
         }
         if let receiverIcon = receiver {
             ChatSession.store(image: receiverIcon, forKey: "receiver", withStorageType: .fileSystem)

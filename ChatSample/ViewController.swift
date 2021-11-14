@@ -38,9 +38,34 @@ class ViewController: UIViewController {
             parameters["senderTitle"] = "KR"
             parameters["fontSize"] = 12.0
             parameters["currencySymbol"] = ""
-            manager?.viewController(parameters: parameters, sender: nil, receiver: nil, currentQuestionsDict: [:])
+            manager?.viewController(parameters: parameters, sender: nil, receiver: nil, currentQuestionsDict: [:], languagesDict: self.languaheDict())
 
         }
+    
+    func languaheDict() -> [String: Any] {
+        let jsonText: [String: Any] = ["payload": [["fullText": "English", "locale": "en-US", "initial": "EN"], ["fullText": "English", "locale": "en-US", "initial": "EN"], ["fullText": "English", "locale": "en-US", "initial": "EN"]]]
+        return jsonText
+//        [
+//            {
+//                "fullText": "English",
+//                "locale": "en-US",
+//                "initial": "EN"
+//            },
+//            {
+//                "fullText": "Hindi",
+//                "locale": "hi-IN",
+//                "initial": "HI"
+//            },
+//            {
+//                "fullText": "Arabic",
+//                "locale": "ar-SA",
+//                "initial": "AR"
+//            }
+//        ]
+//        var l: [String: Any] = [:]
+//        l[0]["fullText"] = "English"
+        
+    }
 
 }
 

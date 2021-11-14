@@ -609,6 +609,7 @@ extension ChatViewController: InputBarAccessoryViewDelegate {
             self.showhideActivityIndicatorView(show: true)
         }
         if let messageDict = ChatMessageDataModel.messagePayloadDictionary(forText: message) {
+            print("messageDict: \(messageDict)")
             ChatMessageDataModel.insertUnsentMessageToDB(fromMessageDetails: messageDict, completionHandler: { (isSuccess, resultt, error) in
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {
                     self.showhideActivityIndicatorView(show: false)
